@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בחינות עצמיות</title>
+<style>
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #1c2230;
+  --muted: #5a6373;
+  --border: #d8dde6;
+  --border-strong: #b9c1ce;
+  --accent: #2456c4;
+  --accent-weak: #eaf0fc;
+  --code-bg: #f3f5f8;
+  --ok: #1b6e40;
+  --bad: #a52a1f;
+  --radius: 10px;
+  --mono: ui-monospace, "Cascadia Mono", "Cascadia Code", Consolas, "SF Mono", Menlo, "Courier New", monospace;
+  --sans: system-ui, "Segoe UI", "Noto Sans Hebrew", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--sans); font-size: 17px; line-height: 1.65;
+  overflow-x: hidden;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 20px 16px 64px; }
+header.site { border-bottom: 1px solid var(--border); background: var(--surface); }
+header.site .wrap { padding-top: 12px; padding-bottom: 12px; }
+header.site .bar { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; justify-content: space-between; }
+header.site h1 { margin: 0; font-size: 1.15rem; font-weight: 600; }
+header.site .current { font-size: .95rem; color: var(--muted); }
+header.site .current strong { color: var(--text); font-weight: 600; }
+.notice {
+  margin: 12px 0 0; padding: 8px 12px; border: 1px solid var(--border-strong);
+  border-radius: 8px; background: #fffbea; font-size: .92rem;
+}
+h2 { font-size: 1.25rem; margin: 0 0 .5em; line-height: 1.4; }
+h3 { font-size: 1.05rem; margin: 1.2em 0 .4em; }
+h4 { font-size: .98rem; margin: 1em 0 .3em; }
+p { margin: .5em 0; }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; margin: 16px 0;
+}
+.muted { color: var(--muted); }
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+button, .btn {
+  font: inherit; font-size: .95rem; cursor: pointer;
+  border: 1px solid var(--border-strong); background: var(--surface); color: var(--text);
+  border-radius: 8px; padding: 8px 16px; min-height: 40px;
+}
+button:hover:not(:disabled) { border-color: var(--accent); }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.primary:hover:not(:disabled) { background: #1d47a6; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button[aria-pressed="true"] { background: var(--accent-weak); border-color: var(--accent); }
+button.small { min-height: 34px; padding: 4px 12px; font-size: .88rem; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+h2[tabindex="-1"]:focus, h3[tabindex="-1"]:focus, main:focus { outline: none; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row.spread { justify-content: space-between; }
+ul.facts { padding-inline-start: 1.2em; margin: .4em 0; }
+ul.facts li { margin: .2em 0; }
+
+/* Quiz chooser */
+.quiz-cards { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 640px) { .quiz-cards { grid-template-columns: 1fr; } }
+.quiz-card { display: flex; flex-direction: column; gap: 6px; margin: 0; }
+.quiz-card h3 { margin: 0; font-size: 1.1rem; }
+.quiz-card .status-lines { font-size: .92rem; color: var(--muted); margin: 0; padding: 0; list-style: none; }
+.quiz-card .row { margin-top: auto; padding-top: 8px; }
+
+/* Mode picker */
+.modes { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; margin: 10px 0 16px; border: 0; padding: 0; }
+.modes legend { font-weight: 600; margin-bottom: 6px; padding: 0; }
+@media (max-width: 560px) { .modes { grid-template-columns: 1fr; } }
+.modes label, .opt {
+  display: flex; gap: 12px; align-items: flex-start;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 14px; background: var(--surface); cursor: pointer;
+}
+.modes label:has(input:checked) { border-color: var(--accent); background: var(--accent-weak); }
+.modes label:has(input:focus-visible), .opt:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 2px; }
+input[type="radio"] { width: 18px; height: 18px; margin: 4px 0 0; flex: none; accent-color: var(--accent); }
+
+/* Status & navigation */
+.status { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .92rem; color: var(--muted); margin-bottom: 10px; }
+.badge {
+  display: inline-block; font-size: .82rem; font-weight: 600; padding: 2px 10px;
+  border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); background: var(--accent-weak);
+}
+.qnav { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; margin: 8px 0 4px; }
+@media (max-width: 560px) { .qnav { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.qnav button {
+  position: relative; padding: 4px 0; min-height: 38px; font-variant-numeric: tabular-nums;
+  font-size: .9rem; border-radius: 6px;
+}
+.qnav button.answered { background: var(--accent-weak); border-color: var(--accent); font-weight: 600; }
+.qnav button.answered::before { content: "●"; font-size: .55rem; position: absolute; top: 2px; right: 4px; color: var(--accent); }
+.qnav button.flagged::after { content: "⚑"; font-size: .7rem; position: absolute; top: 1px; left: 4px; }
+.qnav button[aria-current="step"] { outline: 2px solid var(--text); outline-offset: 1px; }
+.qnav .mk { font-size: .75rem; margin-inline-start: 2px; }
+.legend-line { font-size: .82rem; color: var(--muted); }
+
+/* Question */
+.qhead { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.qhead .qnum { font-weight: 700; }
+.qhead .qtitle { font-weight: 500; color: var(--muted); font-size: 1rem; }
+.qtext { font-size: 1.05rem; margin: 10px 0 14px; }
+.context {
+  margin: 12px 0; padding: 10px 14px; border: 1px solid var(--border);
+  border-inline-start: 4px solid var(--accent); border-radius: 8px; background: #fafbfd;
+}
+.context .ctx-label { display: block; font-size: .82rem; font-weight: 700; color: var(--accent); margin-bottom: 2px; }
+.context p { margin: 0; }
+figure.code, figure.dtable { margin: 12px 0; }
+figure.code figcaption, figure.dtable figcaption {
+  font-size: .85rem; color: var(--muted); margin-bottom: 4px;
+  display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center;
+}
+.lang {
+  font-size: .75rem; font-weight: 600; padding: 0 8px; border-radius: 999px;
+  border: 1px solid var(--border-strong); color: var(--text); background: var(--surface);
+  direction: ltr; unicode-bidi: isolate;
+}
+pre.code {
+  direction: ltr; text-align: left; unicode-bidi: isolate;
+  font-family: var(--mono); font-size: .9rem; line-height: 1.55;
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: 12px 14px; margin: 0; overflow-x: auto; white-space: pre; tab-size: 4;
+}
+pre.code code { font-family: inherit; }
+.ic {
+  font-family: var(--mono); font-size: .9em; background: var(--code-bg);
+  border: 1px solid var(--border); border-radius: 4px; padding: 0 4px;
+  display: inline-block; max-width: 100%; overflow-x: auto; white-space: pre;
+  vertical-align: bottom; line-height: 1.5; unicode-bidi: isolate; direction: ltr;
+}
+.ltr { unicode-bidi: isolate; direction: ltr; }
+.nobr { white-space: nowrap; }
+table.data[dir="ltr"] th, table.data[dir="ltr"] td { text-align: left; }
+fieldset.options { border: 0; padding: 0; margin: 0; min-width: 0; }
+fieldset.options legend { padding: 0; }
+.opt { margin: 8px 0; min-width: 0; }
+.opt:hover { border-color: var(--border-strong); }
+.opt:has(input:checked) { border-color: var(--accent); background: var(--accent-weak); box-shadow: inset 0 0 0 1px var(--accent); }
+.opt.locked { cursor: default; }
+.opt .letter { font-weight: 700; font-family: var(--mono); min-width: 1.2em; direction: ltr; }
+.opt .body { flex: 1; min-width: 0; }
+.opt pre.code { padding: 6px 10px; background: transparent; border: 0; }
+.opt .whole { display: block; direction: ltr; text-align: left; font-family: var(--mono); font-size: .92rem; overflow-x: auto; white-space: normal; padding: 2px 0; }
+.opt .whole .seg { white-space: pre; }
+.opt .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tag { font-size: .8rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; border: 1px solid currentColor; }
+.tag.ok { color: var(--ok); }
+.tag.bad { color: var(--bad); }
+.opt.is-correct { border-color: var(--ok); border-width: 2px; }
+.opt.is-wrong { border-color: var(--bad); border-style: dashed; border-width: 2px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; margin-top: 18px; }
+.controls .group { display: flex; flex-wrap: wrap; gap: 8px; }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.hint { border-inline-start: 3px solid var(--accent); padding: 8px 12px; background: var(--accent-weak); border-radius: 6px; margin-top: 10px; }
+
+/* Solutions */
+.solution { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
+.verdict { font-weight: 700; }
+.verdict.ok { color: var(--ok); }
+.verdict.bad { color: var(--bad); }
+.verdict.none { color: var(--muted); }
+.solution ol, .solution ul { padding-inline-start: 1.4em; margin: .3em 0; }
+.solution li { margin: .2em 0; }
+dl.feedback { margin: .3em 0; }
+dl.feedback dt { font-weight: 600; margin-top: .5em; }
+dl.feedback dd { margin: 0 0 .2em; padding-inline-start: 1.2em; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { border: 1px solid var(--border); padding: 6px 10px; text-align: start; vertical-align: top; }
+th { background: var(--code-bg); font-weight: 600; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.data td { font-family: var(--mono); font-size: .88rem; }
+table.data td:lang(he), table.data td.he { font-family: var(--sans); font-size: .92rem; }
+
+/* Results */
+.score { font-size: 2.2rem; font-weight: 700; margin: 0; font-variant-numeric: tabular-nums; }
+.score small { font-size: 1rem; font-weight: 500; color: var(--muted); }
+.stats { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 8px 0; }
+.jump { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.jump a { color: var(--accent); font-size: .9rem; padding: 2px 8px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; background: var(--surface); }
+.jump a:hover { border-color: var(--accent); }
+.review-item h3 { margin-top: 0; }
+.history { list-style: none; padding: 0; margin: 0; }
+.history li { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.history li:last-child { border-bottom: 0; }
+
+dialog { border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 20px; max-width: min(480px, calc(100vw - 32px)); color: var(--text); }
+dialog::backdrop { background: rgba(20, 25, 35, .35); }
+dialog h2 { font-size: 1.1rem; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <div class="bar">
+    <h1>בחינות עצמיות</h1>
+    <div class="row" id="current-quiz"></div>
+  </div>
+  <div id="notices"></div>
+</div></header>
+<main class="wrap" id="app" tabindex="-1"></main>
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <h2 id="dlg-title"></h2>
+  <div id="dlg-body"></div>
+  <div class="row" style="margin-top:16px">
+    <button type="button" id="dlg-ok" class="primary"></button>
+    <button type="button" id="dlg-cancel"></button>
+  </div>
+</dialog>
+<noscript><p class="wrap">כדי להשתמש בבחינות יש לאפשר JavaScript.</p></noscript>
+
+<script type="application/json" id="quiz-data">/*__QUIZ_DATA__*/</script>
+<script>
+(function () {
+  'use strict';
+
+  // ---------- Data ----------
+  var BUNDLE = JSON.parse(document.getElementById('quiz-data').textContent);
+  var HISTORY_LIMIT = 30;
+  var APP_KEY = 'fpquiz:v2:app';
+
+  function makeQuiz(data) {
+    var qmap = {};
+    data.questions.forEach(function (q) { qmap[q.id] = q; });
+    return {
+      id: data.quiz_id,
+      version: data.content_version,
+      data: data,
+      title: data.title,
+      shortTitle: data.title.split(' — ')[0],
+      questions: data.questions,
+      qmap: qmap,
+      allIds: data.questions.map(function (q) { return q.id; }),
+      rules: data.exam_rules,
+      pts: data.exam_rules.points_per_correct_answer,
+      // Progress is scoped by quiz_id and content_version; mode and attempt id live inside.
+      storeKey: 'fpquiz:v2:' + data.quiz_id + ':' + data.content_version,
+      legacyKey: 'fpquiz:' + data.quiz_id,
+      notices: [],
+      store: null
+    };
+  }
+  var QUIZZES = BUNDLE.quizzes.map(makeQuiz);
+  var QUIZ_BY_ID = {};
+  QUIZZES.forEach(function (z) { QUIZ_BY_ID[z.id] = z; });
+
+  var TOPIC_NAMES = {
+    // Functional Python
+    pure_functions: 'פונקציות טהורות', referential_transparency: 'שקיפות התייחסותית',
+    side_effects: 'תופעות לוואי', immutability: 'אי־שינוי', aliasing: 'שיתוף הפניות (aliasing)',
+    memoization: 'תיזכור (memoization)', closures: 'סגורים (closures)',
+    first_class_functions: 'פונקציות כערכים', higher_order_functions: 'פונקציות מסדר גבוה',
+    lambda: 'lambda', composition: 'הרכבת פונקציות', key: 'פונקציות key',
+    itemgetter: 'itemgetter', sorted: 'sorted', max: 'max', recursion: 'רקורסיה',
+    map: 'map', filter: 'filter', iterators: 'איטרטורים', reduce: 'reduce',
+    truthiness: 'ערכי אמת', equivalence: 'שקילות ביטויים', fold_order: 'סדר קיפול',
+    identity_element: 'איבר יחידה', edge_cases: 'מקרי קצה',
+    accumulator_invariant: 'אינווריאנט צובר', any: 'any', short_circuit: 'עצירה מוקדמת',
+    associativity: 'קיבוציות', commutativity: 'חילופיות',
+    // Programming language principles
+    language_evaluation: 'הערכת שפות', portability: 'ניידות', evaluation_order: 'סדר הערכה',
+    type_inference: 'הסקת טיפוסים', static_typing: 'טיפוסיות סטטית', dynamic_typing: 'טיפוסיות דינמית',
+    duck_typing: 'Duck typing', implicit_conversion: 'המרה מרומזת', explicit_conversion: 'המרה מפורשת',
+    converting_constructor: 'בנאי המרה', memory_layout: 'פריסה בזיכרון', alignment: 'יישור',
+    padding: 'ריפוד', representation: 'ייצוג נתונים', pointers: 'מצביעים', references: 'הפניות (references)',
+    lvalue: 'lvalue', dangling_pointer: 'מצביע מתנדנד', memory_leak: 'דליפת זיכרון',
+    object_lifetime: 'חיי אובייקט', tombstone: 'Tombstone', locks_and_keys: 'Locks and keys',
+    shared_ptr: 'shared_ptr', weak_ptr: 'weak_ptr', reference_counting: 'ספירת הפניות',
+    ownership_cycles: 'מעגלי בעלות', move_semantics: 'סמנטיקת move', unique_ptr: 'unique_ptr',
+    rvalue_reference: 'rvalue reference', ownership: 'בעלות', static_scope: 'Static scope',
+    dynamic_scope: 'Dynamic scope', deep_access: 'Deep access', shallow_access: 'Shallow access',
+    static_link: 'Static link', dynamic_link: 'Dynamic link', activation_records: 'רשומות הפעלה',
+    mark_and_sweep: 'Mark and sweep', reachability: 'נגישות', cycles: 'מחזורים',
+    generational_gc: 'איסוף דורי', marking: 'סימון', roots: 'שורשים', cheney_gc: 'Cheney',
+    copying_gc: 'איסוף מעתיק', forwarding_pointer: 'Forwarding pointer', compaction: 'דחיסה',
+    pass_by_value: 'Pass by value', pass_by_reference: 'Pass by reference', value_result: 'Value-result',
+    pass_by_result: 'Pass by result', out_parameters: 'פרמטרי out', destination_binding: 'קישור יעד',
+    cdecl: 'cdecl', stdcall: 'stdcall', fastcall: 'fastcall', calling_conventions: 'מוסכמות קריאה',
+    stack: 'מחסנית', adt: 'ADT', encapsulation: 'כימוס', information_hiding: 'הסתרת מידע',
+    constructors: 'בנאים', initialization: 'אתחול', virtual_functions: 'פונקציות וירטואליות',
+    override: 'override', overloading: 'העמסה', abstract_class: 'מחלקה מופשטת',
+    static_vs_dynamic_type: 'טיפוס סטטי ודינמי', multiple_inheritance: 'ירושה מרובה',
+    virtual_inheritance: 'ירושה וירטואלית', shared_base_subobject: 'תת־אובייקט בסיס משותף'
+  };
+  var LANG_NAMES = { python: 'Python', cpp: 'C++', pseudocode: 'פסאודו־קוד' };
+
+  // Only these question fields may be rendered before an attempt is finished.
+  function publicView(q) {
+    return {
+      id: q.id, title: q.title, semantic_context: q.semantic_context || null, question: q.question,
+      code_blocks: q.code_blocks || [], data_tables: q.data_tables || [], options: q.options
+    };
+  }
+
+  // ---------- Storage ----------
+  var storage = (function () {
+    try {
+      var t = '__fpquiz_test__';
+      window.localStorage.setItem(t, t);
+      window.localStorage.removeItem(t);
+      return window.localStorage;
+    } catch (e) { return null; }
+  })();
+  var globalNotices = [];
+
+  function readKey(key) {
+    if (!storage) return null;
+    try { var raw = storage.getItem(key); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
+  }
+  function writeKey(key, value) {
+    if (!storage) return true;
+    try { storage.setItem(key, JSON.stringify(value)); return true; } catch (e) { return false; }
+  }
+  function storageKeys() {
+    var keys = [];
+    if (!storage) return keys;
+    try { for (var i = 0; i < storage.length; i++) keys.push(storage.key(i)); } catch (e) { /* ignore */ }
+    return keys;
+  }
+
+  function freshStore(z) {
+    return { quiz_id: z.id, content_version: z.version, active: { exam: null, practice: null }, history: [], view: { screen: 'start' } };
+  }
+
+  function sanitizeAttempt(z, a) {
+    if (!a || typeof a !== 'object' || !Array.isArray(a.qids)) return null;
+    var qids = a.qids.filter(function (id) { return z.qmap[id]; });
+    if (!qids.length) return null;
+    function filterMap(m, valid) {
+      var out = {};
+      if (m && typeof m === 'object') {
+        Object.keys(m).forEach(function (k) { if (qids.indexOf(k) >= 0 && valid(k, m[k])) out[k] = m[k]; });
+      }
+      return out;
+    }
+    var isOpt = function (k, v) { return z.qmap[k].options.some(function (o) { return o.id === v; }); };
+    var isTrue = function (k, v) { return v === true; };
+    return {
+      id: String(a.id || Date.now()),
+      quiz_id: z.id,
+      content_version: z.version,
+      mode: a.mode === 'practice' ? 'practice' : 'exam',
+      qids: qids,
+      answers: filterMap(a.answers, isOpt),
+      flags: filterMap(a.flags, isTrue),
+      checked: filterMap(a.checked, isTrue),
+      current: Math.min(Math.max(0, a.current | 0), qids.length - 1),
+      submitted: !!a.submitted,
+      startedAt: a.startedAt || null,
+      submittedAt: a.submittedAt || null
+    };
+  }
+
+  // Accepts both the current format and the single-quiz format (one `active` attempt).
+  function normalizeStore(z, saved) {
+    var s = freshStore(z);
+    var act = saved.active;
+    var candidates = [];
+    if (act && Array.isArray(act.qids)) candidates.push(act);
+    else if (act && typeof act === 'object') candidates.push(act.exam, act.practice);
+    candidates.forEach(function (a) {
+      var at = sanitizeAttempt(z, a);
+      if (at && !at.submitted) s.active[at.mode] = at;
+    });
+    s.history = (Array.isArray(saved.history) ? saved.history : [])
+      .map(function (a) { return sanitizeAttempt(z, a); })
+      .filter(function (a) { return a && a.submitted; }).slice(0, HISTORY_LIMIT);
+    var v = saved.view || {};
+    if (v.screen === 'quiz') {
+      var mode = v.mode || (act && act.mode) || 'exam';
+      if (s.active[mode]) s.view = { screen: 'quiz', mode: mode };
+    } else if (v.screen === 'results' && findResult(s, v.resultId)) {
+      s.view = { screen: 'results', resultId: v.resultId, filter: v.filter === 'missed' ? 'missed' : 'all' };
+    }
+    return s;
+  }
+
+  function otherVersionNotice(version) {
+    return 'נמצאה התקדמות שמורה מגרסת תוכן ' + version + ' של מבחן זה. היא נשמרה בדפדפן ולא נמחקה, אך לא נטענה כי השאלות השתנו.';
+  }
+
+  function loadStore(z) {
+    if (!storage) return freshStore(z);
+    // Progress of other content versions is never loaded, moved or deleted; only reported.
+    var legacy = readKey(z.legacyKey);
+    var legacyUsable = legacy && legacy.quiz_id === z.id && legacy.content_version === z.version;
+    if (legacy && legacy.quiz_id === z.id && !legacyUsable) z.notices.push(otherVersionNotice(legacy.content_version));
+    var prefix = 'fpquiz:v2:' + z.id + ':';
+    storageKeys().forEach(function (k) {
+      if (k && k.indexOf(prefix) === 0 && k !== z.storeKey) z.notices.push(otherVersionNotice(k.slice(prefix.length)));
+    });
+
+    var saved = readKey(z.storeKey);
+    if (saved && saved.quiz_id === z.id && saved.content_version === z.version) return normalizeStore(z, saved);
+    // Copy (never move) progress saved by the single-quiz version of the site.
+    if (legacyUsable) {
+      var migrated = normalizeStore(z, legacy);
+      writeKey(z.storeKey, migrated);
+      return migrated;
+    }
+    return freshStore(z);
+  }
+
+  function findResult(s, id) {
+    for (var i = 0; i < s.history.length; i++) if (s.history[i].id === id) return s.history[i];
+    return null;
+  }
+
+  var Z = null;       // currently selected quiz
+  var store = null;   // Z.store
+  var appState = { selected: null };
+
+  function save() {
+    var ok = true;
+    if (Z) ok = writeKey(Z.storeKey, Z.store) && ok;
+    ok = writeKey(APP_KEY, appState) && ok;
+    if (!ok && globalNotices.indexOf(SAVE_FAILED) < 0) { globalNotices.push(SAVE_FAILED); renderNotices(); }
+  }
+  var SAVE_FAILED = 'לא ניתן לשמור את ההתקדמות בדפדפן זה. האתר ממשיך לעבוד, אך ההתקדמות לא תישמר לאחר סגירה.';
+
+  function selectQuiz(id) {
+    Z = id ? QUIZ_BY_ID[id] : null;
+    store = Z ? Z.store : null;
+    appState.selected = Z ? Z.id : null;
+  }
+
+  // ---------- Model ----------
+  function newAttempt(mode, qids) {
+    return {
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
+      quiz_id: Z.id, content_version: Z.version,
+      mode: mode, qids: qids.slice(), answers: {}, flags: {}, checked: {},
+      current: 0, submitted: false, startedAt: new Date().toISOString(), submittedAt: null
+    };
+  }
+
+  function scoreOf(z, at) {
+    var r = { correct: 0, wrong: 0, unanswered: 0, per: {} };
+    at.qids.forEach(function (id) {
+      var chosen = at.answers[id];
+      var st;
+      if (!chosen) { r.unanswered++; st = 'u'; }
+      else if (chosen === z.qmap[id].answer.correct_option_id) { r.correct++; st = 'c'; }
+      else { r.wrong++; st = 'w'; }
+      r.per[id] = st;
+    });
+    r.total = at.qids.length;
+    r.points = r.correct * z.pts;
+    r.max = r.total * z.pts;
+    return r;
+  }
+
+  function counts(at) {
+    var answered = 0, flagged = 0;
+    at.qids.forEach(function (id) { if (at.answers[id]) answered++; if (at.flags[id]) flagged++; });
+    return { answered: answered, remaining: at.qids.length - answered, flagged: flagged };
+  }
+
+  function isLocked(at, id) {
+    return at.submitted || (at.mode === 'practice' && !!at.checked[id]);
+  }
+
+  function modeName(mode) { return mode === 'practice' ? 'תרגול' : 'בחינה'; }
+
+  function fmtDate(iso) {
+    try { return new Date(iso).toLocaleString('he-IL', { dateStyle: 'short', timeStyle: 'short' }); }
+    catch (e) { return iso || ''; }
+  }
+
+  // ---------- DOM helpers ----------
+  function el(tag, attrs) {
+    var node = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        var v = attrs[k];
+        if (v === null || v === undefined || v === false) return;
+        if (k === 'text') node.textContent = v;
+        else if (k === 'class') node.className = v;
+        else if (k.slice(0, 2) === 'on') node.addEventListener(k.slice(2), v);
+        else node.setAttribute(k, v === true ? '' : v);
+      });
+    }
+    for (var i = 2; i < arguments.length; i++) append(node, arguments[i]);
+    return node;
+  }
+  function append(node, child) {
+    if (child === null || child === undefined || child === false) return;
+    if (Array.isArray(child)) { child.forEach(function (c) { append(node, c); }); return; }
+    node.appendChild(typeof child === 'string' ? document.createTextNode(child) : child);
+  }
+
+  // Splits Hebrew prose into text and isolated LTR runs (code, tuples, formulas).
+  // A run stops at Hebrew letters and at sentence punctuation followed by a space.
+  // A leading minus counts only when it is not a Hebrew prefix hyphen (as in "ו-1").
+  var RUN_RE = /(?:[A-Za-z0-9_\[{("'∘]|(?<![֐-׿])-(?=[\d(]))(?:(?![.?!;]\s)[^֐-׿])*/g;
+  function bracketBalance(s) {
+    var open = (s.match(/[(\[{]/g) || []).length;
+    var close = (s.match(/[)\]}]/g) || []).length;
+    return open - close;
+  }
+  function trimRun(t) {
+    for (;;) {
+      var before = t;
+      t = t.replace(/[\s.,;:!?]+$/, '');
+      var last = t.slice(-1);
+      // Drop a bracket whose partner lies in the surrounding Hebrew text.
+      if (/[)\]}]/.test(last) && bracketBalance(t) < 0) t = t.slice(0, -1);
+      else if (/[(\[{]/.test(last) && bracketBalance(t) > 0) t = t.slice(0, -1);
+      if (t === before) return t;
+    }
+  }
+  function isCodeLike(t) {
+    if (/^-?\d+(\.\d+)?$/.test(t)) return false;
+    if (/^C?Python( \d[\d.]*)?$/.test(t)) return false;
+    return true;
+  }
+  function rich(str) {
+    str = String(str);
+    var frag = document.createDocumentFragment();
+    var last = 0, m;
+    RUN_RE.lastIndex = 0;
+    while ((m = RUN_RE.exec(str)) !== null) {
+      var run = trimRun(m[0]);
+      var start = m.index;
+      while (/^[(\[{]/.test(run) && bracketBalance(run) > 0) { run = run.slice(1); start++; }
+      if (!/[A-Za-z0-9]/.test(run)) continue;
+      if (start > last) frag.appendChild(document.createTextNode(str.slice(last, start)));
+      var iso = el('bdi', { dir: 'ltr', class: isCodeLike(run) ? 'ic' : 'ltr', text: run });
+      last = start + run.length;
+      // Keep trailing punctuation on the same line as the isolated run.
+      var punct = /^[;,.:?!]/.test(str.charAt(last)) ? str.charAt(last) : '';
+      if (punct) { frag.appendChild(el('span', { class: 'nobr' }, iso, punct)); last += 1; }
+      else frag.appendChild(iso);
+      RUN_RE.lastIndex = last;
+    }
+    if (last < str.length) frag.appendChild(document.createTextNode(str.slice(last)));
+    return frag;
+  }
+  function hasHebrew(s) { return /[֐-׿]/.test(String(s)); }
+  function isWholeLtr(str) {
+    var s = String(str).trim();
+    return s.length > 0 && !hasHebrew(s);
+  }
+
+  function codeBlock(block) {
+    var langName = LANG_NAMES[block.language] || block.language || '';
+    var label = block.label || 'קוד';
+    var showLang = langName && label.toLowerCase().indexOf(langName.toLowerCase()) < 0;
+    return el('figure', { class: 'code' },
+      el('figcaption', null, el('span', null, rich(label)), showLang ? el('span', { class: 'lang', text: langName }) : null),
+      el('pre', { class: 'code', dir: 'ltr', tabindex: '0', 'aria-label': label + (langName ? ' (' + langName + ')' : '') },
+        el('code', { 'data-lang': block.language || '', text: block.code })));
+  }
+
+  function dataTable(t) {
+    var dir = t.direction === 'rtl' ? 'rtl' : 'ltr';
+    function cell(tag, v, extra) {
+      var text = v === null || v === undefined ? '' : String(v);
+      var attrs = { dir: 'auto', class: hasHebrew(text) ? 'he' : null, text: text };
+      if (extra) Object.keys(extra).forEach(function (k) { attrs[k] = extra[k]; });
+      return el(tag, attrs);
+    }
+    return el('figure', { class: 'dtable' },
+      t.label ? el('figcaption', null, el('span', null, rich(t.label)), el('span', { class: 'lang', text: 'טבלה' })) : null,
+      el('div', { class: 'tablewrap' }, el('table', { class: 'data', dir: dir },
+        el('thead', null, el('tr', null, t.columns.map(function (c) { return cell('th', c, { scope: 'col' }); }))),
+        el('tbody', null, t.rows.map(function (r) { return el('tr', null, r.map(function (v) { return cell('td', v); })); })))));
+  }
+
+  function questionBody(q) {
+    var parts = [];
+    if (q.semantic_context) {
+      parts.push(el('div', { class: 'context', role: 'note', 'aria-label': 'הנחות השאלה' },
+        el('span', { class: 'ctx-label', text: 'הנחות ומודל' }), el('p', null, rich(q.semantic_context))));
+    }
+    parts.push(el('p', { class: 'qtext', id: 'q-text-' + q.id }, rich(q.question)));
+    q.code_blocks.forEach(function (b) { parts.push(codeBlock(b)); });
+    (q.data_tables || []).forEach(function (t) { parts.push(dataTable(t)); });
+    return parts;
+  }
+
+  function optionBody(o) {
+    var body = el('span', { class: 'body' });
+    if (o.text) {
+      if (isWholeLtr(o.text)) {
+        // Long LTR options may wrap between "; " segments, but never inside a segment (tuples stay whole).
+        var segs = o.text.trim().split(/(?<=;) /);
+        body.appendChild(el('bdi', { dir: 'ltr', class: 'whole' }, segs.map(function (s, i) {
+          return [el('span', { class: 'seg', text: s }), i < segs.length - 1 ? ' ' : null];
+        })));
+      }
+      else body.appendChild(el('span', null, rich(o.text)));
+    }
+    if (o.code) body.appendChild(el('pre', { class: 'code', dir: 'ltr' }, el('code', { text: o.code })));
+    return body;
+  }
+
+  // ---------- Dialog ----------
+  function confirmDialog(opts) {
+    var dlg = document.getElementById('dlg');
+    var ok = document.getElementById('dlg-ok');
+    var cancel = document.getElementById('dlg-cancel');
+    document.getElementById('dlg-title').textContent = opts.title;
+    var body = document.getElementById('dlg-body');
+    body.replaceChildren();
+    append(body, opts.body);
+    ok.textContent = opts.ok;
+    cancel.textContent = opts.cancel;
+    if (typeof dlg.showModal !== 'function') {
+      return Promise.resolve(window.confirm(opts.title));
+    }
+    var returnFocus = document.activeElement;
+    return new Promise(function (resolve) {
+      function done(v) {
+        ok.removeEventListener('click', onOk);
+        cancel.removeEventListener('click', onCancel);
+        dlg.removeEventListener('cancel', onEsc);
+        dlg.close();
+        if (returnFocus && returnFocus.focus) returnFocus.focus();
+        resolve(v);
+      }
+      function onOk() { done(true); }
+      function onCancel() { done(false); }
+      function onEsc(e) { e.preventDefault(); done(false); }
+      ok.addEventListener('click', onOk);
+      cancel.addEventListener('click', onCancel);
+      dlg.addEventListener('cancel', onEsc);
+      dlg.showModal();
+      cancel.focus();
+    });
+  }
+
+  // ---------- Rendering ----------
+  var app = document.getElementById('app');
+  var pendingFocus = null;
+
+  function go(view, focusSel) {
+    if (Z) store.view = view;
+    save();
+    pendingFocus = focusSel || 'h2';
+    render();
+    window.scrollTo(0, 0);
+  }
+
+  function openQuiz(id) {
+    selectQuiz(id);
+    go(store.view);
+  }
+  function goHome() {
+    selectQuiz(null);
+    go(null);
+  }
+
+  function renderNotices() {
+    var box = document.getElementById('notices');
+    box.replaceChildren();
+    var list = globalNotices.concat(Z ? Z.notices : []);
+    list.forEach(function (n) { box.appendChild(el('p', { class: 'notice', role: 'status', text: n })); });
+  }
+
+  function renderHeader() {
+    var cur = document.getElementById('current-quiz');
+    cur.replaceChildren();
+    if (Z) {
+      cur.appendChild(el('span', { class: 'current' }, 'מבחן נבחר: ', el('strong', { text: Z.shortTitle })));
+      cur.appendChild(el('button', { type: 'button', class: 'small', text: 'כל המבחנים', onclick: goHome }));
+      document.title = Z.title;
+    } else {
+      document.title = 'בחינות עצמיות';
+    }
+  }
+
+  function render() {
+    renderHeader();
+    renderNotices();
+    app.replaceChildren();
+    if (!Z) renderHome();
+    else {
+      var v = store.view;
+      if (v.screen === 'quiz' && store.active[v.mode]) renderQuiz(store.active[v.mode]);
+      else if (v.screen === 'results' && findResult(store, v.resultId)) renderResults(findResult(store, v.resultId));
+      else { store.view = { screen: 'start' }; renderStart(); }
+    }
+    if (pendingFocus) {
+      var target = app.querySelector(pendingFocus);
+      if (target) { if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); }
+      pendingFocus = null;
+    }
+  }
+
+  // ----- Home: quiz chooser -----
+  function renderHome() {
+    app.appendChild(el('h2', { id: 'home-h', text: 'בחירת מבחן' }));
+    app.appendChild(el('p', { class: 'muted', text: 'לכל מבחן שאלות, התקדמות ותוצאות משלו. אפשר לעבור בין המבחנים ולחזור לכל אחד מהמקום שבו הופסק.' }));
+    app.appendChild(el('div', { class: 'quiz-cards' }, QUIZZES.map(function (z) {
+      var s = z.store;
+      var lines = [z.questions.length + ' שאלות · ' + z.data.total_points + ' נקודות'];
+      ['exam', 'practice'].forEach(function (mode) {
+        var at = s.active[mode];
+        if (at) lines.push(modeName(mode) + ' בתהליך: נענו ' + counts(at).answered + ' מתוך ' + at.qids.length);
+      });
+      var lastExam = s.history.filter(function (r) { return r.mode === 'exam' && r.qids.length === z.allIds.length; })[0];
+      if (lastExam) { var sc = scoreOf(z, lastExam); lines.push('בחינה מלאה אחרונה: ' + sc.points + ' מתוך ' + sc.max); }
+      return el('section', { class: 'card quiz-card', 'aria-labelledby': 'qc-' + z.id },
+        el('h3', { id: 'qc-' + z.id, text: z.shortTitle }),
+        el('ul', { class: 'status-lines' }, lines.map(function (t) { return el('li', { text: t }); })),
+        el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', text: 'פתח: ' + z.shortTitle, onclick: function () { openQuiz(z.id); } })));
+    })));
+  }
+
+  // ----- Start screen -----
+  function renderStart() {
+    var modeExam = el('input', { type: 'radio', name: 'mode', value: 'exam', checked: true });
+    var modePractice = el('input', { type: 'radio', name: 'mode', value: 'practice' });
+    var R = Z.rules;
+
+    ['exam', 'practice'].forEach(function (mode) {
+      var at = store.active[mode];
+      if (!at) return;
+      var c = counts(at);
+      app.appendChild(el('section', { class: 'card', 'aria-labelledby': 'resume-' + mode },
+        el('h2', { id: 'resume-' + mode, text: modeName(mode) + ' פעיל' }),
+        el('p', { text: at.qids.length + ' שאלות · נענו ' + c.answered + ' · מסומנות לחזרה ' + c.flagged }),
+        el('button', { type: 'button', class: 'primary', text: 'המשך את ה' + modeName(mode), onclick: function () { go({ screen: 'quiz', mode: mode }); } })));
+    });
+
+    app.appendChild(el('section', { class: 'card', 'aria-labelledby': 'start-h' },
+      el('h2', { id: 'start-h', text: Z.title }),
+      el('ul', { class: 'facts' },
+        el('li', { text: Z.questions.length + ' שאלות, ' + Z.data.total_points + ' נקודות (' + Z.pts + ' לכל תשובה נכונה).' }),
+        el('li', { text: 'תשובה אחת לכל שאלה, מתוך ' + R.options_per_question + ' אפשרויות.' }),
+        el('li', { text: 'טעות או שאלה שלא נענתה: 0 נקודות. אין ניקוד שלילי.' }),
+        el('li', { text: 'אין הגבלת זמן. אפשר לנווט בחופשיות, לשנות תשובות ולסמן שאלות לחזרה עד ההגשה.' })),
+      el('h3', { text: 'הנחות' }),
+      el('ul', { class: 'facts' }, R.assumptions.map(function (a) { return el('li', null, rich(a)); })),
+      el('fieldset', { class: 'modes' },
+        el('legend', { text: 'מצב' }),
+        el('label', null, modeExam, el('span', null,
+          el('strong', { text: 'בחינה' }), el('br'),
+          el('span', { class: 'muted', text: 'ללא רמזים או משוב עד ההגשה. התשובות ננעלות לאחר הגשה ומוצגת סקירה מלאה.' }))),
+        el('label', null, modePractice, el('span', null,
+          el('strong', { text: 'תרגול' }), el('br'),
+          el('span', { class: 'muted', text: 'רמז בלחיצה, ובדיקת תשובה לכל שאלה בנפרד. התשובה ננעלת אחרי בדיקה.' })))),
+      el('div', { class: 'row' },
+        el('button', { type: 'button', class: 'primary', text: 'התחל ניסיון חדש', onclick: function () {
+          startAttempt(modePractice.checked ? 'practice' : 'exam', Z.allIds);
+        } }))));
+
+    if (store.history.length) {
+      app.appendChild(el('section', { class: 'card', 'aria-labelledby': 'hist-h' },
+        el('h2', { id: 'hist-h', text: 'ניסיונות שהסתיימו במבחן זה' }),
+        el('ul', { class: 'history' }, store.history.map(function (r) {
+          var s = scoreOf(Z, r);
+          return el('li', null,
+            el('span', { text: modeName(r.mode) + ' · ' + fmtDate(r.submittedAt) + ' · ' + s.total + ' שאלות · ציון ' + s.points + ' מתוך ' + s.max }),
+            el('button', { type: 'button', text: 'לסקירה', onclick: function () { go({ screen: 'results', resultId: r.id, filter: 'all' }); } }));
+        })),
+        el('div', { class: 'row', style: 'margin-top:12px' },
+          el('button', { type: 'button', text: 'מחיקת היסטוריית הניסיונות של מבחן זה', onclick: function () {
+            confirmDialog({ title: 'למחוק את הניסיונות שהסתיימו במבחן זה?', body: el('p', { text: 'רק הסיכומים של "' + Z.shortTitle + '" יימחקו. לא ניתן לשחזר אותם לאחר המחיקה.' }), ok: 'מחק', cancel: 'ביטול' })
+              .then(function (yes) { if (yes) { store.history = []; go({ screen: 'start' }); } });
+          } }))));
+    }
+  }
+
+  function startAttempt(mode, qids) {
+    var proceed = Promise.resolve(true);
+    if (store.active[mode]) {
+      proceed = confirmDialog({
+        title: 'להתחיל ' + modeName(mode) + ' חדש?',
+        body: el('p', { text: 'יש ' + modeName(mode) + ' פעיל שלא הוגש במבחן "' + Z.shortTitle + '". התחלה מחדש תמחק רק את התשובות שלו. ניסיונות במצב האחר, ניסיונות שהסתיימו והמבחן השני אינם מושפעים.' }),
+        ok: 'התחל מחדש', cancel: 'ביטול'
+      });
+    }
+    proceed.then(function (yes) {
+      if (!yes) return;
+      store.active[mode] = newAttempt(mode, qids);
+      go({ screen: 'quiz', mode: mode });
+    });
+  }
+
+  // ----- Quiz screen -----
+  function renderQuiz(at) {
+    var id = at.qids[at.current];
+    var q = publicView(Z.qmap[id]);
+    var n = at.qids.length;
+
+    var status = el('div', { class: 'status', id: 'status', 'aria-live': 'polite' });
+    var nav = el('nav', { 'aria-label': 'ניווט בין השאלות' });
+    function refreshChrome() {
+      var c = counts(at);
+      status.replaceChildren();
+      append(status, [
+        el('span', { class: 'badge', text: 'מצב ' + modeName(at.mode) }),
+        n !== Z.allIds.length ? el('span', { text: 'ניסיון על ' + n + ' שאלות · ציון מרבי ' + n * Z.pts }) : null,
+        el('span', { text: 'נענו ' + c.answered }),
+        el('span', { text: 'נותרו ' + c.remaining }),
+        el('span', { text: 'מסומנות לחזרה ' + c.flagged })]);
+      var grid = el('div', { class: 'qnav' });
+      at.qids.forEach(function (qid, i) {
+        var answered = !!at.answers[qid], flagged = !!at.flags[qid];
+        var parts = ['שאלה ' + (i + 1), answered ? 'נענתה' : 'לא נענתה'];
+        if (flagged) parts.push('מסומנת לחזרה');
+        var mark = null;
+        if (at.mode === 'practice' && at.checked[qid]) {
+          var right = at.answers[qid] === Z.qmap[qid].answer.correct_option_id;
+          parts.push(right ? 'נבדקה: נכונה' : 'נבדקה: שגויה');
+          mark = el('span', { class: 'mk', 'aria-hidden': 'true', text: right ? '✓' : '✗' });
+        }
+        grid.appendChild(el('button', {
+          type: 'button',
+          class: (answered ? 'answered' : '') + (flagged ? ' flagged' : ''),
+          'aria-label': parts.join(', '),
+          'aria-current': i === at.current ? 'step' : null,
+          onclick: function () { at.current = i; go({ screen: 'quiz', mode: at.mode }); }
+        }, String(i + 1), mark));
+      });
+      nav.replaceChildren(grid, el('div', { class: 'legend-line', text: '● נענתה · ⚑ מסומנת לחזרה' + (at.mode === 'practice' ? ' · ✓/✗ נבדקה' : '') }));
+    }
+    refreshChrome();
+
+    var locked = isLocked(at, id);
+    var article = el('article', { class: 'card', 'aria-labelledby': 'q-h' });
+    article.appendChild(el('h2', { id: 'q-h', class: 'qhead' },
+      el('span', { class: 'qnum', text: 'שאלה ' + (at.current + 1) + ' מתוך ' + n }),
+      el('span', { class: 'qtitle' }, rich(q.title))));
+    append(article, questionBody(q));
+
+    var checkBtn = null;
+    var fs = el('fieldset', { class: 'options', 'aria-describedby': 'q-text-' + q.id },
+      el('legend', { class: 'sr-only', text: 'בחר תשובה אחת' }));
+    q.options.forEach(function (o) {
+      var input = el('input', {
+        type: 'radio', name: 'answer-' + id, value: o.id, id: 'opt-' + id + '-' + o.id,
+        checked: at.answers[id] === o.id, disabled: locked,
+        onchange: function () {
+          if (isLocked(at, id)) return;
+          at.answers[id] = o.id;
+          save();
+          refreshChrome();
+          if (checkBtn) checkBtn.disabled = false;
+        }
+      });
+      fs.appendChild(el('label', { class: 'opt' + (locked ? ' locked' : ''), for: input.id },
+        input, el('span', { class: 'letter', 'aria-hidden': 'true', text: o.id }),
+        el('span', { class: 'sr-only', text: 'אפשרות ' + o.id + ': ' }), optionBody(o)));
+    });
+    article.appendChild(fs);
+
+    if (at.mode === 'practice') {
+      var full = Z.qmap[id];
+      var hintBox = el('div', { id: 'hint-box' });
+      var tools = el('div', { class: 'tools' });
+      if (full.hint && !at.checked[id]) {
+        var hintBtn = el('button', { type: 'button', text: 'רמז', 'aria-expanded': 'false', 'aria-controls': 'hint-box', onclick: function () {
+          var open = hintBtn.getAttribute('aria-expanded') === 'true';
+          hintBox.replaceChildren();
+          if (!open) hintBox.appendChild(el('div', { class: 'hint' }, el('strong', { text: 'רמז: ' }), rich(full.hint)));
+          hintBtn.setAttribute('aria-expanded', String(!open));
+        } });
+        tools.appendChild(hintBtn);
+      }
+      if (!at.checked[id]) {
+        checkBtn = el('button', { type: 'button', class: 'primary', text: 'בדוק תשובה', disabled: !at.answers[id], onclick: function () {
+          if (!at.answers[id]) return;
+          at.checked[id] = true;
+          save();
+          pendingFocus = '#solution-h';
+          render();
+        } });
+        tools.appendChild(checkBtn);
+      }
+      article.appendChild(tools);
+      article.appendChild(hintBox);
+      if (at.checked[id]) {
+        markOptions(fs, full, at.answers[id]);
+        article.appendChild(solutionPanel(full, at.answers[id], 'solution-h'));
+      }
+    }
+
+    var prev = el('button', { type: 'button', text: '→ הקודמת', disabled: at.current === 0, onclick: function () { at.current--; go({ screen: 'quiz', mode: at.mode }); } });
+    var next = el('button', { type: 'button', text: 'הבאה ←', disabled: at.current === n - 1, onclick: function () { at.current++; go({ screen: 'quiz', mode: at.mode }); } });
+    var flag = el('button', { type: 'button', 'aria-pressed': String(!!at.flags[id]), text: at.flags[id] ? '⚑ מסומנת לחזרה' : '⚐ סמן לחזרה', onclick: function () {
+      if (at.flags[id]) delete at.flags[id]; else at.flags[id] = true;
+      save();
+      flag.setAttribute('aria-pressed', String(!!at.flags[id]));
+      flag.textContent = at.flags[id] ? '⚑ מסומנת לחזרה' : '⚐ סמן לחזרה';
+      refreshChrome();
+    } });
+    article.appendChild(el('div', { class: 'controls' },
+      el('div', { class: 'group' }, prev, next), el('div', { class: 'group' }, flag)));
+
+    app.appendChild(el('section', { class: 'card', style: 'padding:14px 16px', 'aria-label': 'מצב הניסיון' }, status, nav));
+    app.appendChild(article);
+    app.appendChild(el('div', { class: 'row spread' },
+      el('button', { type: 'button', text: 'למסך המבחן', onclick: function () { go({ screen: 'start' }); } }),
+      el('button', { type: 'button', class: 'primary', text: at.mode === 'practice' ? 'סיים תרגול' : 'הגש בחינה', onclick: function () { requestSubmit(at); } })));
+  }
+
+  function requestSubmit(at) {
+    var missing = [];
+    at.qids.forEach(function (qid, i) { if (!at.answers[qid]) missing.push(i + 1); });
+    var isExam = at.mode === 'exam';
+    var body = [];
+    if (missing.length) {
+      body.push(el('p', { text: 'לא נענו ' + missing.length + ' שאלות מתוך ' + at.qids.length + '.' }));
+      body.push(el('p', { class: 'muted', text: 'מספרי השאלות: ' + missing.join(', ') }));
+      body.push(el('p', { text: 'שאלה שלא נענתה מקבלת 0 נקודות.' }));
+    } else {
+      body.push(el('p', { text: 'נענו כל ' + at.qids.length + ' השאלות.' }));
+    }
+    body.push(el('p', { text: isExam ? 'לאחר ההגשה התשובות יינעלו ותוצג סקירה מלאה.' : 'לאחר הסיום יוצג סיכום התרגול.' }));
+    confirmDialog({
+      title: isExam ? 'להגיש את הבחינה?' : 'לסיים את התרגול?',
+      body: body,
+      ok: missing.length ? (isExam ? 'הגש בכל זאת' : 'סיים בכל זאת') : (isExam ? 'הגש' : 'סיים'),
+      cancel: 'המשך לענות'
+    }).then(function (yes) {
+      if (!yes) return;
+      at.submitted = true;
+      at.submittedAt = new Date().toISOString();
+      store.history.unshift(at);
+      store.history = store.history.slice(0, HISTORY_LIMIT);
+      store.active[at.mode] = null;
+      go({ screen: 'results', resultId: at.id, filter: 'all' });
+    });
+  }
+
+  // ----- Solutions (only after submission or explicit practice check) -----
+  function markOptions(fs, q, chosen) {
+    var correct = q.answer.correct_option_id;
+    fs.querySelectorAll('label.opt').forEach(function (label) {
+      var oid = label.querySelector('input').value;
+      var body = label.querySelector('.body');
+      var tags = el('span', { class: 'tags' });
+      if (oid === correct) { label.classList.add('is-correct'); tags.appendChild(el('span', { class: 'tag ok', text: '✓ התשובה הנכונה' })); }
+      if (oid === chosen) {
+        if (oid !== correct) label.classList.add('is-wrong');
+        tags.appendChild(el('span', { class: 'tag ' + (oid === correct ? 'ok' : 'bad'), text: oid === correct ? 'הבחירה שלך' : '✗ הבחירה שלך' }));
+      }
+      if (tags.childNodes.length) body.appendChild(tags);
+    });
+  }
+
+  function sourceRefs(q) {
+    if (q.source_slides && q.source_slides.length) {
+      return el('p', { class: 'muted' }, 'שקפים במצגת לעיון חוזר: ', el('bdi', { dir: 'ltr', text: q.source_slides.join(', ') }));
+    }
+    var sp = q.source_pages;
+    if (sp && sp.pdf && sp.pdf.length) {
+      return el('p', { class: 'muted' }, 'עמודים בסיכום לעיון חוזר: PDF ', el('bdi', { dir: 'ltr', text: sp.pdf.join(', ') }),
+        sp.printed && sp.printed.length ? [' (מודפס: ', el('bdi', { dir: 'ltr', text: sp.printed.join(', ') }), ')'] : null);
+    }
+    return null;
+  }
+
+  function solutionPanel(q, chosen, headingId) {
+    var ans = q.answer;
+    var correct = ans.correct_option_id;
+    var verdict = !chosen ? el('span', { class: 'verdict none', text: '— לא נענתה' })
+      : chosen === correct ? el('span', { class: 'verdict ok', text: '✓ תשובה נכונה' })
+      : el('span', { class: 'verdict bad', text: '✗ תשובה שגויה' });
+    var panel = el('section', { class: 'solution', 'aria-labelledby': headingId },
+      el('h3', { id: headingId, text: 'פתרון' }),
+      el('p', null, verdict, ' · הבחירה שלך: ', el('bdi', { text: chosen || 'לא נבחרה' }), ' · התשובה הנכונה: ', el('bdi', { dir: 'ltr', text: correct })),
+      el('h4', { text: 'הסבר' }),
+      el('p', null, rich(ans.explanation)));
+    if (ans.reasoning_steps && ans.reasoning_steps.length) {
+      panel.appendChild(el('h4', { text: 'שלבי הפתרון' }));
+      panel.appendChild(el('ol', null, ans.reasoning_steps.map(function (s) { return el('li', null, rich(s)); })));
+    }
+    if (ans.trace_table) {
+      var t = ans.trace_table;
+      panel.appendChild(el('h4', { text: 'מעקב אחר שלבי הביניים' }));
+      panel.appendChild(el('div', { class: 'tablewrap' }, el('table', null,
+        el('thead', null, el('tr', null, t.columns.map(function (c) { return el('th', { scope: 'col', text: c }); }))),
+        el('tbody', null, t.rows.map(function (r) {
+          return el('tr', null, r.map(function (cell, i) {
+            return el('td', null, i === 0 ? rich(cell) : (isWholeLtr(cell) ? el('bdi', { dir: 'ltr', class: 'ic', text: cell }) : rich(cell)));
+          }));
+        })))));
+    }
+    panel.appendChild(el('h4', { text: 'משוב לכל אפשרות' }));
+    panel.appendChild(el('dl', { class: 'feedback' }, q.options.map(function (o) {
+      var marks = [];
+      if (o.id === correct) marks.push('נכונה');
+      if (o.id === chosen) marks.push('הבחירה שלך');
+      return [
+        el('dt', null, el('bdi', { text: o.id }), marks.length ? ' (' + marks.join(', ') + ')' : ''),
+        el('dd', null, rich(ans.option_feedback[o.id] || ''))
+      ];
+    })));
+    panel.appendChild(sourceRefs(q) || document.createTextNode(''));
+    return panel;
+  }
+
+  // ----- Results & review -----
+  function renderResults(r) {
+    var s = scoreOf(Z, r);
+    var filter = store.view.filter === 'missed' ? 'missed' : 'all';
+    var missedIds = r.qids.filter(function (id) { return s.per[id] !== 'c'; });
+
+    app.appendChild(el('section', { class: 'card', 'aria-labelledby': 'res-h' },
+      el('h2', { id: 'res-h', text: 'תוצאות — ' + modeName(r.mode) }),
+      el('p', { class: 'score' }, String(s.points), el('small', { text: ' מתוך ' + s.max })),
+      r.qids.length !== Z.allIds.length ? el('p', { class: 'muted', text: 'ניסיון על תת־קבוצה של ' + s.total + ' שאלות; הציון המרבי הוא ' + s.total + ' × ' + Z.pts + ' = ' + s.max + '.' }) : null,
+      el('div', { class: 'stats' },
+        el('span', { text: '✓ נכונות: ' + s.correct }),
+        el('span', { text: '✗ שגויות: ' + s.wrong }),
+        el('span', { text: '— לא נענו: ' + s.unanswered }),
+        el('span', { class: 'muted', text: 'הוגש: ' + fmtDate(r.submittedAt) })),
+      el('div', { class: 'row', style: 'margin-top:12px' },
+        missedIds.length ? el('button', { type: 'button', class: 'primary', text: 'תרגול הטעויות והשאלות שלא נענו (' + missedIds.length + ')', onclick: function () { startAttempt('practice', missedIds); } }) : null,
+        missedIds.length ? el('button', { type: 'button', text: 'בחינה חוזרת על הטעויות והשאלות שלא נענו (' + missedIds.length + ')', onclick: function () { startAttempt('exam', missedIds); } }) : null,
+        el('button', { type: 'button', text: 'למסך המבחן', onclick: function () { go({ screen: 'start' }); } }))));
+
+    // Topic summary: a question can count toward several topics.
+    var topics = {}, order = [];
+    r.qids.forEach(function (id) {
+      (Z.qmap[id].topics || []).forEach(function (t) {
+        if (!topics[t]) { topics[t] = { total: 0, correct: 0 }; order.push(t); }
+        topics[t].total++;
+        if (s.per[id] === 'c') topics[t].correct++;
+      });
+    });
+    order.sort(function (a, b) {
+      var ra = topics[a].correct / topics[a].total, rb = topics[b].correct / topics[b].total;
+      return ra - rb || topics[b].total - topics[a].total;
+    });
+    app.appendChild(el('section', { class: 'card', 'aria-labelledby': 'topics-h' },
+      el('h2', { id: 'topics-h', text: 'סיכום לפי נושאים' }),
+      el('p', { class: 'muted', text: 'שאלה יכולה להשתייך לכמה נושאים, ולכן סכום השורות גדול ממספר השאלות. הנושאים החלשים מוצגים ראשונים.' }),
+      el('div', { class: 'tablewrap' }, el('table', null,
+        el('thead', null, el('tr', null, el('th', { scope: 'col', text: 'נושא' }), el('th', { scope: 'col', text: 'נכונות' }), el('th', { scope: 'col', text: 'אחוז' }))),
+        el('tbody', null, order.map(function (t) {
+          var x = topics[t];
+          return el('tr', null,
+            el('td', null, rich(TOPIC_NAMES[t] || t)),
+            el('td', { class: 'num' }, el('bdi', { dir: 'ltr', text: x.correct + ' / ' + x.total })),
+            el('td', { class: 'num' }, el('bdi', { dir: 'ltr', text: Math.round(100 * x.correct / x.total) + '%' })));
+        }))))));
+
+    var shown = filter === 'missed' ? missedIds : r.qids;
+    var fAll = el('input', { type: 'radio', name: 'rev-filter', value: 'all', checked: filter === 'all', onchange: function () { go({ screen: 'results', resultId: r.id, filter: 'all' }, '#review-h'); } });
+    var fMissed = el('input', { type: 'radio', name: 'rev-filter', value: 'missed', checked: filter === 'missed', onchange: function () { go({ screen: 'results', resultId: r.id, filter: 'missed' }, '#review-h'); } });
+    var review = el('section', { 'aria-labelledby': 'review-h' },
+      el('h2', { id: 'review-h', text: 'סקירת השאלות', style: 'margin-top:24px' }),
+      el('fieldset', { class: 'modes' },
+        el('legend', { text: 'הצג' }),
+        el('label', null, fAll, el('span', { text: 'כל השאלות (' + r.qids.length + ')' })),
+        el('label', null, fMissed, el('span', { text: 'רק טעויות ושאלות שלא נענו (' + missedIds.length + ')' }))));
+    if (shown.length) {
+      review.appendChild(el('nav', { class: 'jump', 'aria-label': 'מעבר לשאלה בסקירה' }, shown.map(function (id) {
+        var i = r.qids.indexOf(id);
+        var st = s.per[id];
+        return el('a', { href: '#rev-' + id, 'aria-label': 'שאלה ' + (i + 1) + ', ' + (st === 'c' ? 'נכונה' : st === 'w' ? 'שגויה' : 'לא נענתה') },
+          (st === 'c' ? '✓ ' : st === 'w' ? '✗ ' : '— ') + (i + 1));
+      })));
+    } else {
+      review.appendChild(el('p', { class: 'card', text: 'אין טעויות או שאלות שלא נענו בניסיון זה.' }));
+    }
+    shown.forEach(function (id) {
+      var q = Z.qmap[id];
+      var i = r.qids.indexOf(id);
+      var chosen = r.answers[id];
+      var item = el('article', { class: 'card review-item', id: 'rev-' + id, 'aria-labelledby': 'rev-h-' + id },
+        el('h3', { id: 'rev-h-' + id, class: 'qhead' },
+          el('span', { class: 'qnum', text: 'שאלה ' + (i + 1) }),
+          el('span', { class: 'qtitle' }, rich(q.title))),
+        questionBody(publicView(q)));
+      var fs = el('fieldset', { class: 'options' }, el('legend', { class: 'sr-only', text: 'האפשרויות' }));
+      q.options.forEach(function (o) {
+        var input = el('input', { type: 'radio', name: 'rev-' + r.id + '-' + id, value: o.id, id: 'rev-opt-' + id + '-' + o.id, checked: chosen === o.id, disabled: true });
+        fs.appendChild(el('label', { class: 'opt locked', for: input.id }, input,
+          el('span', { class: 'letter', 'aria-hidden': 'true', text: o.id }),
+          el('span', { class: 'sr-only', text: 'אפשרות ' + o.id + ': ' }), optionBody(o)));
+      });
+      item.appendChild(fs);
+      markOptions(fs, q, chosen);
+      item.appendChild(solutionPanel(q, chosen, 'sol-h-' + id));
+      review.appendChild(item);
+    });
+    app.appendChild(review);
+    app.appendChild(el('div', { class: 'row' }, el('button', { type: 'button', text: 'למסך המבחן', onclick: function () { go({ screen: 'start' }); } })));
+  }
+
+  // ---------- Boot ----------
+  if (!storage) globalNotices.push('אחסון מקומי אינו זמין בדפדפן זה. האתר עובד כרגיל, אך ההתקדמות לא תישמר לאחר סגירה או רענון.');
+  QUIZZES.forEach(function (z) { z.store = loadStore(z); });
+  var savedApp = readKey(APP_KEY);
+  var initial = savedApp && QUIZ_BY_ID[savedApp.selected] ? savedApp.selected : null;
+  if (!initial && !savedApp) {
+    // First visit after the multi-quiz update: reopen the quiz that has saved progress.
+    QUIZZES.forEach(function (z) { if (!initial && (z.store.active.exam || z.store.active.practice || z.store.history.length)) initial = z.id; });
+  }
+  selectQuiz(initial);
+  render();
+})();
+</script>
+</body>
+</html>

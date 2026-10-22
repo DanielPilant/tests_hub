@@ -1,0 +1,1972 @@
+{
+  "schema_version": "1.0.0",
+  "quiz_id": "functional_python_part_a_20_he",
+  "content_version": "1.1.0",
+  "title": "תכנות פונקציונלי ב-Python — בחינת הבנה",
+  "language": "he",
+  "direction": "rtl",
+  "python_semantics": "Python 3.13",
+  "question_count": 20,
+  "total_points": 100,
+  "source": {
+    "file_name": "תכנות פונקציונלי (פייתון) - מצגת 2 - עקרונות התכנות הפונקציונלי חלק א (3).pptx",
+    "slide_count": 73,
+    "slide_numbering": "מספר פיזי בקובץ, החל ב-1, כולל שקפי כותרת ושקפים ריקים.",
+    "basis": "שאלות מקוריות המבוססות על נושאי המצגת; אינן העתק של מבחן רשמי.",
+    "scope": "העמקה בנושא המצגת עם מקרים חדשים. בשאלות התלויות בפרט Python נוסף, הפרט הנדרש מופיע בנוסח השאלה."
+  },
+  "exam_rules": {
+    "choice_mode": "single",
+    "options_per_question": 4,
+    "default_mode": "exam",
+    "points_per_correct_answer": 5,
+    "points_per_incorrect_or_unanswered": 0,
+    "negative_marking": false,
+    "timer": "none",
+    "navigation": "free",
+    "initial_question_order": "Q01..Q20",
+    "shuffle_options": false,
+    "assumptions": [
+      "כל קטע קוד עצמאי, אלא אם צוין אחרת במפורש.",
+      "שתי גרסאות שמוגדרות כריצות עצמאיות מתחילות עם מצב חדש.",
+      "קוד נבחן לפי סמנטיקת Python 3.13; לא נדרשת גישה לאינטרנט בזמן הבחינה.",
+      "השאלה מתייחסת לערכי המשתנים, גם אם אין בקוד print.",
+      "בכל שאלה יש תשובה נכונה אחת בלבד."
+    ]
+  },
+  "instructions_to_claude": {
+    "role": "בנה כלי בחינה מקומי לפי הפרומפט המצורף, ובצע ביקורת אקדמית על כל השאלות לפני המימוש.",
+    "review_all_questions": true,
+    "review_requirements": [
+      "פתור כל שאלה עצמאית לפני הסתכלות על מפתח התשובה.",
+      "בדוק כל אפשרות, ודא תשובה יחידה והסבר מדויק לכל מסיח.",
+      "בדוק את הקוד בפועל באמצעות Python מקומי; אל תתרגם את החישוב ל-JavaScript כדי להסיק את התשובה.",
+      "אם קיימת עמימות, שפר נוסח או הנחות תוך שמירה על 20 שאלות ועל רמת הקושי והכיסוי.",
+      "אל תשנה שאלה תקינה רק לצורך שינוי סגנון ואל תפשט שאלה קשה.",
+      "עדכן את correct_option_id, ההסברים וקוד האימות יחד עם כל שינוי.",
+      "בדיקה על דוגמאות אינה הוכחה לטענה על כל קלט: שמור נימוק כללי בשאלות Q11, Q14, Q15 ו-Q18.",
+      "שמור question IDs יציבים; אם שינית תוכן, עדכן content_version ותעד בקצרה את השינוי.",
+      "אל תציג למשתמש את תשובות הביקורת, המפתח או קוד האימות לפני הבחינה."
+    ],
+    "render_allowlist_before_submission": [
+      "title",
+      "question",
+      "code_blocks",
+      "options"
+    ],
+    "author_only_fields": [
+      "answer",
+      "author_validation",
+      "learning_objective",
+      "source_slides",
+      "instructions_to_claude",
+      "topics",
+      "changelog"
+    ],
+    "hint_policy": "בבחינה אין רמזים; במצב תרגול רמז מופיע רק בלחיצה מפורשת.",
+    "prohibited_runtime_behavior": "אין eval, new Function או הרצת Python בדפדפן; הנתונים הם טקסט להצגה בלבד."
+  },
+  "editorial_notes": {
+    "visibility": "author_only",
+    "precision_points": [
+      {
+        "slides": [
+          51,
+          54
+        ],
+        "note": "map ו-filter מחזירות איטרטורים עצלים; אין לכנות את האובייקטים שלהן generator objects במובן הטיפוס המדויק."
+      },
+      {
+        "slides": [
+          26,
+          27,
+          28,
+          29
+        ],
+        "note": "סגור אינו צילום עמוק של כל הסביבה. יש להבחין בין שינוי אובייקט שנלכד, שינוי קישור חיצוני ושינוי תא לא־מקומי."
+      },
+      {
+        "slides": [
+          9,
+          10,
+          11,
+          39
+        ],
+        "note": "המצגת מערבת לעיתים טוהר סמנטי עם העדפת סגנון ללא שינוי מצב מקומי. הימנע מקביעה שכל לולאה או השמה מקומית כשלעצמה הופכת פונקציה ללא טהורה. בשאלות כאן ההפרות נצפות מבחוץ."
+      },
+      {
+        "slides": [
+          34
+        ],
+        "note": "סגור יכול לשמש לבניית פונקציה טהורה, אך עצם קיומו אינו מבטיח טוהר. אין צורך בסגור מפורש בכל פונקציה טהורה."
+      },
+      {
+        "slides": [
+          38,
+          43,
+          68
+        ],
+        "note": "פונקציה מסדר גבוה מקבלת פונקציה ו/או מחזירה פונקציה."
+      },
+      {
+        "slides": [
+          63
+        ],
+        "note": "any/all וקיפול באמצעות or/and אינם זהים בכל היבטי ההתנהגות: יש לבחון ערך החזרה, טיפוס, קלט ריק ועצירה מוקדמת. Q17 משתמשת בפלט bool כדי לבודד את נושא הצריכה."
+      },
+      {
+        "slides": [
+          64,
+          65
+        ],
+        "note": "חילופיות קשורה להחלפת ארגומנטים; קיבוציות קשורה לשינוי סוגריים. אין להחליף בין התכונות."
+      },
+      {
+        "slides": [
+          72
+        ],
+        "note": "הקוד שבמצגת מחשב הפרש סופי לצורך קירוב נגזרת; אין להציגו כגזירה סימבולית מדויקת. Q05 מגדירה במפורש הפרש בצעד 1."
+      }
+    ]
+  },
+  "reference_documentation": [
+    {
+      "title": "Python 3.13 built-in functions",
+      "url": "https://docs.python.org/3.13/library/functions.html",
+      "topics": [
+        "map",
+        "filter",
+        "any",
+        "sorted",
+        "max",
+        "next"
+      ]
+    },
+    {
+      "title": "Python 3.13 functools.reduce",
+      "url": "https://docs.python.org/3.13/library/functools.html#functools.reduce",
+      "topics": [
+        "reduce",
+        "higher_order_functions"
+      ]
+    },
+    {
+      "title": "Python 3.13 operator.itemgetter",
+      "url": "https://docs.python.org/3.13/library/operator.html#operator.itemgetter",
+      "topics": [
+        "itemgetter"
+      ]
+    },
+    {
+      "title": "Python 3.13 Programming FAQ",
+      "url": "https://docs.python.org/3.13/faq/programming.html",
+      "topics": [
+        "closures",
+        "aliasing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q01",
+      "title": "שינוי קוד ושקיפות התייחסותית",
+      "type": "single_choice",
+      "topics": [
+        "pure_functions",
+        "referential_transparency",
+        "side_effects"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        9,
+        11,
+        12,
+        14,
+        15
+      ],
+      "learning_objective": "להבחין בין שוויון בערכי החזרה לבין שימור כל ההתנהגות הנצפית.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הדגש שמדובר בשתי ריצות עצמאיות עם log ריקה; אל תציג את החלופה כאילו היא רצה אחרי המקור.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "נבחנות שתי תוכניות חלופיות, שכל אחת מתחילה עם log ריקה. בתוכנית המקורית מחושבים שני זימונים; בתוכנית החלופית תוצאת זימון אחד משמשת פעמיים. איזו טענה מתארת במדויק את השינוי, כאשר גם תוכן log נחשב להתנהגות נצפית?",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "log = []\ndef f(x):\n    log.append(x)\n    return x * x\n\n# Original program:\nresult = f(3) + f(3)\n\n# Alternative program, starting with a fresh empty log:\n# value = f(3)\n# result = value + value"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "השינוי תקין: result שווה בשתי התוכניות, וזה מספיק לשקיפות התייחסותית.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "השינוי אינו תקין משום שבתוכנית החלופית result יהיה 9 במקום 18.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "result יהיה 18 בשתיהן, אך log תהיה [3, 3] במקור ו-[3] בחלופה; השינוי אינו שומר על ההתנהגות הנצפית.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "השינוי תקין אם מעבירים את log לסגור, גם אם הפונקציה ממשיכה לשנות אותה והיא עדיין ניתנת לצפייה.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "השווה בנפרד את ערך result ואת מספר השינויים ב-log.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "דטרמיניזם של ערך ההחזרה לבדו אינו מספיק לטוהר. f משנה רשימה חיצונית. שמירת תוצאת הזימון הראשון חוסכת גם תופעת לוואי, ולכן אינה החלפה שקופה בהקשר הנתון.",
+        "reasoning_steps": [
+          "שני הזימונים המקוריים מחזירים 9 כל אחד.",
+          "כל זימון מוסיף איבר אחד ל-log.",
+          "החלופה שומרת על הסכום, אך מבצעת הוספה אחת בלבד."
+        ],
+        "option_feedback": {
+          "A": "ההשוואה מתעלמת מ-log, שהוגדרה כחלק מההתנהגות הנצפית.",
+          "B": "value משמש פעמיים ולכן הסכום נשאר 18.",
+          "C": "הערכים שווים, אך מספר ההוספות לרשימה שונה.",
+          "D": "סגור אינו מבטל שינוי של מצב שניתן לצפייה."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == 18 and log == [3, 3]\nlog.clear()\nvalue = f(3)\nassert value + value == 18 and log == [3]",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q02",
+      "title": "אי־שינוי במבנה נתונים מקונן",
+      "type": "single_choice",
+      "topics": [
+        "immutability",
+        "aliasing",
+        "side_effects"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        7,
+        9,
+        11,
+        15,
+        18
+      ],
+      "learning_objective": "להבחין בין tuple בלתי ניתן לשינוי לבין אובייקטים ניתנים לשינוי שהוא מפנה אליהם.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג את כל שלושת רכיבי result באותה אפשרות; שמור את הביטוי is כחלק מהקוד.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו הערך הסופי של result, ומה מסביר אותו?",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "def extend_first(data, x):\n    copied = tuple(data)\n    copied[0].append(x)\n    return copied\n\noriginal = ([1], [2])\noutput = extend_first(original, 9)\nresult = (original, output, original[0] is output[0])"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(([1, 9], [2]), ([1, 9], [2]), True); שתי הרשומות מפנות לאותה רשימה פנימית ראשונה.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(([1], [2]), ([1, 9], [2]), False); tuple יוצרת עותקים עצמאיים של כל הרשימות.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "תיזרק TypeError; אסור לשנות שום אובייקט שנמצא בתוך tuple.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(([1, 9], [2]), ([1, 9], [2]), False); השינוי מועתק בחזרה למקור למרות שהרשימות נפרדות.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "עקוב אחר זהות הרשימות הפנימיות, ולא רק אחר הטיפוס של המבנה החיצוני.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "אי־השינוי של tuple נוגע למקומות שבתוכה: אי אפשר להחליף את ההפניות המאוחסנות בהם. הוא אינו מקפיא את הרשימות שאליהן היא מפנה. tuple(data) יוצרת לכל היותר עותק רדוד (ב-CPython, כאשר data כבר tuple, מוחזר אותו אובייקט עצמו), ולכן append משנה את אותה רשימה שהקורא מחזיק.",
+        "reasoning_steps": [
+          "copied[0] ו-original[0] מפנים לאותה רשימה.",
+          "append מוסיפה 9 לרשימה הזאת.",
+          "הקלט של הקורא השתנה, אף שלא בוצעה השמה לאיבר של tuple."
+        ],
+        "option_feedback": {
+          "A": "זהות הרשימה הפנימית מסבירה מדוע השינוי נראה משני המשתנים.",
+          "B": "tuple אינה מעתיקה עמוק את האיברים.",
+          "C": "הפעולה משנה list פנימית, ולא מחליפה מקום בתוך tuple.",
+          "D": "אין כאן מנגנון העתקה בחזרה; הרשימה עצמה משותפת."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == (([1, 9], [2]), ([1, 9], [2]), True)\nassert original[0] is output[0]",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q03",
+      "title": "מתי תיזכור שומר על משמעות החישוב",
+      "type": "single_choice",
+      "topics": [
+        "memoization",
+        "pure_functions",
+        "closures"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        9,
+        14,
+        16,
+        26,
+        34
+      ],
+      "learning_objective": "לזהות תלות חיצונית שאינה נכללת במפתח מטמון.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הדגש שמותר לשנות factor בין זימונים; אל תתארו כקבוע.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "רוצים להוסיף מטמון: המפתח הוא x בלבד, ותוצאה שנשמרה מוחזרת בלי לחשב שוב. מותר לשנות factor בין זימונים. איזו חלופה מאפשרת מטמון לפי כל הארגומנטים המפורשים שלה ושומרת על חישוב המכפלה עבור גורם הכפל המבוקש, בהנחה ש-x והגורם הם שלמים?",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "factor = 2\ndef scale(x):\n    return x * factor"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "להשאיר את scale כפי שהיא; עצם העובדה שאין בה פקודת השמה הופכת את המטמון לתקין.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "להחליף את גוף scale בביטוי lambda שמשתמש באותו factor גלובלי ולשמור מטמון לפי x.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "להעביר את factor לרשימה בסגור, לאפשר לשנות את האיבר שלה ולהמשיך לשמור מטמון לפי x בלבד.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "להגדיר scale(x, k) שמחזירה x * k, להעביר את הגורם המבוקש בכל קריאה ולשמור מטמון לפי הזוג (x, k).",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "שאל אילו נתונים קובעים את התוצאה ואילו מהם מיוצגים במפתח המטמון.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "מפתח מטמון חייב להבחין בין כל התלויות שיכולות לשנות את התוצאה. אחרי העברת הגורם לארגומנט מפורש, x ו-k קובעים את המכפלה. שינוי גורם יוצר מפתח אחר.",
+        "reasoning_steps": [
+          "scale(3) מחזירה 6 כש-factor הוא 2.",
+          "אם factor משתנה ל-5, החישוב הנוכחי צריך להחזיר 15.",
+          "מטמון לפי 3 בלבד לא מבדיל בין שני המצבים; (3, 2) ו-(3, 5) כן."
+        ],
+        "option_feedback": {
+          "A": "קריאה של מצב משתנה מספיקה כדי ליצור תלות חיצונית.",
+          "B": "שימוש ב-lambda משנה את התחביר ולא את התלות ב-factor.",
+          "C": "רשימה בסגור יכולה להשתנות ולכן אינה פותרת את התלות החסרה במפתח.",
+          "D": "הזוג מכיל את שני הערכים שקובעים את התוצאה."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert scale(3) == 6\nfactor = 5\nassert scale(3) == 15\ndef explicit_scale(x, k): return x * k\nassert explicit_scale(3, 2) == 6 and explicit_scale(3, 5) == 15",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q04",
+      "title": "סגור: שינוי אובייקט לעומת קישור מחדש",
+      "type": "single_choice",
+      "topics": [
+        "closures",
+        "immutability",
+        "first_class_functions"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        26,
+        27,
+        29,
+        30,
+        34
+      ],
+      "learning_objective": "לעקוב אחר ההפניות שסגור שומר בלי להניח שהוא צילום עמוק של הסביבה.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג את שתי הלמבדות יחד ואת סדר ארבע הקריאות במלואו; אל תוסיף תרשים הפניות לפני המענה.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו result לאחר כל השורות? אין כאן nonlocal, וההשמה האחרונה ל-values מתבצעת מחוץ ל-make_checks.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "def make_checks(values):\n    snapshot = tuple(values)\n    return (lambda x: x in values,\n            lambda x: x in snapshot)\n\nvalues = [1, 2]\nlive, frozen = make_checks(values)\nvalues.append(3)\nvalues = [8, 9]\nresult = (live(3), frozen(3), live(8), frozen(1))"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(False, False, True, True)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(True, False, False, True)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(True, True, False, True)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(False, False, False, True)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "סמן בנפרד את השם החיצוני values, את הפרמטר values ואת snapshot.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "live ניגשת לפרמטר values של הזימון המקורי, שמפנה לרשימה המקורית. append משנה אותה. הקישור מחדש של השם החיצוני values אינו מחליף את הפרמטר שנלכד. snapshot מכילה את השלמים 1 ו-2 בלבד.",
+        "reasoning_steps": [
+          "בעת יצירת הסגורים, snapshot היא (1, 2).",
+          "הרשימה שנלכדה ב-live משתנה ל-[1, 2, 3].",
+          "הרשימה [8, 9] אינה הרשימה שנלכדה.",
+          "לכן הבדיקות מחזירות True, False, False, True."
+        ],
+        "option_feedback": {
+          "A": "live אינה ניגשת לשם הגלובלי values אלא לפרמטר שנלכד.",
+          "B": "שינוי הרשימה משפיע על live; הקישור מחדש אינו משפיע עליה.",
+          "C": "snapshot נוצרה לפני append ומכילה רק שלמים, ולכן 3 אינו בה.",
+          "D": "הסגור לא מעתיק את הרשימה המקורית; הוא עדיין רואה את התוספת 3."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == (True, False, False, True)",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q05",
+      "title": "אופרטור שמחזיר פונקציה",
+      "type": "single_choice",
+      "topics": [
+        "higher_order_functions",
+        "closures",
+        "lambda",
+        "composition"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        20,
+        23,
+        26,
+        68,
+        70,
+        72
+      ],
+      "learning_objective": "להבחין בין הפעלה חוזרת של אופרטור על פונקציה לבין הפעלתו על ערך מספרי.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג את המונח הפרשים קדמיים ואת הצעד 1; אל תכנה את התוצאות נגזרות מדויקות.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "D הוא אופרטור הפרשים קדמיים עם צעד 1: הוא מקבל פונקציה ומחזיר פונקציה חדשה. מהו result? יש לחשב לפי הקוד, ולא להחליף את ההפרש בנגזרת האנליטית.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "def D(f):\n    return lambda x: f(x + 1) - f(x)\n\nf = lambda x: x ** 3\nfirst = D(f)\nsecond = D(first)\nresult = (first(2), second(2))"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(19, 18)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(12, 12)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(19, 19)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(18, 19)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "כתוב תחילה מה second(2) אומר במונחי first(3) ו-first(2).",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "first(2) שווה f(3)-f(2), כלומר 27-8=19. second(2) שווה first(3)-first(2). first(3) הוא 64-27=37, ולכן ההפרש השני הוא 18. D מחזירה פונקציה שסוגרת על f שקיבלה.",
+        "reasoning_steps": [
+          "D(f) היא פונקציה; טרם נבחרה נקודת החישוב.",
+          "first(2)=19 ו-first(3)=37.",
+          "second(2)=37-19=18."
+        ],
+        "option_feedback": {
+          "A": "אלה ההפרשים לפי צעד 1 בקוד.",
+          "B": "אלה ערכי הנגזרת הראשונה והשנייה של x בחזקת 3 בנקודה 2; הקוד מחשב הפרשים סופיים.",
+          "C": "D(first) מחשבת שינוי בערכי first, ולא מחזירה שוב את first.",
+          "D": "סדר רכיבי result הוא הפרש ראשון ואחריו הפרש שני."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == (19, 18)",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q06",
+      "title": "מפתח מיון מורכב ויציבות",
+      "type": "single_choice",
+      "topics": [
+        "key",
+        "itemgetter",
+        "sorted",
+        "higher_order_functions"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        40,
+        43,
+        44,
+        45,
+        47,
+        48
+      ],
+      "learning_objective": "ליישם מיון לקסיקוגרפי על tuple של מפתחות ולשמור איברים מקוריים.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "שמור על שורת התזכורת על יציבות כדי שהשאלה תבחן הסקה ולא זכירת פרט שלא הודגש במצגת.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו סדר השמות ברשימה result? כל רשומה היא (שם, קורס, ציון). תזכורת: sorted היא יציבה, ולכן רשומות בעלות מפתח זהה שומרות על סדרן היחסי בקלט, גם כאשר reverse=True.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "from operator import itemgetter\nrows = [\n    (\"Dana\", \"B\", 90),\n    (\"Amir\", \"A\", 90),\n    (\"Noa\", \"A\", 95),\n    (\"Eli\", \"A\", 90)\n]\nresult = sorted(rows, key=itemgetter(1, 2), reverse=True)"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "Noa, Dana, Amir, Eli",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "Amir, Eli, Noa, Dana",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "Dana, Noa, Eli, Amir",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "Dana, Noa, Amir, Eli",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "בנה לכל רשומה את הזוג שבו משתמשת ההשוואה; אל תמיין לפי השם.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "itemgetter(1, 2) יוצר מפתח (קורס, ציון). במיון יורד B קודם ל-A. בתוך A, ציון 95 קודם ל-90. Amir ו-Eli חולקים אותו מפתח, ולכן סדרם המקורי נשמר. מוחזרות הרשומות המקוריות, ולא המפתחות.",
+        "reasoning_steps": [
+          "המפתחות לפי סדר הקלט: (B,90), (A,90), (A,95), (A,90).",
+          "מיון לקסיקוגרפי נותן עדיפות ראשונה לקורס.",
+          "שוויון מלא במפתח אינו מתהפך בגלל reverse=True."
+        ],
+        "option_feedback": {
+          "A": "אפשרות זו נותנת עדיפות ראשית לציון במקום לקורס.",
+          "B": "זהו סדר המפתחות העולה.",
+          "C": "reverse=True אינו הופך את הסדר היחסי של רשומות בעלות מפתחות שווים.",
+          "D": "הסדר משלב מפתח ראשי, מפתח משני ויציבות."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert [r[0] for r in result] == [\"Dana\", \"Noa\", \"Amir\", \"Eli\"]",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q07",
+      "title": "התנהגות בשוויון במימוש מקסימום",
+      "type": "single_choice",
+      "topics": [
+        "key",
+        "max",
+        "recursion"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        40,
+        41,
+        47
+      ],
+      "learning_objective": "לנתח חוזה של פונקציה בהשוואה למימוש רקורסיבי, כולל שוויון.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג במפורש את סדר רכיבי הזוג: המובנית תחילה והמימוש הרקורסיבי אחריה.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "נתון מימוש הדומה לזה שבמצגת. מהו הזוג result? הרכיב הראשון הוא תוצאת max המובנית והשני הוא תוצאת my_max. תזכורת: max המובנית מחזירה את האיבר הראשון בעל המפתח המרבי. מדובר ברשימות לא ריקות בלבד.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "def my_max(xs, key):\n    if len(xs) == 1:\n        return xs[0]\n    rest = my_max(xs[1:], key)\n    return xs[0] if key(xs[0]) > key(rest) else rest\n\nrows = [(\"A\", 90), (\"B\", 95), (\"C\", 95)]\nkey = lambda row: row[1]\nresult = (max(rows, key=key), my_max(rows, key))"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "((\"C\", 95), (\"C\", 95))",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "((\"B\", 95), (\"C\", 95))",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "((\"B\", 95), (\"B\", 95))",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(95, 95)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "בדוק את התנאי > כאשר שני מפתחות שווים.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "במימוש הרקורסיבי, שוויון מפנה תמיד לתוצאת הזנב rest. לכן נבחר האיבר האחרון בעל המפתח המרבי. max המובנית בוחרת את הראשון. בשני המקרים מוחזרת רשומה מקורית.",
+        "reasoning_steps": [
+          "ההשוואה בין B ל-C משתמשת בתנאי 95 > 95, שהוא שקר.",
+          "לכן התוצאה הרקורסיבית היא C.",
+          "max המובנית עוצרת על B כבחירה הראשונה מבין השווים במפתח."
+        ],
+        "option_feedback": {
+          "A": "max המובנית בוחרת את הראשון מבין בעלי המפתח המרבי, כלומר B.",
+          "B": "זהו ההבדל הנובע ממדיניות הטיפול בשוויון.",
+          "C": "my_max בוחרת rest בשוויון, ולכן C.",
+          "D": "key משפיע על ההשוואה; הוא אינו קובע את צורת הערך המוחזר."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == ((\"B\", 95), (\"C\", 95))",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q08",
+      "title": "צריכה עצלה ושיתוף אותו איטרטור",
+      "type": "single_choice",
+      "topics": [
+        "map",
+        "filter",
+        "iterators",
+        "side_effects"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        51,
+        54,
+        56
+      ],
+      "learning_objective": "לעקוב אחר הערכה עצלה, צריכה חלקית ומיצוי של אותו אובייקט.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "אפשר גלילה אופקית לאפשרויות הארוכות; אין לשבור tuple באופן שפוגע בהבנת חמשת רכיביה.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו הערך הסופי של result? next צורך איבר אחד מהאיטרטור, ו-list צורכת את כל האיברים שנותרו. יש לעקוב גם אחר seen, המשמשת לתיעוד הזימונים.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "seen = []\ndef twice(x):\n    seen.append(x)\n    return 2 * x\n\nm = map(twice, [1, 2, 3, 4])\nbefore = tuple(seen)\nfirst = next(m)\nkept = list(filter(lambda y: y > 4, m))\nremaining = list(m)\nresult = (before, first, kept, remaining, tuple(seen))"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "((1, 2, 3, 4), 2, [6, 8], [], (1, 2, 3, 4))",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "((), 2, [6, 8], [2, 4, 6, 8], (1, 2, 3, 4))",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "((), 2, [6, 8], [], (1, 2, 3, 4))",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "((), 2, [6, 8], [4], (1, 3, 4))",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "סינון של איבר אינו מבטל את העובדה שהוא כבר נצרך ממקור הנתונים.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "יצירת map אינה מפעילה את twice על כל הקלט. next צורך את 1. filter ממשיך מאותו m וצורך את 2, 3 ו-4, גם אם תוצאת המיפוי של 2 נפסלת. בסוף m מוצה.",
+        "reasoning_steps": [
+          "before היא tuple ריקה.",
+          "next מחזירה 2 ורושמת 1 ב-seen.",
+          "filter בוחנת 4, 6, 8 ומעבירה רק 6 ו-8.",
+          "האיבר שנפסל כבר נצרך; list(m) האחרונה ריקה."
+        ],
+        "option_feedback": {
+          "A": "twice עדיין לא הופעלה כאשר before נוצרת.",
+          "B": "איטרטור map אינו מתחיל מחדש לאחר שמוצה.",
+          "C": "האפשרות משקפת גם עצלות וגם צריכה של איברים שנפסלו בסינון.",
+          "D": "כדי לבדוק אם 4 גדול מ-4 צריך קודם לחשב אותו ולצרוך את 2; הפסילה אינה מחזירה אותו לאיטרטור."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == ((), 2, [6, 8], [], (1, 2, 3, 4))",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q09",
+      "title": "מיפוי על כמה מקורות",
+      "type": "single_choice",
+      "topics": [
+        "map",
+        "filter",
+        "reduce"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        51,
+        52,
+        54,
+        57,
+        61
+      ],
+      "learning_objective": "להרכיב מיפוי רב־ארגומנטים, סינון וקיפול עם ערך התחלתי.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג מחרוזות כתוצאות קוד ב-LTR; המרכאות מסמנות מחרוזת ואינן חלק מהתוכן שלה.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו result? נבחנת ההתנהגות של map ב-Python 3.13 ללא אפשרויות נוספות: כאשר אורכי המקורות שונים, המיפוי מסתיים עם מיצוי המקור הקצר ביותר.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "from functools import reduce\nnumbers = [1, 2, 3, 4]\nletters = [\"a\", \"b\", \"c\"]\nmapped = map(lambda n, ch: ch * n, numbers, letters)\nselected = filter(lambda text: len(text) % 2 == 1, mapped)\nresult = reduce(lambda acc, text: acc + \"|\" + text, selected, \"S\")"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "\"S|a|bb|ccc\"",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "\"S|a|ccc|dddd\"",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "תיזרק ValueError בגלל אורכי המקורות.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "\"S|a|ccc\"",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "חשב את המחרוזות הממופות לפני חישוב הצובר.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "המיפוי מייצר a, bb, ccc. סינון אורך אי־זוגי מעביר a ו-ccc. הקיפול מתחיל ב-S ומחבר כל מחרוזת בעזרת מפריד. ל-4 אין אות תואמת ולכן הוא אינו יוצר ערך ממופה.",
+        "reasoning_steps": [
+          "map מפעילה פונקציה על שלושה זוגות תואמים.",
+          "bb נפסלת כי אורכה 2.",
+          "הצבירה היא S ואז S|a ואז S|a|ccc."
+        ],
+        "option_feedback": {
+          "A": "bb אינה עוברת את הסינון.",
+          "B": "לא קיים איבר רביעי ב-letters, ואין מילוי אוטומטי.",
+          "C": "ההתנהגות הרגילה של map היא עצירה במקור הקצר.",
+          "D": "האפשרות כוללת את המחרוזות שעברו סינון ואת הערך ההתחלתי."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == \"S|a|ccc\"",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q10",
+      "title": "ערך אמת אינו ערך הפלט של filter",
+      "type": "single_choice",
+      "topics": [
+        "filter",
+        "truthiness",
+        "map"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        51,
+        54,
+        55,
+        62
+      ],
+      "learning_objective": "להבחין בין תוצאת הפרדיקט לבין האיבר שמועבר לפלט.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "שמור על ההבחנה החזותית בין [-1, 1] לבין [[-1], [1]].",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו result? ב-Python, רשימה ריקה נחשבת שקר ורשימה לא ריקה נחשבת אמת. הפרדיקט אינו חייב להחזיר אובייקט מסוג bool.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "xs = [-2, -1, 0, 1, 2]\npredicate = lambda x: [x] if x % 2 else []\nkept = list(filter(predicate, xs))\nmapped = list(map(predicate, xs))\nresult = (kept, mapped)"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "([-1, 1], [[], [-1], [], [1], []])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "([[-1], [1]], [[], [-1], [], [1], []])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "([-2, 0, 2], [[], [-1], [], [1], []])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "([True, True], [False, True, False, True, False])",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "כתוב בנפרד מה predicate מחזירה ומה filter מעבירה הלאה.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "filter משתמשת בערך האמת של תוצאת predicate כדי לבחור איברי קלט. היא מחזירה את השלמים המקוריים שעברו. map מחזירה את תוצאות predicate עצמן, שהן רשימות.",
+        "reasoning_steps": [
+          "לזוגיים הפרדיקט מחזיר []; לאי־זוגיים הוא מחזיר רשימה באורך 1.",
+          "האיברים שעוברים הם -1 ו-1.",
+          "מיפוי משמר את חמש התוצאות, כולל הרשימות הריקות."
+        ],
+        "option_feedback": {
+          "A": "הבחנה זו מפרידה בין בחירת איברים לבין החלפתם בתוצאות פונקציה.",
+          "B": "filter אינה מחזירה את תוצאות הפרדיקט.",
+          "C": "התנאי בוחר אי־זוגיים; הרשימות הריקות של הזוגיים נחשבות שקר.",
+          "D": "אף אחת מהפעולות אינה ממירה כאן את הפלט לרשימת bool."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == ([-1, 1], [[], [-1], [], [1], []])",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q11",
+      "title": "העברת סינון לפני מיפוי",
+      "type": "single_choice",
+      "topics": [
+        "map",
+        "filter",
+        "composition",
+        "equivalence"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        13,
+        14,
+        51,
+        54,
+        56
+      ],
+      "learning_objective": "לגזור פרדיקט מתאים להחלפת סדר פעולות ולא להסתפק בבדיקה של דוגמה אחת.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "השאר את שני הביטויים כשתי חלופות נפרדות; אל תוסיף דוגמת קלט שחושפת את המסיחים לפני מענה.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "xs היא רשימה סופית של שלמים. רוצים להחליף את הביטוי המקורי בביטוי החלופי כך שהתוצאה תהיה זהה עבור כל xs. איזו הגדרה של q מתאימה? g ו-p טהורות ומוגדרות לכל שלם.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "g = lambda x: x * x\np = lambda y: y > 9\n\n# Original:\n# list(filter(p, map(g, xs)))\n\n# Replacement:\n# list(map(g, filter(q, xs)))"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "",
+          "code": "lambda x: x > 3",
+          "code_language": "python"
+        },
+        {
+          "id": "B",
+          "text": "",
+          "code": "lambda x: p(g(x))",
+          "code_language": "python"
+        },
+        {
+          "id": "C",
+          "text": "",
+          "code": "lambda x: p(x)",
+          "code_language": "python"
+        },
+        {
+          "id": "D",
+          "text": "",
+          "code": "lambda x: x >= 3",
+          "code_language": "python"
+        }
+      ],
+      "hint": "בדוק את התנאי על איבר קלט יחיד, והוסף לבדיקה גם מספר שלילי.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "המקור שומר g(x) בדיוק כאשר p(g(x)) אמת. כדי לסנן את x לפני המיפוי צריך לבדוק את אותו תנאי על x. במקרה הזה התנאי הוא x*x > 9, והוא כולל גם שלמים שליליים שערכם המוחלט גדול מ-3.",
+        "reasoning_steps": [
+          "ברשימה המקורית כל x הופך ל-x².",
+          "הסינון נעשה על x², ולא על x.",
+          "לכן הפרדיקט לפני המיפוי הוא ההרכבה p∘g.",
+          "סדר האיברים והכפילויות נשמרים בשני הביטויים."
+        ],
+        "option_feedback": {
+          "A": "עבור xs=[-4], המקור מחזיר [16] אבל התנאי x>3 פוסל את האיבר.",
+          "B": "הפרדיקט בודק בדיוק את התנאי שייבדק אחרי המיפוי.",
+          "C": "עבור xs=[4], המקור מעביר 16 אבל p(4) היא שקר.",
+          "D": "עבור xs=[3], החלופה מעבירה 9 אף שהמקור פוסל אותו."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "from itertools import product\ngood = lambda x: p(g(x))\nfor size in range(4):\n    for seq in product([-4, -3, 0, 3, 4, 10], repeat=size):\n        assert list(filter(p, map(g, seq))) == list(map(g, filter(good, seq)))\nassert list(filter(p, map(g, [-4]))) == [16]",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q12",
+      "title": "איחוד מיפויים ותופעות לוואי",
+      "type": "single_choice",
+      "topics": [
+        "map",
+        "composition",
+        "pure_functions",
+        "side_effects"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        9,
+        13,
+        14,
+        51,
+        56
+      ],
+      "learning_objective": "להבין מתי חומרת ביניים משנה סדר תופעות לוואי אף אם מבנה ההרכבה דומה.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג בבירור את האתחול מחדש בין הגרסאות ואת list הפנימית ב-A. אפשר לסמן רק את שמות הגרסאות, בלי לצבוע את שורת ההבדל כרמז.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מריצים כל אחת משתי הגרסאות מסביבה חדשה שבה seen=[] והפונקציות מוגדרות כמוצג. מהן התוצאות ומה ניתן להסיק על השינוי? בגרסה A נוצרת רשימת ביניים באמצעות list.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "seen = []\ndef f(x):\n    seen.append(x)\n    return x\ndef g(y):\n    return y + len(seen)\nxs = [1, 2, 3]\n\n# Version A:\n# list(map(g, list(map(f, xs))))\n\n# Version B:\n# list(map(lambda x: g(f(x)), xs))"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "A=[2, 4, 6], B=[4, 5, 6]; איחוד המיפוי דוחה את כל הקריאות ל-g לסוף.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "A=[4, 5, 6], B=[4, 5, 6]; כל שתי הרכבות של map שקולות גם עם מצב חיצוני.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "A=[4, 5, 6], B=[2, 4, 6]; יצירת רשימת הביניים משנה את סדר הגישה למצב החיצוני.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "A=[2, 4, 6], B=[2, 4, 6]; map תמיד משלבת את f ואת g איבר־איבר, גם דרך list.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "בדוק מהו len(seen) בכל אחת משלוש הקריאות ל-g בכל גרסה.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "ב-A, list הפנימית משלימה את כל קריאות f לפני תחילת g, ולכן len(seen)=3 בכל קריאת g. ב-B, f ו-g פועלות בזו אחר זו לכל איבר, והאורך גדל מ-1 ל-3. שינוי כזה שומר ערכי פלט עבור פונקציות טהורות ומוגדרות היטב, אך אינו מובטח כאן.",
+        "reasoning_steps": [
+          "A: אחרי המיפוי הפנימי seen היא [1,2,3].",
+          "A: מוסיפים 3 לכל אחד מהמספרים 1,2,3.",
+          "B: מוסיפים לכל מספר את אורך seen מיד אחרי רישום אותו מספר."
+        ],
+        "option_feedback": {
+          "A": "התוצאות הוחלפו: גרסה A היא זו שמשלימה קודם את f.",
+          "B": "הסתמכות על מצב חיצוני שוללת את טענת השקילות הכללית.",
+          "C": "יצירת רשימת הביניים גורמת להבדל שניתן לצפייה בערכי התוצאה.",
+          "D": "list הפנימית היא מחסום שמחייב להשלים את כל המיפוי הפנימי."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "a = list(map(g, list(map(f, xs))))\nseen.clear()\nb = list(map(lambda x: g(f(x)), xs))\nassert a == [4, 5, 6] and b == [2, 4, 6]",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q13",
+      "title": "סדר הארגומנטים בקיפול",
+      "type": "single_choice",
+      "topics": [
+        "reduce",
+        "fold_order"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        57,
+        58,
+        64,
+        65
+      ],
+      "learning_objective": "להבחין בין קיפול שמאלי לבין החלפת תפקידי הצובר והאיבר.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "אל תציג מראש פתיחת סוגריים של reduce; היא חלק מהפתרון.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו result? בכל צעד של reduce הארגומנט הראשון הוא הצובר והשני הוא האיבר הבא.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "from functools import reduce\nxs = [10, 3, 2]\na = reduce(lambda acc, x: acc - x, xs)\nb = reduce(lambda acc, x: x - acc, xs)\nc = reduce(lambda acc, x: acc - x, xs, 0)\nresult = (a, b, c)"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(5, 9, -15)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(9, 5, -15)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(5, 9, 5)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(5, -9, -15)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "רשום את הצובר לאחר כל איבר, ובדוק מי מופיע משמאל לסימן החיסור.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "ללא ערך התחלתי, 10 הוא הצובר הראשון. ב-a מחשבים (10-3)-2. ב-b מחשבים תחילה 3-10 ואז 2-(-7). ב-c הערך 0 נכנס לפני כל איברי xs ולכן מחשבים ((0-10)-3)-2.",
+        "reasoning_steps": [
+          "a: הצובר עובר 10, 7, 5.",
+          "b: הצובר עובר 10, -7, 9.",
+          "c: הצובר עובר 0, -10, -13, -15."
+        ],
+        "option_feedback": {
+          "A": "כל שלושת הרכיבים נובעים מתפקיד הצובר ומהערך ההתחלתי.",
+          "B": "a אינה מחשבת 10-(3-2); הקיפול הוא משמאל.",
+          "C": "הערך ההתחלתי 0 משנה את החישוב ואינו רק גיבוי לקלט ריק.",
+          "D": "בצעד השני של b מחושב 2-(-7), שערכו 9."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == (5, 9, -15)",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q14",
+      "title": "גזירת ערך התחלתי ומשמעות הצובר",
+      "type": "single_choice",
+      "topics": [
+        "reduce",
+        "identity_element",
+        "edge_cases",
+        "accumulator_invariant"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        57,
+        59,
+        63
+      ],
+      "learning_objective": "לגזור איבר יחידה ונוסחת צובר עבור פעולה בינארית שאינה חיבור או כפל רגילים.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג את הנוסחאות ב-LTR, והבהר ש-prod היא סימון למכפלה. __INIT__ הוא חסר להשלמה; אין להציגו כשגיאת NameError.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "xs היא רשימה סופית של שלמים. ref מוגדרת רק לרשימות לא ריקות. רוצים להגדיר extended גם לרשימה הריקה באמצעות קבוע __INIT__, תוך שמירה על שוויון ל-ref בכל רשימה לא ריקה. איזו אפשרות מציינת גם קבוע מתאים וגם נוסחה נכונה ל-extended(xs)? בנוסחאות prod מסמנת מכפלה של כל האיברים; מכפלה ריקה שווה 1.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה (__INIT__ מסמן מקום להשלמה)",
+          "language": "python",
+          "code": "from functools import reduce\ndef op(a, b):\n    return a + b + a * b\n\ndef ref(xs):\n    return reduce(op, xs)\n\ndef extended(xs):\n    return reduce(op, xs, __INIT__)"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "__INIT__ = 0; התוצאה היא sum(xs).",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "__INIT__ = 1; התוצאה היא prod(x + 1 for x in xs) - 1.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "__INIT__ = -1; התוצאה היא prod(xs).",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "__INIT__ = 0; התוצאה היא prod(x + 1 for x in xs) - 1.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "בדוק תחילה רשימה בת איבר אחד; כדי למצוא נוסחה, נסה לפרק לגורמים את op(a,b)+1.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "לרשימה בת איבר אחד x, ref מחזירה x בלי לקרוא ל-op. לכן צריך op(e,x)=x לכל שלם x, ומתקבל e=0. בנוסף op(a,b)+1=(a+1)(b+1), ולכן אחרי כל קידומת, הצובר ועוד 1 שווים למכפלת האיברים שלה לאחר הוספת 1 לכל איבר. בקלט ריק extended מחזירה 0, התואם למכפלה הריקה 1 פחות 1.",
+        "reasoning_steps": [
+          "הדרישה על רשימות באורך 1 נותנת e+x+e*x=x; בפרט x=0 מחייב e=0.",
+          "הזהות op(a,b)+1=(a+1)(b+1) מאפשרת אינדוקציה על אורך הרשימה.",
+          "למשל עבור [2,3], התוצאה היא 2+3+6=11, וגם 3*4-1=11.",
+          "ללא ערך התחלתי, ref([]) מעלה TypeError; extended([]) מחזירה 0."
+        ],
+        "option_feedback": {
+          "A": "הקבוע מתאים, אך הנוסחה שגויה: עבור [2,3] מתקבל 11 ולא סכום 5.",
+          "B": "הערך 1 משנה גם קלט יחיד: op(1,2)=5 בעוד ref([2])=2.",
+          "C": "הערך -1 בולע כל איבר: op(-1,x)=-1; אין זה שווה למכפלת האיברים באופן כללי.",
+          "D": "הקבוע מקיים op(0,x)=x, והנוסחה נובעת מזהות הכפל של צובר ועוד 1."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": false,
+        "python_assertions": "from functools import reduce\nfrom math import prod\nfrom itertools import product\ndef op(a,b): return a+b+a*b\nfor size in range(5):\n    for xs in product([-3,-1,0,1,2,3], repeat=size):\n        value = reduce(op,xs,0)\n        assert value == prod(x+1 for x in xs)-1\n        if xs:\n            assert value == reduce(op,xs)\nassert reduce(op,[2,3],0) == 11\nassert reduce(op,[2],1) == 5\nassert reduce(op,[2],-1) == -1\ntry:\n    reduce(op, [])\nexcept TypeError:\n    pass\nelse:\n    raise AssertionError('empty reduce should fail')",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q15",
+      "title": "תכנון אינווריאנט לצובר",
+      "type": "single_choice",
+      "topics": [
+        "reduce",
+        "filter",
+        "accumulator_invariant"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        54,
+        57,
+        59,
+        61,
+        63
+      ],
+      "learning_objective": "לבנות צובר מורכב ולהוכיח את משמעותו לכל קידומת של הקלט.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג את הגדרת האינווריאנט בנוסח השאלה. הצג כל אפשרות כבלוק Python קצר.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "xs היא רשימת שלמים. רוצים ש-stats תחזיר (סכום, כמות) של כל האיברים האי־שליליים, כולל אפס. אם אין כאלה, תחזיר (0, 0). איזו הגדרה של step מבטיחה זאת עבור כל xs? אחרי עיבוד k איברים שעברו סינון, רכיב הכמות צריך להיות k.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "from functools import reduce\ndef stats(xs, step):\n    return reduce(step, filter(lambda x: x >= 0, xs), (0, 0))"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "",
+          "code": "lambda acc, x: (acc[0] + x, acc[1] + x)",
+          "code_language": "python"
+        },
+        {
+          "id": "B",
+          "text": "",
+          "code": "lambda acc, x: (acc[0] + x, acc[1] + bool(x))",
+          "code_language": "python"
+        },
+        {
+          "id": "C",
+          "text": "",
+          "code": "lambda acc, x: (acc[0] + x, acc[1] + 1)",
+          "code_language": "python"
+        },
+        {
+          "id": "D",
+          "text": "",
+          "code": "lambda acc, x: (acc[0] + acc[1], acc[1] + 1)",
+          "code_language": "python"
+        }
+      ],
+      "hint": "בדוק רשימה שמכילה אפס ומספר חיובי שונה מ-1.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "הצובר ההתחלתי (0,0) נכון לקידומת הריקה. אם לפני צעד הרכיבים הם סכום וכמות של הקידומת, הוספת x לסכום ו-1 לכמות משמרת את המשמעות. אפס חייב להיספר למרות שערך האמת שלו שקר.",
+        "reasoning_steps": [
+          "בסיס: לפני עיבוד איברים, הסכום והכמות הם 0.",
+          "צעד: x נוסף לסכום ואיבר אחד נוסף לכמות.",
+          "הסינון מסלק רק שליליים; 0 הוא איבר תקין לספירה."
+        ],
+        "option_feedback": {
+          "A": "הרכיב השני יצבור סכום במקום כמות.",
+          "B": "bool(0) הוא False ולכן אפשרות זו אינה סופרת אפסים.",
+          "C": "זהו צעד השומר על שני רכיבי האינווריאנט.",
+          "D": "הרכיב הראשון מוסיף את הכמות הקודמת ולא את האיבר החדש."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "good = lambda acc, x: (acc[0] + x, acc[1] + 1)\nassert stats([-3, 0, 4, -1, 2], good) == (6, 3)\nassert stats([], good) == (0, 0)\nbad = [lambda a,x:(a[0]+x,a[1]+x), lambda a,x:(a[0]+x,a[1]+bool(x)), lambda a,x:(a[0]+a[1],a[1]+1)]\nassert all(stats([0, 4], b) != (4, 2) for b in bad)",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q16",
+      "title": "קיפול שתוצאתו אוסף",
+      "type": "single_choice",
+      "topics": [
+        "reduce",
+        "immutability",
+        "accumulator_invariant"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        7,
+        9,
+        57,
+        59
+      ],
+      "learning_objective": "להבין ש-reduce מחזירה צובר יחיד, שיכול להיות רשימה של ערכי ביניים.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג את הערך ההתחלתי [0] בשורה נפרדת כפי שהוא בקוד; אין להציג טבלת מעקב פתורה לפני מענה.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו result? בכל צעד, הביטוי acc + [...] יוצר רשימה חדשה; אין כאן append או +=.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "from functools import reduce\nxs = [2, -1, 3]\nprefixes = reduce(\n    lambda acc, x: acc + [acc[-1] + x],\n    xs,\n    [0]\n)\nresult = (prefixes, xs)"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(4, [2, -1, 3])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "([0, 2, 1, 4], [2, -1, 3])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "([0, 2, -1, 3], [2, -1, 3])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "([0, 2, 1, 4], [0, 2, 1, 4])",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "מהי המשמעות של האיבר האחרון ב-acc לפני כל צעד?",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "הצובר הוא רשימה שמתחילה ב-0 ומכילה סכומי קידומות. האיבר האחרון שלה הוא הסכום המצטבר הקודם. reduce מחזירה את הצובר הסופי, ולכן מותר שתוצאתה תהיה רשימה. xs אינה משתנה.",
+        "reasoning_steps": [
+          "התחלה: [0].",
+          "אחרי 2: [0,2].",
+          "אחרי -1: [0,2,1].",
+          "אחרי 3: [0,2,1,4]."
+        ],
+        "option_feedback": {
+          "A": "4 הוא רק הסכום האחרון; הפונקציה הבינארית מחזירה רשימה שלמה.",
+          "B": "הצובר הסופי כולל את כל סכומי הקידומות והקלט נשאר כפי שהיה.",
+          "C": "הערך המצורף הוא acc[-1]+x, ולא x בלבד.",
+          "D": "החיבור יוצר רשימות לצובר; הוא אינו משנה את xs."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == ([0, 2, 1, 4], [2, -1, 3])",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q17",
+      "title": "שקילות ערכים לעומת עצירה מוקדמת",
+      "type": "single_choice",
+      "topics": [
+        "reduce",
+        "map",
+        "any",
+        "short_circuit",
+        "side_effects"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        51,
+        62,
+        63
+      ],
+      "learning_objective": "להבחין בין short-circuit של or לבין עצירת צריכת האיטרטור כולו.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג את שתי הגרסאות כריצות עצמאיות. הפתרון חייב להסביר את ההבדל גם אם שתי התוצאות הבוליאניות שוות.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "שתי הגרסאות רצות כל אחת מסביבה חדשה עם seen=[]. מהו הזוג (ערך ההחזרה, seen) בכל גרסה? pred מחזירה bool.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "from functools import reduce\nseen = []\ndef pred(x):\n    seen.append(x)\n    return x > 0\n\n# Version A:\n# any(map(pred, [0, 1, 2]))\n\n# Version B:\n# reduce(lambda a, b: a or b, map(pred, [0, 1, 2]), False)"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "A=(True, [0, 1]), B=(True, [0, 1])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "A=(True, [0, 1, 2]), B=(True, [0, 1, 2])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "A=(True, [0, 1, 2]), B=(True, [0, 1])",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "A=(True, [0, 1]), B=(True, [0, 1, 2])",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "הבחן בין עצירת ביטוי בוליאני לבין הפסקת בקשת איברים מה-map.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "any מפסיקה לצרוך את המקור אחרי התוצאה האמיתית הראשונה. reduce ממשיכה למשוך איברים מה-map עד הסוף. הביטוי or בתוך צעד הקיפול יכול לקצר את הערכת הביטוי שלו, אך אינו עוצר את reduce ואינו מבטל קריאת pred שכבר נדרשה להשגת b.",
+        "reasoning_steps": [
+          "pred(0) מחזירה False בשתי הגרסאות.",
+          "pred(1) מחזירה True; any מסיימת כאן.",
+          "reduce מבקשת גם את האיבר הבא מ-map, ולכן pred(2) מופעלת."
+        ],
+        "option_feedback": {
+          "A": "or שבתוך lambda אינה מפסיקה את איטרציית reduce.",
+          "B": "any מפסיקה אחרי 1 ואינה צורכת את 2.",
+          "C": "מדיניות העצירה הוחלפה בין הגרסאות.",
+          "D": "ערך ההחזרה שווה, אך מספר הקריאות ל-pred שונה."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "a = any(map(pred, [0, 1, 2]))\na_seen = seen[:]\nseen.clear()\nb = reduce(lambda a,b: a or b, map(pred, [0, 1, 2]), False)\nassert (a, a_seen) == (True, [0, 1])\nassert (b, seen) == (True, [0, 1, 2])",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q18",
+      "title": "מימוש רקורסיבי ששומר על הקיבוץ",
+      "type": "single_choice",
+      "topics": [
+        "reduce",
+        "recursion",
+        "associativity",
+        "commutativity"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        57,
+        64,
+        65
+      ],
+      "learning_objective": "לשחזר קיפול שמאלי ולהבחין בין סדר ארגומנטים לבין קיבוץ.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "שמור על הסייג שאין הנחת קיבוציות. הצג את ארבע ההשלמות כקוד; אין צורך להכיר רקורסיה מעבר למקרה הבסיס ולהחלפה אחת.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "xs היא רשימה לא ריקה וקצרה מספיק למגבלת הרקורסיה. f היא פעולה בינארית טהורה על תחום סגור: כל תוצאת ביניים שוב בתחום, והפעולה תמיד מסתיימת. לא מניחים חילופיות או קיבוציות. איזו השלמה במקום __EXPR__ שקולה ל-functools.reduce(f, xs) עבור כל f ו-xs כאלה?",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה (__EXPR__ מסמן מקום להשלמה)",
+          "language": "python",
+          "code": "def rec(f, xs):\n    if len(xs) == 1:\n        return xs[0]\n    return __EXPR__"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "",
+          "code": "f(xs[0], rec(f, xs[1:]))",
+          "code_language": "python"
+        },
+        {
+          "id": "B",
+          "text": "",
+          "code": "f(rec(f, xs[:-1]), xs[-1])",
+          "code_language": "python"
+        },
+        {
+          "id": "C",
+          "text": "",
+          "code": "f(xs[-1], rec(f, xs[:-1]))",
+          "code_language": "python"
+        },
+        {
+          "id": "D",
+          "text": "",
+          "code": "rec(f, xs[1:])",
+          "code_language": "python"
+        }
+      ],
+      "hint": "פתח את reduce על שלושה איברים עם שמות כלליים, לפני בחירת הביטוי הרקורסיבי.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "reduce מחשבת קיפול משמאל. קודם יש לקפל את כל האיברים פרט לאחרון, ואז להעביר את תוצאתם כארגומנט ראשון ל-f ואת האיבר האחרון כארגומנט שני. A מקבצת מימין, C מחליפה את סדר הארגומנטים ו-D משמיטה את רוב החישוב.",
+        "reasoning_steps": [
+          "לשלושה איברים reduce מחשבת f(f(x0,x1),x2).",
+          "B מחשבת רקורסיבית f(x0,x1), ואז משלבת את x2 מימין.",
+          "בהנחת נכונות על קידומת קצרה יותר, אותו נימוק חל על כל אורך."
+        ],
+        "option_feedback": {
+          "A": "זהו קיפול ימני. חיסור על [10,3,2] נותן 9 במקום 5. גם חילופיות לבדה אינה מבטיחה שקיבוץ אחר ישמור תוצאה.",
+          "B": "הצובר הרקורסיבי הוא הארגומנט השמאלי והאיבר האחרון הוא הימני.",
+          "C": "עבור חיסור על [10,3,2] מתקבל 9 במקום 5 בגלל היפוך סדר הארגומנטים. אם f הייתה חילופית, C הייתה מתלכדת עם B; אך השאלה אינה מניחה חילופיות.",
+          "D": "אין כאן הפעלה של f, והתוצאה תהיה האיבר האחרון בלבד."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": false,
+        "python_assertions": "from functools import reduce\ndef a(f,xs): return xs[0] if len(xs)==1 else f(xs[0],a(f,xs[1:]))\ndef b(f,xs): return xs[0] if len(xs)==1 else f(b(f,xs[:-1]),xs[-1])\ndef c(f,xs): return xs[0] if len(xs)==1 else f(xs[-1],c(f,xs[:-1]))\ndef d(f,xs): return xs[0] if len(xs)==1 else d(f,xs[1:])\nsub = lambda x,y: x-y\nassert [fn(sub,[10,3,2]) for fn in (a,b,c,d)] == [9,5,9,2]\nfor xs in ([9],[1,2],[10,3,2],[4,-2,8,1]):\n    assert b(sub,xs)==reduce(sub,xs)\n# Commutative but not associative: midpoint.\nmid = lambda x,y:(x+y)/2\nassert a(mid,[0,0,4]) == 1 and b(mid,[0,0,4]) == 2\n# With a commutative f, option C coincides with reduce; without commutativity it does not.\nfor xs in ([0,0,4],[1,5,2,8]):\n    assert c(mid,xs) == b(mid,xs) == reduce(mid,xs)",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q19",
+      "title": "צובר שהוא פונקציה מורכבת",
+      "type": "single_choice",
+      "topics": [
+        "reduce",
+        "composition",
+        "closures",
+        "first_class_functions",
+        "lambda"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        20,
+        26,
+        57,
+        68,
+        70,
+        71
+      ],
+      "learning_objective": "לעקוב אחר בניית פונקציה בזמן הקיפול וסדר הפעלתה בזמן זימון מאוחר.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "אין להציג את הביטוי המורכב של h לפני מענה. אחרי בדיקה, הצג בנפרד את סדר הבנייה ואת סדר הזימון.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו result? בפונקציה compose, הקריאה compose(f, g) מחזירה פונקציה שמפעילה תחילה g ואחר כך f. יש להבחין בין שלב בניית הפונקציה לבין הפעלתה על 3.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "from functools import reduce\ndef compose(f, g):\n    return lambda x: f(g(x))\n\nfuncs = [lambda x: x + 1,\n         lambda x: 2 * x,\n         lambda x: x * x]\nidentity = lambda x: x\n\nh = reduce(compose, funcs, identity)\nforward = reduce(lambda value, fn: fn(value), funcs, 3)\nresult = (h(3), forward)"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(64, 64)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(19, 19)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(19, 64)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(64, 19)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "שאל בכל שורת reduce: האם הצובר הוא מספר או פונקציה?",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "h היא ההרכבה identity∘f1∘f2∘f3, ולכן על 3 מופעלים ריבוע, הכפלה ב-2 והוספת 1: מתקבל 19. forward מקפלת ערך מספרי דרך סדר הרשימה: 3 הופך ל-4, ל-8 ול-64. שני השימושים ב-reduce הם קיפול שמאלי, אך סוג הצובר והפונקציה הבינארית שונים.",
+        "reasoning_steps": [
+          "בבניית h הצובר הוא פונקציה; עוד לא מופעל עליו המספר 3.",
+          "h(3)=1+2*(3²)=19.",
+          "forward=((3+1)*2)²=64."
+        ],
+        "option_feedback": {
+          "A": "h מפעילה את הפונקציות בסדר ההרכבה, ולא בסדר החישוב של forward.",
+          "B": "forward מחילה כל פונקציה על הערך המצטבר לפי סדר הרשימה.",
+          "C": "ההבדל נובע מתוכן הצובר וממשמעות compose, לא משינוי הכיוון שבו reduce עוברת על הרשימה.",
+          "D": "התוצאות הוחלפו בין צבירת פונקציה לבין צבירת מספר."
+        },
+        "trace_table": {
+          "columns": [
+            "שלב",
+            "מצב"
+          ],
+          "rows": [
+            [
+              "בניית h (צובר = פונקציה)",
+              "identity → x ↦ identity(f1(x)) → x ↦ f1(f2(x)) → x ↦ f1(f2(f3(x)))"
+            ],
+            [
+              "זימון h(3)",
+              "f3(3)=9 → f2(9)=18 → f1(18)=19"
+            ],
+            [
+              "forward (צובר = מספר)",
+              "3 → f1 → 4 → f2 → 8 → f3 → 64"
+            ]
+          ]
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == (19, 64)\nassert funcs[0](funcs[1](funcs[2](3))) == 19",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    },
+    {
+      "id": "Q20",
+      "title": "ניתוח צינור עיבוד מלא",
+      "type": "single_choice",
+      "topics": [
+        "map",
+        "filter",
+        "reduce",
+        "closures",
+        "key",
+        "sorted"
+      ],
+      "difficulty": "advanced",
+      "points": 5,
+      "source_slides": [
+        26,
+        30,
+        40,
+        45,
+        51,
+        54,
+        56,
+        57,
+        61
+      ],
+      "learning_objective": "לשלב סגור סינון, שינוי מבנה נתונים, מיון וצובר מובנה עם סינון נוסף אחרי מיפוי.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת במסך; נוסח בעברית RTL וקוד Python ב-LTR.",
+        "specific_presentation": "הצג את הקוד במלואו עם רווחים בין השלבים; אחרי הגשה בלבד הוסף טבלת שלבי ביניים מתוך ההסבר.",
+        "options_layout": "ארבע אפשרויות אנכיות עם radio; אפשרות אחת בלבד.",
+        "preserve": "שמור בדיוק על ההזחות, הסוגריים, שמות המשתנים וההנחות. אין להוסיף פלט צפוי ליד קוד השאלה.",
+        "answer_visibility": "במצב בחינה הצג פתרונות רק לאחר הגשה סופית. במצב תרגול הצג פתרון לאחר בדיקת תשובה מפורשת.",
+        "review": "פתור עצמאית, הרץ את קוד האימות בסביבת Python מקומית ובדוק את כל המסיחים. שפר עמימות או טעות אם נמצאה, בלי להקל את השאלה; עדכן פתרון, הסברים ואימות יחד."
+      },
+      "question": "מהו result? הרשומות הן (שם, ציון מקורי). make_rule בונה כלל סינון, ושינוי הציון מתבצע רק אחריו. יש לכלול בסכום הסופי רק ציונים מעודכנים שהם לפחות 90.",
+      "code_blocks": [
+        {
+          "id": "main",
+          "label": "קוד השאלה",
+          "language": "python",
+          "code": "from functools import reduce\n\ndef make_rule(low, high):\n    return lambda row: low <= row[1] < high\n\nrows = [(\"Noa\", 80), (\"Avi\", 90), (\"Dana\", 75),\n        (\"Eli\", 95), (\"Maya\", 85)]\nselected = filter(make_rule(80, 95), rows)\nupdated = map(lambda row: (row[0], row[1] + 5), selected)\nordered = sorted(updated, key=lambda row: (-row[1], row[0]))\n\nresult = reduce(\n    lambda acc, row: (acc[0] + (row[0],), acc[1] + row[1]),\n    filter(lambda row: row[1] >= 90, ordered),\n    ((), 0)\n)"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "((\"Avi\", \"Maya\"), 185)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "((\"Maya\", \"Avi\"), 185)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "((\"Eli\", \"Avi\", \"Maya\"), 285)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "((\"Avi\", \"Maya\", \"Noa\"), 270)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "רשום ליד כל שלב איזה מבנה נתונים עובר בו והאם הציון כבר עודכן.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "הסינון הראשון בודק את הציונים המקוריים בטווח 80 כולל עד 95 לא כולל, ולכן Noa, Avi ו-Maya עוברות. אחרי התוספת הציונים הם 85, 95 ו-90. המיון מציב את Avi לפני Maya ולפני Noa, והסינון השני מסיר את Noa. reduce צוברת tuple של שמות וסכום 185.",
+        "reasoning_steps": [
+          "הטווח הראשון אינו כולל את הציון 95 של Eli.",
+          "לאחר המיפוי מתקבלות (Noa,85), (Avi,95), (Maya,90).",
+          "המפתח השלילי ממיין ציונים בסדר יורד.",
+          "אחרי סף 90 נשארות Avi ו-Maya; 95+90=185."
+        ],
+        "option_feedback": {
+          "A": "האפשרות משמרת את שני הסינונים, סדר המיון ומבנה הצובר.",
+          "B": "הסכום נכון אך סדר השמות אינו תואם למפתח המיון.",
+          "C": "Eli נפסל בסינון הראשון בגלל הגבול העליון שאינו כלול.",
+          "D": "Noa עוברת את הסינון הראשון אבל נפסלת בסינון השני אחרי העדכון."
+        },
+        "trace_table": {
+          "columns": [
+            "שלב",
+            "תוצאה"
+          ],
+          "rows": [
+            [
+              "filter(make_rule(80, 95))",
+              "(Noa, 80), (Avi, 90), (Maya, 85)"
+            ],
+            [
+              "map: ציון + 5",
+              "(Noa, 85), (Avi, 95), (Maya, 90)"
+            ],
+            [
+              "sorted לפי (-ציון, שם)",
+              "(Avi, 95), (Maya, 90), (Noa, 85)"
+            ],
+            [
+              "filter: ציון ≥ 90",
+              "(Avi, 95), (Maya, 90)"
+            ],
+            [
+              "reduce",
+              "((\"Avi\", \"Maya\"), 185)"
+            ]
+          ]
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "purpose": "אימות בזמן הבנייה בלבד; אין להריץ Python או קוד מתוך JSON בדפדפן.",
+        "run_question_code_first": true,
+        "python_assertions": "assert result == ((\"Avi\", \"Maya\"), 185)\nsel = list(filter(make_rule(80, 95), rows))\nassert sel == [(\"Noa\", 80), (\"Avi\", 90), (\"Maya\", 85)]\nupd = [(n, s + 5) for n, s in sel]\nassert sorted(upd, key=lambda r: (-r[1], r[0])) == [(\"Avi\", 95), (\"Maya\", 90), (\"Noa\", 85)]",
+        "limits": "הרצות בודקות דוגמאות ומקרי קצה; טענה על כל קלט דורשת גם נימוק מתמטי בהסבר."
+      }
+    }
+  ],
+  "validation_summary": {
+    "schema_checks": "passed",
+    "question_count": 20,
+    "answer_distribution": {
+      "C": 5,
+      "A": 5,
+      "D": 5,
+      "B": 5
+    },
+    "python_execution_checks": "20 of 20 passed",
+    "validation_python_version": "3.14.6",
+    "note": "הסמנטיקה המכוונת היא Python 3.13. Python 3.13 לא היה זמין בסביבת הביקורת; האימות בוצע ב-3.14.6. השאלות משתמשות רק בתכונות שהתנהגותן זהה ב-3.13 וב-3.14 (בפרט map ללא strict)."
+  },
+  "changelog": [
+    {
+      "version": "1.1.0",
+      "visibility": "author_only",
+      "summary": "ביקורת אקדמית: כל המפתחות אומתו ללא שינוי. דיוק הסבר Q02, הבהרת סדר רכיבים ב-Q07, תוויות מקום-השלמה ב-Q14/Q18, משוב C ב-Q18 (חילופיות), טבלאות מעקב ל-Q19/Q20 ובדיקות אימות נוספות."
+    }
+  ]
+}
