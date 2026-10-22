@@ -1,0 +1,2658 @@
+{
+  "schema_version": "1.2.0",
+  "quiz_id": "programming_language_principles_summary7_set2_20_he",
+  "content_version": "1.0.0",
+  "title": "עקרונות שפות תוכנה — סט ב׳: השלמת נושאים",
+  "language": "he",
+  "direction": "rtl",
+  "question_count": 20,
+  "total_points": 100,
+  "source": {
+    "file_name": "סיכום (7).pdf",
+    "pdf_page_count": 52,
+    "document_title": "עקרונות שפות תוכנה — סיכום החומר התיאורטי",
+    "document_year": 2020,
+    "page_numbering": "source_pages.pdf מציין מיקום פיזי בקובץ, החל מ-1. החל מעמוד ה-PDF השני, המספר המודפס קטן באחד: למשל PDF 40 הוא עמוד מודפס 39.",
+    "basis": "שאלות מקוריות על נושאי הסיכום; הקוד והתרחישים נכתבו מחדש. מקרים תלויי מימוש הוגדרו במפורש, ואי־דיוקים בסיכום אינם משמשים כמפתח תשובה.",
+    "coverage": [
+      {
+        "chapter": "הערכת שפות, אופרטורים ומבני בקרה",
+        "question_ids": [
+          "PL21",
+          "PL22"
+        ]
+      },
+      {
+        "chapter": "מניות, בוליאנים ודחיסת ביטים",
+        "question_ids": [
+          "PL23",
+          "PL24",
+          "PL25"
+        ]
+      },
+      {
+        "chapter": "אריתמטיקת מצביעים ובחירת בנאי העברה",
+        "question_ids": [
+          "PL26",
+          "PL28"
+        ]
+      },
+      {
+        "chapter": "זמני חיים, מסגרות ועלות גישה למשתנים",
+        "question_ids": [
+          "PL27",
+          "PL29",
+          "PL30",
+          "PL33"
+        ]
+      },
+      {
+        "chapter": "ביטי סימון, פרגמנטציה ודחיסה",
+        "question_ids": [
+          "PL31",
+          "PL32"
+        ]
+      },
+      {
+        "chapter": "קישור פרמטרים והרשאות גישה",
+        "question_ids": [
+          "PL34",
+          "PL35"
+        ]
+      },
+      {
+        "chapter": "פריסת מחסנית, רגיסטרים וקישור קבצים",
+        "question_ids": [
+          "PL36",
+          "PL37",
+          "PL38"
+        ]
+      },
+      {
+        "chapter": "חוזה ADT ומימוש טבלאות וירטואליות",
+        "question_ids": [
+          "PL39",
+          "PL40"
+        ]
+      }
+    ],
+    "scope_note": "זהו סט משלים ל-PL01–PL20. חלק מהפרקים חוזרים, אך מטרת הלמידה וההסקה הנבדקת בכל שאלה חדשות. לא נטען כי שני הסטים ממצים כל פרט בסיכום."
+  },
+  "relationship_to_previous_set": {
+    "previous_quiz_id": "programming_language_principles_summary7_20_he",
+    "previous_file_name": "programming_language_principles_quiz_20_he.json",
+    "previous_question_ids": [
+      "PL01",
+      "PL02",
+      "PL03",
+      "PL04",
+      "PL05",
+      "PL06",
+      "PL07",
+      "PL08",
+      "PL09",
+      "PL10",
+      "PL11",
+      "PL12",
+      "PL13",
+      "PL14",
+      "PL15",
+      "PL16",
+      "PL17",
+      "PL18",
+      "PL19",
+      "PL20"
+    ],
+    "new_question_ids": [
+      "PL21",
+      "PL22",
+      "PL23",
+      "PL24",
+      "PL25",
+      "PL26",
+      "PL27",
+      "PL28",
+      "PL29",
+      "PL30",
+      "PL31",
+      "PL32",
+      "PL33",
+      "PL34",
+      "PL35",
+      "PL36",
+      "PL37",
+      "PL38",
+      "PL39",
+      "PL40"
+    ],
+    "coverage_policy": "אין למחזר שאלה קודמת בהחלפת מספרים או שמות. coverage_delta מסביר בכל שאלה את התוספת ביחס לסט הראשון; זהו מידע לעורך בלבד."
+  },
+  "integration": {
+    "action": "add_separate_exam_to_existing_site",
+    "preserve_existing_exams": true,
+    "preserve_existing_progress": true,
+    "reuse_current_stack_and_styles": true,
+    "suggested_menu_label": "עקרונות שפות תוכנה — סט ב׳",
+    "existing_quiz_ids_to_preserve": [
+      "functional_python_part_a_20_he",
+      "programming_language_principles_summary7_20_he"
+    ],
+    "id_policy": "אלה המזהים שסופקו בקבצים הקודמים; אם האתר משתמש במזהים אחרים, שמור עליהם בפועל. אין לשנות storage keys של מבחנים קיימים.",
+    "new_render_fields": [
+      "code_blocks.language=assembly"
+    ],
+    "before_submission_fields": [
+      "title",
+      "semantic_context",
+      "question",
+      "code_blocks",
+      "data_tables",
+      "options"
+    ],
+    "author_only_fields": [
+      "instructions_to_claude",
+      "learning_objective",
+      "coverage_delta",
+      "source_pages",
+      "author_validation",
+      "editorial_notes",
+      "validation_summary",
+      "reference_documentation"
+    ],
+    "answer_release": "answer רק אחרי הגשה בבחינה או בדיקה מפורשת בתרגול; hint רק לפי בקשה בתרגול.",
+    "scope_state_by": [
+      "quiz_id",
+      "content_version",
+      "mode",
+      "attempt_id"
+    ],
+    "display_numbering": "מספור מסך 1–20 בתוך הסט החדש; המזהים הקבועים נשארים PL21–PL40.",
+    "important": "אין להריץ קוד מה-JSON בדפדפן; assembly הוא טקסט להצגה בלבד. אין למזג את שני הסטים באופן שמשנה ניסיונות או ציונים קיימים."
+  },
+  "exam_rules": {
+    "choice_mode": "single",
+    "options_per_question": 4,
+    "default_mode": "exam",
+    "points_per_correct_answer": 5,
+    "points_per_incorrect_or_unanswered": 0,
+    "negative_marking": false,
+    "timer": "none",
+    "navigation": "free",
+    "initial_question_order": "PL21..PL40",
+    "shuffle_options": false,
+    "assumptions": [
+      "לכל שאלה בדיוק תשובה נכונה אחת.",
+      "שאלות C++ מוגדרות לפי C++17; Python לפי Python 3.",
+      "מודלים של עלות, זיכרון ו-vtable מוגדרים במפורש ואינם טענה על כל מימוש.",
+      "שאלות x86 מתייחסות למודל 32 ביט המפורש; אין להריץ assembly על המארח.",
+      "כל ניסוי חלופי מתחיל במצב חדש, אלא אם נאמר אחרת."
+    ]
+  },
+  "instructions_to_claude": {
+    "review_all_questions": true,
+    "task": "בדוק, תקן לפי הצורך והוסף את סט ב׳ לאתר הקיים כמבחן נפרד, תוך שימור כל המבחנים וההתקדמות.",
+    "review_requirements": [
+      "בדוק גם את coverage_delta כדי לא להחזיר את השאלה לנושא שכבר נבחן.",
+      "פתור כל שאלה ובדוק כל מסיח, לצד בדיקות הקוד והמודלים.",
+      "עדכן content_version, תשובה, הסברים ובדיקות יחד אם שינית תוכן.",
+      "ב-PL38 יש link_cases: יש לקמפל כל קובץ ל-object בנפרד, לוודא שכל קימפול הצליח ואז לבדוק את הצלחת או כישלון הקישור כפי שמצופה.",
+      "אין להריץ את הלולאה האינסופית ב-PL22, dereference לא חוקי ב-PL26 או את קטע ה-assembly ב-PL36.",
+      "העבר לתצוגת תלמיד רק שדות מותרי תצוגה; בדיקות והערות עורך אינן רמזים."
+    ]
+  },
+  "editorial_notes": {
+    "visibility": "author_only",
+    "precision_points": [
+      {
+        "question_ids": [
+          "PL21"
+        ],
+        "note": "העמסות שונות אינן הופכות התנהגות מוגדרת לעמומה; ההשוואה לאורתוגונליות היא שיקול עיצוב, לא הכרעה ש-C++ אינה מוגדרת."
+      },
+      {
+        "question_ids": [
+          "PL22"
+        ],
+        "note": "המרה ישירה מ-for ל-while חייבת לשמר את יעד continue. volatile נכלל כדי שהלולאה הלא־מתקדמת תמשיך לבצע פעולות נצפות לפי C++17; אין להריץ אותה."
+      },
+      {
+        "question_ids": [
+          "PL23"
+        ],
+        "note": "גם enum רגיל ב-C++ הוא טיפוס נפרד. enum class מוסיפה בין השאר חסימת המרות מרומזות למספר. הייצוג המספרי אינו הופך את המנייה ל-typedef של int."
+      },
+      {
+        "question_ids": [
+          "PL24",
+          "PL25"
+        ],
+        "note": "bool ב-C++ הוא טיפוס נפרד אף שיש המרות; מערך bool רגיל אינו נדחס לביט לכל איבר. יש להפריד packing של דגלים מ-padding של מבנה."
+      },
+      {
+        "question_ids": [
+          "PL27",
+          "PL29",
+          "PL30"
+        ],
+        "note": "עלויות ופריסות אחסון הן מודלים מפורשים. אין הבטחה שקומפיילר אמיתי מממש כל scope כמסגרת או שכל גישה עוברת שרשרת בפועל."
+      },
+      {
+        "question_ids": [
+          "PL31"
+        ],
+        "note": "החלפת צבע סימון דורשת אינווריאנט עקבי לאובייקטים חדשים. אין להצדיק את השיטה בחיסכון אוניברסלי של שליש זמן; הדבר תלוי במודל העבודה."
+      },
+      {
+        "question_ids": [
+          "PL32"
+        ],
+        "note": "coalescing של חורים סמוכים שונה מ-compaction המזיזה אובייקטים. תמיכה בהפניות פנימיות ניתנה כהנחה מפורשת ולא מובטחת לכל אוסף."
+      },
+      {
+        "question_ids": [
+          "PL33"
+        ],
+        "note": "static מקומי מתאר משך אחסון, ולא קביעה שהמשתנה גלובלי מבחינת הכרת השם או שיש רק frame אחד לכל פונקציה."
+      },
+      {
+        "question_ids": [
+          "PL34"
+        ],
+        "note": "הסיכום כולל משפטים סותרים על סדר positional ו-keyword. בקריאה רגילה ב-Python ארגומנט מיקומי חשוף אינו יכול לבוא אחרי keyword; פריסות כוכבית הן כללים נפרדים."
+      },
+      {
+        "question_ids": [
+          "PL35"
+        ],
+        "note": "const reference אינה deep const. גם const int* מבטיח הגבלת כתיבה דרך הנתיב המסוים, לא שאין alias אחר שמשנה את אותו int."
+      },
+      {
+        "question_ids": [
+          "PL36",
+          "PL37",
+          "PL38"
+        ],
+        "note": "הדוגמאות מפרידות בין stack layout, רגיסטרים, התאמת חתימות וקישור. אין להסיק שהצלחת קישור כשלעצמה מוכיחה תאימות ABI בכל תרחיש."
+      },
+      {
+        "question_ids": [
+          "PL39",
+          "PL40"
+        ],
+        "note": "ADT אינו מחייב ירושה; vtable אינה פריסה מחויבת תקן. דרישות ביצועים ושיתוף טבלאות הן הנחות מפורשות של השאלות."
+      }
+    ]
+  },
+  "reference_documentation": [
+    {
+      "title": "C++ draft: integral promotions",
+      "url": "https://eel.is/c++draft/conv.prom",
+      "question_ids": [
+        "PL21"
+      ]
+    },
+    {
+      "title": "C++ draft: enumeration declarations",
+      "url": "https://eel.is/c++draft/dcl.enum",
+      "question_ids": [
+        "PL23"
+      ]
+    },
+    {
+      "title": "C++ draft: for statement",
+      "url": "https://eel.is/c++draft/stmt.for",
+      "question_ids": [
+        "PL22"
+      ]
+    },
+    {
+      "title": "C++ draft: forward progress",
+      "url": "https://eel.is/c++draft/intro.progress",
+      "question_ids": [
+        "PL22"
+      ]
+    },
+    {
+      "title": "C++ draft: references and copy/move constructors",
+      "urls": [
+        "https://eel.is/c++draft/dcl.ref",
+        "https://eel.is/c++draft/class.copy.ctor"
+      ],
+      "question_ids": [
+        "PL25",
+        "PL28"
+      ]
+    },
+    {
+      "title": "C++ draft: additive operators and pointer arithmetic",
+      "url": "https://eel.is/c++draft/expr.add",
+      "question_ids": [
+        "PL26"
+      ]
+    },
+    {
+      "title": "Python reference: calls",
+      "url": "https://docs.python.org/3/reference/expressions.html#calls",
+      "question_ids": [
+        "PL34"
+      ]
+    },
+    {
+      "title": "Microsoft: argument passing and naming conventions",
+      "url": "https://learn.microsoft.com/en-us/cpp/cpp/argument-passing-and-naming-conventions?view=msvc-170",
+      "question_ids": [
+        "PL36",
+        "PL37"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "PL21",
+      "title": "טיפוס הביטוי ומשמעות ההדפסה",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "orthogonality",
+        "operator_overloading",
+        "character_types"
+      ],
+      "learning_objective": "לנתח כיצד אותו אופרטור בוחר פעולה לפי טיפוס הביטוי, ולהפריד ריבוי כללים מחוסר הגדרה.",
+      "source_pages": {
+        "pdf": [
+          4,
+          6,
+          12
+        ],
+        "printed": [
+          3,
+          5,
+          11
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לנתח כיצד אותו אופרטור בוחר פעולה לפי טיפוס הביטוי, ולהפריד ריבוי כללים מחוסר הגדרה.",
+        "related_prior_question_ids": [],
+        "distinction": "תת־נושא זה לא נבחן בסט PL01–PL20."
+      },
+      "semantic_context": "C++17; קידוד התווים הוא ASCII, כך שערך A הוא 65. הזרם משתמש בייצוג עשרוני רגיל, והמערך מסתיים בתו אפס.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את +*p בדיוק כך, בלי רווח או סימון שמציגים אותו כאופרטור ++. אל תוסיף את הפלט לפני הגשה.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מה יודפס, ואיזו מסקנה נכונה על ההבדל בין שלושת ביטויי ההדפסה?",
+      "code_blocks": [
+        {
+          "id": "קוד השאלה",
+          "label": "קוד השאלה",
+          "language": "cpp",
+          "code": "char s[] = \"AB\";\nconst char* p = s;\nstd::cout << p << '|' << *p << '|' << +*p;"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "כתובת|A|65; כל מצביע מודפס בהכרח ככתובת.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "AB|A|65; בחירת ההעמסה לפי הטיפוסים מוגדרת, אף שהכתיב << משמש פעולות שונות.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "AB|65|65; dereference של char* מחזיר int ולכן שני הביטויים האחרונים זהים.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "AB|A|A; הוספת + לפני תו אינה משנה את טיפוס הביטוי.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "קבע בנפרד את הטיפוס של p, של *p ושל +*p.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "p נשלח להעמסה המדפיסה מחרוזת C, ולכן יודפס AB. הביטוי *p הוא char ומודפס כתו. unary + מבצע integral promotion ל-int כאן, ולכן +*p מודפס כמספר 65. ההתנהגות מוגדרת; אפשר לדון במחיר הלמידה של הכללים בלי להסיק עמימות סמנטית.",
+        "reasoning_steps": [
+          "p הוא const char*, ולא const void*.",
+          "*p הוא char שערכו התו A.",
+          "+*p עובר קידום ל-int לפני בחירת ההעמסה."
+        ],
+        "option_feedback": {
+          "A": "קיימת העמסה מיוחדת למחרוזות תווים.",
+          "B": "הפלט וכללי בחירת ההעמסות נכונים.",
+          "C": "dereference לבדו אינו הופך char ל-int.",
+          "D": "unary + גורם לקידום אריתמטי."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": null,
+        "cpp_cases": [
+          {
+            "label": "runtime_assertions",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nint main(){static_assert('A'==65); char s[]=\"AB\"; const char* p=s;\n std::ostringstream out; out<<p<<'|'<<*p<<'|'<<+*p; assert(out.str()==\"AB|A|65\");\n static_assert(std::is_same_v<decltype(+*p),int>); }\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL22",
+      "title": "המרת for ל-while בנוכחות continue",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "writability",
+        "control_flow",
+        "semantic_preservation"
+      ],
+      "learning_objective": "להעריך האם סוכר תחבירי הוסר תוך שימור continue ו-break, ולא רק גוף הלולאה.",
+      "source_pages": {
+        "pdf": [
+          5
+        ],
+        "printed": [
+          4
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להעריך האם סוכר תחבירי הוסר תוך שימור continue ו-break, ולא רק גוף הלולאה.",
+        "related_prior_question_ids": [],
+        "distinction": "תת־נושא זה לא נבחן בסט PL01–PL20."
+      },
+      "semantic_context": "C++17, ללא תהליכון נוסף או גורם חיצוני המשנה את i. כל גרסה מתחילה מ-i=0 ו-sum=0. i הוא volatile כדי שהגישה אליו תהיה פעולה נצפית גם בלולאה שאינה מתקדמת; אין צורך בידע נוסף על volatile. אין להריץ את גרסת while אם היא אינה מתקדמת.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג שתי גרסאות זו תחת זו. אין להפעיל כפתור להרצת גרסת while הלא מתוקנת.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מהי התנהגות שתי הגרסאות, ומהו התיקון המינימלי לגרסת while מבין המתוארים?",
+      "code_blocks": [
+        {
+          "id": "גרסת for",
+          "label": "גרסת for",
+          "language": "cpp",
+          "code": "volatile int i=0;\nint sum=0;\nfor (; i<6; ++i) {\n    if (i==2) continue;\n    if (i==4) break;\n    sum += i+1;\n}"
+        },
+        {
+          "id": "גרסת while",
+          "label": "גרסת while",
+          "language": "cpp",
+          "code": "volatile int i=0;\nint sum=0;\nwhile (i<6) {\n    if (i==2) continue;\n    if (i==4) break;\n    sum += i+1;\n    ++i;\n}"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "שתיהן מסתיימות עם sum=7 ו-i=4; אין צורך בתיקון.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "for מסתיימת עם sum=6; while אינה מסתיימת; יש להוסיף ++i לפני כל break.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "for מסתיימת עם sum=7; while אינה מסתיימת; יש להעביר ++i לראש גוף הלולאה בלי שינוי נוסף.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "for מסתיימת עם sum=7 ו-i=4; while נתקעת ב-i=2; יש לקדם i בענף continue לפני הדילוג.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "סמן את היעד של continue בכל אחת משתי הגרסאות.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "ב-for, continue עדיין מובילה לביטוי הקידום, ולכן i=2 נעקף, i=3 מתווסף ו-i=4 עוצר באמצעות break. ב-while הנתונה, continue עוקפת את ++i שבסוף, ולכן i נשאר 2. הוספת ++i בתוך ענף i==2, לפני continue, משמרת את ההתנהגות כאן.",
+        "reasoning_steps": [
+          "ערכי i שתורמים הם 0,1,3 והתרומות i+1 הן 1,2,4: בסך הכול 7.",
+          "break ב-i=4 אינו מפעיל את ביטוי הקידום.",
+          "ב-while, לאחר הגעה ל-i=2 התנאי נשאר אמת אך אין שינוי מצב."
+        ],
+        "option_feedback": {
+          "A": "continue אינה מגיעה לקידום בסוף while.",
+          "B": "הסכום הנכון הוא 7; קידום לפני break גם ישנה את i הסופי ולא יפתור את התקיעה ב-2.",
+          "C": "העברת הקידום לראש מדלגת על התרומה של i=0 ונותנת כאן sum=6, ולכן אינה תיקון שקול.",
+          "D": "מתקן בדיוק את הנתיב שדילג על הקידום."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": "i=0;s=0\nfor _ in range(20):\n    if i==2: continue\n    if i==4: break\n    s+=i+1;i+=1\nassert (i,s)==(2,3) # bounded simulation; the state then repeats forever",
+        "cpp_cases": [
+          {
+            "label": "runtime_assertions",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nint main(){volatile int i=0;int s=0;for(;i<6;++i){if(i==2)continue;if(i==4)break;s+=i+1;}\n assert(i==4&&s==7);i=0;s=0;while(i<6){if(i==2){++i;continue;}if(i==4)break;s+=i+1;++i;}assert(i==4&&s==7);\n i=0;s=0;while(i<6){++i;if(i==2)continue;if(i==4)break;s+=i+1;}assert(i==4&&s==6);}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL23",
+      "title": "מנייה: ערך מספרי אינו זהות טיפוס",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "enumeration",
+        "scoped_enum",
+        "integral_promotion"
+      ],
+      "learning_objective": "להבחין בין ייצוג מספרי, מנייה לא־תחומה ומנייה תחומה, ובין המרות בשני הכיוונים.",
+      "source_pages": {
+        "pdf": [
+          11
+        ],
+        "printed": [
+          10
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להבחין בין ייצוג מספרי, מנייה לא־תחומה ומנייה תחומה, ובין המרות בשני הכיוונים.",
+        "related_prior_question_ids": [
+          "PL03"
+        ],
+        "distinction": "הסט הראשון בדק בנאי המרה ו-explicit במחלקות; כאן נבחנים enum, enum class וזהות טיפוס שאינה נעלמת בגלל ייצוג מספרי."
+      },
+      "semantic_context": "C++17. כל אחת מהשורות I–IV נבדקת בנפרד אחרי שתי הגדרות המנייה. אין הרחבות קומפיילר.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "השורות הן ניסויים נפרדים; הצג I–IV כתוויות ולא כחלק מהקוד המתקמפל.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "אילו שורות חוקיות ומה ערכי המשתנים בשורות החוקיות?",
+      "code_blocks": [
+        {
+          "id": "הגדרות",
+          "label": "הגדרות",
+          "language": "cpp",
+          "code": "enum Plain { Cold=2, Warm, Hot=7 };\nenum class Strong { Cold=2, Warm, Hot=7 };"
+        },
+        {
+          "id": "שורות לבדיקה",
+          "label": "שורות לבדיקה",
+          "language": "cpp",
+          "code": "// I\nint a = Warm + 1;\n// II\nPlain b = 3;\n// III\nint c = Strong::Warm;\n// IV\nStrong e = static_cast<Strong>(3);"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "רק I ו-IV; a=4 ו-e שווה Strong::Warm.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "I,II ו-IV; a=4, b=Warm ו-e=Strong::Warm.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "רק II ו-III; b=Warm ו-c=3.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "כל השורות חוקיות; שתי המניות הן למעשה שמות חלופיים ל-int.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "בדוק את כיוון ההמרה בכל שורה, ולא רק את הערך המספרי.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "Warm מקבל 3, וערך של enum לא־תחום יכול לעבור קידום לצורך החיבור: a=4. הכיוון ההפוך int→Plain אינו המרה מרומזת מותרת בשורה II. enum class אינו מומר מרומזות ל-int, ולכן III נכשלת. ההמרה המפורשת בשורה IV חוקית ומפיקה את הערך של Strong::Warm.",
+        "reasoning_steps": [
+          "ללא מאתחל, המונה הבא מקבל את הקודם ועוד 1.",
+          "זהות enum נשמרת אף אם הייצוג הוא מספרי.",
+          "המרה מפורשת בשורה IV אינה מכשירה את ההמרות המרומזות האחרות."
+        ],
+        "option_feedback": {
+          "A": "תואם את כללי המנייה וההמרות.",
+          "B": "II דורשת המרה מרומזת שאינה מותרת.",
+          "C": "שתיהן דווקא אינן חוקיות.",
+          "D": "כל מנייה היא טיפוס נפרד; enum class גם מגביל המרות מרומזות."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": null,
+        "cpp_cases": [
+          {
+            "label": "I_valid",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nenum Plain { Cold=2, Warm, Hot=7 };\nenum class Strong { Cold=2, Warm, Hot=7 };\nint main(){int a=Warm+1;assert(a==4);}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          },
+          {
+            "label": "II_invalid",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nenum Plain { Cold=2, Warm, Hot=7 };\nenum class Strong { Cold=2, Warm, Hot=7 };\nint main(){Plain b=3;}\n",
+            "expect_compile": false,
+            "run_if_compiled": false,
+            "expected_exit_code": null
+          },
+          {
+            "label": "III_invalid",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nenum Plain { Cold=2, Warm, Hot=7 };\nenum class Strong { Cold=2, Warm, Hot=7 };\nint main(){int c=Strong::Warm;}\n",
+            "expect_compile": false,
+            "run_if_compiled": false,
+            "expected_exit_code": null
+          },
+          {
+            "label": "IV_valid",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nenum Plain { Cold=2, Warm, Hot=7 };\nenum class Strong { Cold=2, Warm, Hot=7 };\nint main(){Strong e=static_cast<Strong>(3);assert(e==Strong::Warm);}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL24",
+      "title": "השמה בתנאי וקיצור הערכה",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "boolean_conversion",
+        "short_circuit",
+        "assignment_expression"
+      ],
+      "learning_objective": "לשלב את ערך ביטוי ההשמה, המרה לבוליאני, short circuit ותוצאת post-decrement.",
+      "source_pages": {
+        "pdf": [
+          11,
+          12
+        ],
+        "printed": [
+          10,
+          11
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לשלב את ערך ביטוי ההשמה, המרה לבוליאני, short circuit ותוצאת post-decrement.",
+        "related_prior_question_ids": [],
+        "distinction": "תת־נושא זה לא נבחן בסט PL01–PL20."
+      },
+      "semantic_context": "C++17. מדובר באופרטורים המובנים && ו-|| על טיפוסים בסיסיים. השורות מתבצעות בסדר הופעתן.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "אל תחליף = ב-== ואל תסמן את ההשמות כשגיאת קימפול. הדגש רק תחביר רגיל, בלי רמז סמנטי.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מהו הטופל (x,y,a,b,c) בסיום הקוד?",
+      "code_blocks": [
+        {
+          "id": "קוד השאלה",
+          "label": "קוד השאלה",
+          "language": "cpp",
+          "code": "int x=9, y=0;\nbool a = (x=0) || (x=4);\nbool b = (x==4) && ((y=3)>0);\nbool c = (x=2) && (y-- > 3);"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "(4,3,true,true,false)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(2,3,true,true,false)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(2,2,true,true,false)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(2,2,false,true,true)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "בכל שורה הפרד בין ערך הביטוי לבין השינוי בזיכרון שהוא מבצע.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "בשורה הראשונה x=0 נותן false ולכן גם x=4 מתבצע: a=true. בשנייה x==4 אמת ולכן y נקבע ל-3 ו-b=true. בשלישית x נקבע ל-2, שהוא true, ולכן ההשוואה y-- >3 מתבצעת: הערך להשוואה הוא 3 ולכן התוצאה false, ולאחריה y=2.",
+        "reasoning_steps": [
+          "|| ו-&& מחזירים bool, לא את האופרנד המספרי.",
+          "השמה בתנאי חוקית כאן ומחזירה ביטוי שניתן להמיר ל-bool.",
+          "גם כאשר ההשוואה שקרית, y-- כבר משנה את y."
+        ],
+        "option_feedback": {
+          "A": "השורה השלישית משנה גם את x וגם את y.",
+          "B": "post-decrement מתבצע אף שהתנאי שקרי.",
+          "C": "כל ערכי המצב והתוצאות תואמים לסדר ההערכה.",
+          "D": "התוצאה של || אמת; 3 אינו גדול מ-3."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": null,
+        "cpp_cases": [
+          {
+            "label": "runtime_assertions",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nint main(){int x=9, y=0;\nbool a = (x=0) || (x=4);\nbool b = (x==4) && ((y=3)>0);\nbool c = (x=2) && (y-- > 3);\nassert(x==2&&y==2&&a&&b&&!c);}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL25",
+      "title": "דחיסת ביטים מול ממשק של הפניה",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "bit_packing",
+        "addressability",
+        "reference_binding"
+      ],
+      "learning_objective": "להסיק כיצד bit packing משנה כתובתיות וממשק, ולא לבלבל אותו עם padding בין שדות.",
+      "source_pages": {
+        "pdf": [
+          12,
+          13
+        ],
+        "printed": [
+          11,
+          12
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להסיק כיצד bit packing משנה כתובתיות וממשק, ולא לבלבל אותו עם padding בין שדות.",
+        "related_prior_question_ids": [
+          "PL04"
+        ],
+        "distinction": "PL04 עסקה ביישור וריפוד מבנים; כאן נבחנים דחיסת דגלים לביטים והמחיר בכתובתיות ובסוג הממשק."
+      },
+      "semantic_context": "C++17; CHAR_BIT=8 ו-sizeof(bool)=1. מודדים רק את שני מערכי האחסון, בלי ריפוד של אובייקט עוטף. אינדקס 8 חוקי; get מחזירה bool לפי ערך.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג במפורש שהמדידה היא של data ולא sizeof(Packed17); אין להוסיף set או proxy לקוד השאלה.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "נתונים bool raw[17]{} ו-Packed17 packed. מה גודל האחסון של raw ושל packed.data, ואילו מהקריאות flip(raw[8]) ו-flip(packed.get(8)) חוקיות?",
+      "code_blocks": [
+        {
+          "id": "קוד השאלה",
+          "label": "קוד השאלה",
+          "language": "cpp",
+          "code": "struct Packed17 {\n    unsigned char data[3]{};\n    bool get(unsigned i) const {\n        return (data[i/8] >> (i%8)) & 1u;\n    }\n};\nvoid flip(bool& x) { x = !x; }"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "(3,3) בתים; שתי הקריאות חוקיות כי הקומפיילר דוחס גם bool[] רגיל.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(17,3) בתים; שתי הקריאות חוקיות כי bool& יכולה להצביע לביט יחיד בתוך unsigned char.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(17,17) בתים; רק הקריאה הראשונה חוקית כי חובה להקצות בית לכל ערך בוליאני בכל ייצוג.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(17,3) בתים; רק הקריאה הראשונה חוקית, ולשינוי דגל דחוס נדרש ממשק כתיבה מתאים.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "מהו סוג קטגוריית הערך שמחזירה get, ולא רק טיפוסו?",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "מערך רגיל מכיל 17 אובייקטי bool בני בית, ולכן גודלו 17. מערך הנתונים הדחוס מכיל 3 בתים המספקים 24 ביטים. raw[8] הוא lvalue מסוג bool ויכול להיקשר ל-bool&. get מחזירה bool זמני, שאינו יכול להיקשר ל-bool& לא־const; גם הפניה לביט פיזי בודד אינה אובייקט bool רגיל. אפשר לתכנן set או proxy מתאים, אך הם אינם קיימים בממשק הנתון.",
+        "reasoning_steps": [
+          "ceil(17/8)=3.",
+          "דחיסה דורשת מיסוך/הזזה במקום גישה לאובייקט bool נפרד.",
+          "אסור להסיק מן הסיכום שמערך bool רגיל נדחס אוטומטית."
+        ],
+        "option_feedback": {
+          "A": "sizeof של מערך bool רגיל הוא מספר האיברים כפול sizeof(bool).",
+          "B": "get מחזירה לפי ערך; אין כאן bool lvalue שניתן לשנות.",
+          "C": "אפשר לאחסן כמה ערכי אמת בביטים של בית אחד באמצעות קידוד.",
+          "D": "מבדילה נכון בין גודל הייצוג לבין סמנטיקת הממשק."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": null,
+        "cpp_cases": [
+          {
+            "label": "runtime_assertions",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nstruct Packed17 {\n    unsigned char data[3]{};\n    bool get(unsigned i) const {\n        return (data[i/8] >> (i%8)) & 1u;\n    }\n};\nvoid flip(bool& x) { x = !x; }\nint main(){static_assert(CHAR_BIT==8&&sizeof(bool)==1);bool raw[17]{};Packed17 packed;\n assert(sizeof(raw)==17&&sizeof(packed.data)==3);flip(raw[8]);assert(raw[8]);assert(!packed.get(8));}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          },
+          {
+            "label": "temporary_cannot_bind_to_bool_ref",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nstruct Packed17 {\n    unsigned char data[3]{};\n    bool get(unsigned i) const {\n        return (data[i/8] >> (i%8)) & 1u;\n    }\n};\nvoid flip(bool& x) { x = !x; }\nint main(){Packed17 packed;flip(packed.get(8));}\n",
+            "expect_compile": false,
+            "run_if_compiled": false,
+            "expected_exit_code": null
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL26",
+      "title": "מצביע לאיבר ומצביע למערך שלם",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "pointer_arithmetic",
+        "array_type",
+        "one_past_end"
+      ],
+      "learning_objective": "להבחין בין יחידת הקידום של int* ושל int(*)[5], לבין יצירת one-past ושימוש בו.",
+      "source_pages": {
+        "pdf": [
+          14,
+          17,
+          18
+        ],
+        "printed": [
+          13,
+          16,
+          17
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להבחין בין יחידת הקידום של int* ושל int(*)[5], לבין יצירת one-past ושימוש בו.",
+        "related_prior_question_ids": [
+          "PL05"
+        ],
+        "distinction": "PL05 עקבה אחר alias ו-++p; כאן נבחנים טיפוס מצביע למערך, יחידות חיסור וגבול one-past."
+      },
+      "semantic_context": "C++17 במודל כתובות בתים שטוח: תחילת int a[5] היא כתובת 1000 ו-sizeof(int)=4. כל הביטויים נבדקים ללא dereference של one-past. אין צורך להדפיס מצביע אמיתי.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "שמור על הסוגריים המשתמעים: הביטוי הוא (&a)+1. אין להריץ dereference של q לצורך בדיקה.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מגדירים p=a+1 ו-q=a+5. מהן הכתובות של p ושל &a+1, מהו q-p, והאם מותר לקרוא את *q?",
+      "code_blocks": [
+        {
+          "id": "קוד השאלה",
+          "label": "קוד השאלה",
+          "language": "cpp",
+          "code": "int a[5] = {10,20,30,40,50};\nint* p = a+1;\nint* q = a+5;\nauto end_of_array = &a+1;"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "(1004,1004,4); הקריאה אסורה.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(1004,1020,4); הקריאה אסורה.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(1004,1020,16); הקריאה מותרת כי q חושב באופן חוקי.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(1001,1005,4); הקריאה מותרת כל עוד לא הייתה הקצאה נוספת.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "כתוב את טיפוס המצביע לפני שאתה מחשב את גודל הצעד.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "a בביטוי a+1 מומר למצביע לאיבר הראשון, ולכן קידום אחד מוסיף 4 בתים. &a הוא מצביע למערך שלם, ולכן קידום אחד מוסיף 20 בתים. q ו-p שייכים לאותו מערך, עם אינדקסים 5 ו-1, ולכן ההפרש הוא 4 איברים. q הוא one-past תקף לצורך חישוב והשוואה מתאימים, אך אין שם איבר שמותר לקרוא.",
+        "reasoning_steps": [
+          "decltype(p) הוא int*.",
+          "decltype(&a) הוא int(*)[5].",
+          "חיסור מצביעים מחזיר הפרש איברים, לא הפרש בתים.",
+          "חוקיות חישוב הכתובת אינה חוקיות dereference שלה."
+        ],
+        "option_feedback": {
+          "A": "&a+1 מתקדם בגודל מערך שלם.",
+          "B": "כל הגדלים והגבולות נכונים לפי המודל.",
+          "C": "16 הוא הפרש הכתובות בבתים; *q אינו מותר.",
+          "D": "קידום מצביע אינו קידום בייט אחד, והקצאות אחרות אינן מכשירות גישה מחוץ למערך."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": "base=1000;size=4;n=5\nassert (base+size,base+n*size,5-1)==(1004,1020,4)",
+        "cpp_cases": [
+          {
+            "label": "runtime_assertions",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nint main(){int a[5]{};int* p=a+1;int* q=a+5;auto end=&a+1;\n static_assert(std::is_same_v<decltype(end),int(*)[5]>);assert(q-p==4);assert(end-&a==1);assert(sizeof(a)==5*sizeof(int));}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL27",
+      "title": "בלוקים אנונימיים ושימוש חוזר באחסון",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "unnamed_scope",
+        "storage_reuse",
+        "lifetime"
+      ],
+      "learning_objective": "לחשב גודל אחסון לפי חפיפת זמני חיים ולהבדיל בלוק לקסיקלי מהפעלה חדשה של פונקציה.",
+      "source_pages": {
+        "pdf": [
+          30
+        ],
+        "printed": [
+          29
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לחשב גודל אחסון לפי חפיפת זמני חיים ולהבדיל בלוק לקסיקלי מהפעלה חדשה של פונקציה.",
+        "related_prior_question_ids": [
+          "PL11"
+        ],
+        "distinction": "PL11 בדקה קישורים בין הפעלות פונקציה; כאן מדובר בבלוקים ללא שם ובחפיפת זמני חיים בתוך מסגרת אחת."
+      },
+      "semantic_context": "מודל קומפיילר מפורש: כל המשתנים נשמרים במסגרת אחת, הגדלים בהערות הם בבתים, כולם מיושרים ל-4, אין אופטימיזציה המבטלת משתנים ואין כתובות שבורחות. משתנה חי מכניסה לבלוק שלו עד היציאה ממנו. מותר לחפוף אחסון של משתנים שאינם חיים יחד; מתעלמים ממטא־נתונים של המסגרת. use מסמנת קריאה מקומית של המשתנים, בלי הפעלת פונקציה נוספת.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את הגדלים לצד הפסאודו־קוד. אל תציג את ה-offsets שבפתרון לפני הגשה.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מהו גודל האחסון המזערי למשתנים במסגרת f, ומה נובע לגבי הצורך במסגרת נפרדת לכל זוג סוגריים?",
+      "code_blocks": [
+        {
+          "id": "קוד השאלה",
+          "label": "קוד השאלה",
+          "language": "pseudocode",
+          "code": "function f():\n    local a       // 4 bytes\n    {\n        local buf // 12 bytes\n        { local x /* 8 bytes */; use(a,buf,x); }\n        { local y /* 16 bytes */; use(a,buf,y); }\n    }\n    { local z /* 20 bytes */; use(a,z); }"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "60 בתים; כל המשתנים חייבים לקבל מקומות נפרדים למשך כל f.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "24 בתים; לעולם אין יותר משני משתנים חיים יחד.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "32 בתים; אפשר למחזר מקומות בין בלוקים עוקבים, ואין חובה למסגרת קריאה חדשה לכל בלוק.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "32 בתים; כל בלוק חייב לקבל frame וקישור סטטי נפרדים.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "שרטט ציר זמן של כניסה ויציאה מהבלוקים, ורשום מי חי בכל שלב.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "בשיא החיים של y יש a בגודל 4, buf בגודל 12 ו-y בגודל 16: בסך הכול 32. עם x דרושים 24; לאחר יציאה מהבלוק הגדול, a ו-z דורשים 24. אפשר לשים a ב-offset 0, buf ב-4, x ו-y ב-16, ו-z ב-4 לאחר ש-buf מתה. לכן חסם השיא מושג במסגרת אחת.",
+        "reasoning_steps": [
+          "גדלים של משתנים שאינם חיים יחד אינם חייבים להצטבר.",
+          "החסם התחתון הוא שיא סכום הגדלים החיים: 32.",
+          "סידור offsets קונקרטי מראה ש-32 מספיקים, בלי טענה כללית שכל בעיית הקצאה נפתרת כך."
+        ],
+        "option_feedback": {
+          "A": "60 הוא סכום כל הגדלים, כולל זמנים שאינם חופפים.",
+          "B": "בעת x או y חיים גם a וגם buf.",
+          "C": "הגודל מושג לפי המודל, ובלוק אינו קריאה לפונקציה.",
+          "D": "קינון לקסיקלי של בלוקים אינו מחייב activation record נוסף."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "sizes={'a':4,'buf':12,'x':8,'y':16,'z':20}\nlive=[['a'],['a','buf'],['a','buf','x'],['a','buf','y'],['a','z']]\noffset={'a':0,'buf':4,'x':16,'y':16,'z':4}\nassert max(sum(sizes[n] for n in group) for group in live)==32\nfor group in live:\n occupied=[]\n for n in group:\n  cells=set(range(offset[n],offset[n]+sizes[n]));assert all(not(cells & c) for c in occupied);occupied.append(cells)\nassert sum(sizes.values())==60",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL28",
+      "title": "בחירת בנאי: שם, קטגוריית ערך ו-const",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "copy_constructor",
+        "move_constructor",
+        "value_category",
+        "const"
+      ],
+      "learning_objective": "לנבא overload resolution של בנאי העתקה/העברה כשיש rvalue reference בעלת שם ואובייקט const.",
+      "source_pages": {
+        "pdf": [
+          26
+        ],
+        "printed": [
+          25
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לנבא overload resolution של בנאי העתקה/העברה כשיש rvalue reference בעלת שם ואובייקט const.",
+        "related_prior_question_ids": [
+          "PL09"
+        ],
+        "distinction": "PL09 בחנה אם הועברה בעלות בפועל ב-unique_ptr; כאן נבחנת בחירת overload בין בנאים ותקפות קישור ל-const."
+      },
+      "semantic_context": "C++17; X::log ריקה בתחילת הריצה. C מציין בנאי העתקה ו-M בנאי העברה. הבנאים מבצעים בדיוק את הקוד המוצג.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את הגדרת X ואת רצף האתחולים. אל תחליף את X במחלקה שמימושה תלוי ספרייה.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מה יהיה תוכן X::log לאחר כל השורות?",
+      "code_blocks": [
+        {
+          "id": "המחלקה",
+          "label": "המחלקה",
+          "language": "cpp",
+          "code": "struct X {\n    inline static std::string log;\n    X() = default;\n    X(const X&) { log += 'C'; }\n    X(X&&) { log += 'M'; }\n};"
+        },
+        {
+          "id": "רצף האתחולים",
+          "label": "רצף האתחולים",
+          "language": "cpp",
+          "code": "X a;\nX&& r = std::move(a);\nX b(r);\nX c(std::move(r));\nconst X d;\nX e(std::move(d));"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "CMC",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "MMC",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "CMM",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "MMM",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "לכל אתחול קבע גם const וגם lvalue/xvalue של הארגומנט.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "הביטוי r הוא lvalue משום שהוא שם משתנה, אף שטיפוס ההכרזה הוא X&&, ולכן b נבנה בהעתקה. std::move(r) הוא xvalue לא־const ומתאים לבנאי X(X&&), ולכן c מוסיף M. std::move(d) שומר const ומפיק const X&&; אינו יכול להיקשר ל-X&&, אך יכול להיקשר ל-const X&, ולכן e נבנה בהעתקה.",
+        "reasoning_steps": [
+          "קישור r ל-a אינו בונה X נוסף.",
+          "קטגוריית ביטוי בעל שם אינה נקבעת רק מסימן && בהכרזה.",
+          "std::move אינו מסיר const."
+        ],
+        "option_feedback": {
+          "A": "זהו רצף הבחירות לפי סוגי הארגומנטים.",
+          "B": "r בעל השם אינו xvalue בביטוי X b(r).",
+          "C": "האובייקט d נשאר const לאחר std::move.",
+          "D": "שתי הקריאות המסומנות C אינן יכולות לבחור בבנאי ההעברה הנתון."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": null,
+        "cpp_cases": [
+          {
+            "label": "runtime_assertions",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nstruct X {\n    inline static std::string log;\n    X() = default;\n    X(const X&) { log += 'C'; }\n    X(X&&) { log += 'M'; }\n};\nint main(){X a;\nX&& r = std::move(a);\nX b(r);\nX c(std::move(r));\nconst X d;\nX e(std::move(d));\nassert(X::log==\"CMC\");}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL29",
+      "title": "עלות שרשרת סטטית ואופטימיזציה",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "static_chain_cost",
+        "lexical_depth",
+        "frame_address_caching"
+      ],
+      "learning_objective": "לחשב עלות מצטברת של קישור סטטי, להבחין בקריאת ערך ובמעבר קישור, ולנתח caching ו-refactoring.",
+      "source_pages": {
+        "pdf": [
+          28,
+          29,
+          30
+        ],
+        "printed": [
+          27,
+          28,
+          29
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לחשב עלות מצטברת של קישור סטטי, להבחין בקריאת ערך ובמעבר קישור, ולנתח caching ו-refactoring.",
+        "related_prior_question_ids": [
+          "PL11"
+        ],
+        "distinction": "PL11 דרשה לזהות קישורים בהפעלה מסוימת; כאן נבחנות עלות עומק, שימוש חוזר בכתובות והשפעת שינוי המבנה הלקסיקלי."
+      },
+      "semantic_context": "מודל עלות: גישה בעומק לקסיקלי d למשתנה בעומק k עולה d-k קריאות של קישור סטטי ועוד קריאת ערך אחת. אין caching בגרסה המקורית. הפונקציה נמצאת בעומק 5; כל הגישות מתבצעות באותה הפעלה, ללא קריאות או שינוי קישורים באמצע. ביצוע גישה חוזרת לערך עדיין עולה 1.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את מודל העלות ואת טבלת מספר הגישות מעל האפשרויות. אין לייחס את מספרי היחידות לננו־שניות או למעבד אמיתי.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מהן העלויות הכוללות: (א) המקור; (ב) חישוב חד־פעמי ונפרד של כתובת המסגרת של x ושל y, שמירת הכתובות ברגיסטרים ושימוש חוזר בהן; (ג) המקור ללא caching לאחר הוספת אב לקסיקלי חדש בין הפונקציה לבין אביה, כך ש-x ו-y נשארים בעומקיהם ו-z נשאר מקומי?",
+      "code_blocks": [],
+      "data_tables": [
+        {
+          "label": "דפוס הגישה",
+          "columns": [
+            "שם",
+            "עומק ההכרזה",
+            "מספר קריאות"
+          ],
+          "rows": [
+            [
+              "x",
+              1,
+              7
+            ],
+            [
+              "y",
+              3,
+              10
+            ],
+            [
+              "z",
+              5,
+              5
+            ]
+          ],
+          "direction": "ltr"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(48,6,65)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(70,28,87)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(70,24,92)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(22,22,22)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "הפרד את עלות ההגעה למסגרת מעלות קריאת המשתנה שבתוכה.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "במקור: 7×(4+1)+10×(2+1)+5×1=70. ב-caching מחשבים בנפרד 4+2 קישורים פעם אחת, ואז 22 קריאות ערך: 28. אחרי קינון נוסף, מרחקי x ו-y גדלים ל-5 ול-3, אך z נשאר מקומי: 7×6+10×4+5=87.",
+        "reasoning_steps": [
+          "מספר קריאות הערך הוא 22 בכל החלופות.",
+          "נשמרות כתובות המסגרות, ולא ערכי המשתנים.",
+          "ההנחה על חישוב נפרד מונעת שיתוף אוטומטי של מסלול הקישורים בשלב ההכנה."
+        ],
+        "option_feedback": {
+          "A": "חסרות 22 קריאות הערך.",
+          "B": "שלושת החישובים תואמים למודל.",
+          "C": "שלב ההכנה עולה 6, ולכן 22+6=28; z נשאר מקומי ואינו מתייקר בעקבות הקינון החדש.",
+          "D": "האפשרות מתעלמת מעלות ההגעה למסגרות."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "d=[1,3,5];n=[7,10,5]\noriginal=sum(c*(5-k+1) for k,c in zip(d,n));cached=(5-1)+(5-3)+sum(n)\nrefactored=7*(6-1+1)+10*(6-3+1)+5\nassert (original,cached,refactored)==(70,28,87)",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL30",
+      "title": "Deep ו-Shallow: מתי משתלם לשלם בכניסה",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "dynamic_scope_implementation",
+        "shallow_access",
+        "cost_tradeoff"
+      ],
+      "learning_objective": "לנתח את מחיר התחזוקה של shallow access ואת ההבדל בין אחידות גודל מצביעים לבין בדיקת טיפוסים.",
+      "source_pages": {
+        "pdf": [
+          31,
+          32
+        ],
+        "printed": [
+          30,
+          31
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לנתח את מחיר התחזוקה של shallow access ואת ההבדל בין אחידות גודל מצביעים לבין בדיקת טיפוסים.",
+        "related_prior_question_ids": [
+          "PL10"
+        ],
+        "distinction": "PL10 בדקה אילו ערכים מתקבלים לפי scope; כאן נבדקות עלויות תחזוקה וגישה, והפרדת גדלי מצביעים מטיפוסי המשתנים."
+      },
+      "semantic_context": "שני המימושים מקיימים אותו dynamic scope. ב-deep access, בכל קריאה של המשתנה המבוקש נבדקות 5 מסגרות בעלות 1 כל אחת ואז נקרא הערך בעלות 1. ב-shallow access, ההפעלה מוסיפה 3 bindings בעלות push=1 לכל אחד, מסירה אותם ביציאה בעלות pop=1 לכל אחד, וכל קריאה עולה 2: איתור המצביע וקריאת הערך. כל עלות אחרת משותפת ומושמטת. R הוא מספר קריאות המשתנה בהפעלה.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הדגש שמדובר במימושים של אותה סמנטיקה, ולא ב-deep/shallow binding של פונקציות מועברות.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מהו R השלם המזערי שבו shallow access זולה יותר ממש, ומדוע שימוש במחסניות של מצביעים מאפשר bindings בעלי גדלים שונים בלי לפתור לבדו את בדיקת הטיפוסים?",
+      "code_blocks": [],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "R=1; כל ערך שאליו מצביעים נעשה אוטומטית מאותו טיפוס.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "R=2; כל המשתנים מועתקים למיקום אחד ולכן אין צורך בטיפוסים.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "R=4; המצביעים מבטלים את עלות הכניסה והיציאה אבל מוסיפים המרה בזמן ריצה.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "R=2; המחסנית שומרת מצביעים בגודל אחיד, אך פירוש הערך שאליו הם מפנים עדיין דורש מידע וכללי טיפוס.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "כתוב פונקציית עלות לכל שיטה, כולל שלב היציאה.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "deep עולה 6R ו-shallow עולה 6+2R. התנאי 6+2R<6R נותן R>1.5 ולכן המינימום הוא 2. שמירת מצביעים מפרידה בין גודל תא במחסנית השמות לבין גודל האובייקט ב-RTS. אין מכאן הבטחה שהפעולה המבקשת ערך תואמת לטיפוס האובייקט שאליו המצביע מפנה.",
+        "reasoning_steps": [
+          "יש 3 דחיפות וגם 3 הסרות.",
+          "ב-R=1 העלויות הן 6 לעומת 8.",
+          "ב-R=2 העלויות הן 12 לעומת 10.",
+          "אחידות ייצוג כתובות אינה אחידות טיפוסי היעדים."
+        ],
+        "option_feedback": {
+          "A": "R=1 אינו מספיק ומצביעים אינם משנים את טיפוס האובייקטים.",
+          "B": "המספר נכון, אך נשמרים מצביעים למקומות שונים ולא ערך משותף.",
+          "C": "הכניסה והיציאה דווקא יוצרות את העלות הקבועה.",
+          "D": "נכונה גם כלכלית וגם מבחינת מגבלת המימוש."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "deep=lambda r:6*r\nshallow=lambda r:6+2*r\nassert min(r for r in range(1,20) if shallow(r)<deep(r))==2\nassert (deep(1),shallow(1),deep(2),shallow(2))==(6,8,12,10)",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL31",
+      "title": "ביט סימון מתחלף ואובייקט חדש",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "mark_sweep",
+        "mark_bit_epoch",
+        "allocation_invariant"
+      ],
+      "learning_objective": "לגזור אינווריאנט אתחול הנדרש להחלפת צבע סימון, ולזהות דילוג שגוי על ילדים של שורש.",
+      "source_pages": {
+        "pdf": [
+          35,
+          36
+        ],
+        "printed": [
+          34,
+          35
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לגזור אינווריאנט אתחול הנדרש להחלפת צבע סימון, ולזהות דילוג שגוי על ילדים של שורש.",
+        "related_prior_question_ids": [
+          "PL12",
+          "PL13"
+        ],
+        "distinction": "הסט הראשון בדק נגישות, ספירת הפניות וקשתות בין דורות; לא נבחן אינווריאנט החלפת ביט סימון ואתחול אובייקטים חדשים."
+      },
+      "semantic_context": "אוסף stop-the-world במודל מפורש. בסוף סבב קודם epoch=1 וכל השורדים מסומנים 1. בתחילת הסבב הבא הופכים epoch ל-0. mark(o) חוזרת מיד אם o.mark==epoch; אחרת מסמנת epoch וסורקת את ילדיו. sweep משחררת כל אובייקט שסימונו שונה מ-epoch. בין הסבבים אין שינוי גרף מלבד יצירת C, וההקצאה אינה מפעילה איסוף.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את כללי האוסף במלואם. בטבלה כתוב ״לבחירה״ בסימון C, בלי לצבוע אותו כ-live/dead.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "A,B,D שרדו את הסבב הקודם. לפני הסבב הבא נוצר C, והגרף והשורש היחיד מפורטים בטבלה. איזה סימון יש לתת ל-C בעת ההקצאה כדי שהסריקה הבאה תפעל, ואילו אובייקטים חיים ייאספו בטעות אם יינתן ל-C הסימון ההפוך?",
+      "code_blocks": [],
+      "data_tables": [
+        {
+          "label": "הגרף לפני הסבב הבא",
+          "columns": [
+            "אובייקט",
+            "סימון קיים",
+            "קשתות יוצאות",
+            "שורש"
+          ],
+          "rows": [
+            [
+              "A",
+              1,
+              "B",
+              "לא"
+            ],
+            [
+              "B",
+              1,
+              "—",
+              "לא"
+            ],
+            [
+              "C",
+              "לבחירה",
+              "A",
+              "כן"
+            ],
+            [
+              "D",
+              1,
+              "—",
+              "לא"
+            ]
+          ],
+          "direction": "ltr"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "יש לאתחל C ל-0; הסימון ההפוך יגרום רק לדחיית האיסוף של D.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "יש לאתחל C ל-1; הסימון ההפוך יגרום רק לאיסוף D, שאינו נגיש ממילא.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "יש לאתחל C ל-1; הסימון ההפוך עלול להביא לאיסוף A ו-B אף שהם נגישים.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "יש לאתחל C ל-0; הסימון ההפוך יגרום לאיסוף C בלבד.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "עקוב אחר התנאי הראשון ב-mark(C) מיד אחרי החלפת epoch.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "האובייקט החדש צריך להיחשב לא־מסומן בסבב הבא, ולכן לפני החלפת epoch יש לתת לו 1, כמו לשורדים. אחרי המעבר ל-0 mark(C) תסרוק את C ואת A,B. אם C יקבל מראש 0, הסריקה תחזור ממנו מיד ותדלג על ילדיו; A ו-B יישארו 1 וייאספו בטעות. D אינו נגיש ונאסף בשתי החלופות.",
+        "reasoning_steps": [
+          "הערך שנחשב ״מסומן״ תלוי ב-epoch, לא ב-1 באופן קבוע.",
+          "שורש שמסומן מראש אינו בהכרח סרוק לפי הכללים הנתונים.",
+          "מניעת סריקת C מנתקת מבחינת האוסף את הגישה לכל הצאצאים שלו."
+        ],
+        "option_feedback": {
+          "A": "0 הוא דווקא הצבע של הסבב הבא, ולכן יגרום לדילוג.",
+          "B": "הדילוג על C פוגע גם באובייקטים נגישים.",
+          "C": "גם כלל האתחול וגם האובייקטים שנפגעים נכונים.",
+          "D": "C עם סימון 1 ייסרק ויעודכן ל-0 ולכן לא ייאסף."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "edges={'A':['B'],'B':[],'C':['A'],'D':[]}\ndef collect(c_mark):\n marks={'A':1,'B':1,'C':c_mark,'D':1};epoch=0\n def mark(o):\n  if marks[o]==epoch:return\n  marks[o]=epoch\n  for child in edges[o]:mark(child)\n mark('C')\n return {o for o in marks if marks[o]!=epoch}\nassert collect(1)=={'D'}\nassert collect(0)=={'A','B','D'}",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL32",
+      "title": "זיכרון פנוי אינו בהכרח רציף",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "external_fragmentation",
+        "compaction",
+        "pointer_relocation"
+      ],
+      "learning_objective": "להבחין בין איחוד חורים סמוכים לבין הזזת אובייקטים, ולחשב עדכון מצביעים אחרי compaction.",
+      "source_pages": {
+        "pdf": [
+          35,
+          36
+        ],
+        "printed": [
+          34,
+          35
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להבחין בין איחוד חורים סמוכים לבין הזזת אובייקטים, ולחשב עדכון מצביעים אחרי compaction.",
+        "related_prior_question_ids": [
+          "PL14"
+        ],
+        "distinction": "PL14 עקבה אחר סדר ההעתקה ב-Cheney; כאן נבחנים כשל הקצאה מפרגמנטציה, דחיסה במקום ועדכון הפניה פנימית."
+      },
+      "semantic_context": "Heap של 64 בתים בכתובות 0–63. התחומים חצי־פתוחים [start,end). A,B,C חיים; יתר השטח פנוי. הקצאה דורשת רצף אחד. compaction מעבירה את A,B,C לתחילת ה-heap בסדר זה, בלי רווחים ובלי שינוי גודל, ומעדכנת כל הפניה. p מצביע ל-B; q מצביע לבית שבהיסט 4 בתוך C, והאוסף יודע לעדכן גם הפניה פנימית זו.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג טבלת תחומים; אם מוסיפים תרשים זיכרון, שמור בדיוק על הגדלים ועל הסימון [start,end).",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מהו הטופל (סך הפנוי לפני הדחיסה, החור הגדול לפני הדחיסה, p אחרי הדחיסה, q אחרי הדחיסה), והאם ניתן להקצות 24 בתים לפני ואחרי הדחיסה?",
+      "code_blocks": [],
+      "data_tables": [
+        {
+          "label": "מצב ה-heap",
+          "columns": [
+            "תחום",
+            "תוכן",
+            "גודל"
+          ],
+          "rows": [
+            [
+              "[0,12)",
+              "A",
+              12
+            ],
+            [
+              "[12,20)",
+              "פנוי",
+              8
+            ],
+            [
+              "[20,28)",
+              "B",
+              8
+            ],
+            [
+              "[28,36)",
+              "פנוי",
+              8
+            ],
+            [
+              "[36,48)",
+              "C",
+              12
+            ],
+            [
+              "[48,64)",
+              "פנוי",
+              16
+            ]
+          ],
+          "direction": "ltr"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(32,16,12,24); לפני לא, אחרי כן.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(32,32,20,40); לפני ואחרי כן.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(32,16,12,20); לפני לא, אחרי כן.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(24,16,12,24); לפני ואחרי לא.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "חשב תחילה את שלושת החורים, ואז בנה מפת כתובות חדשה לאובייקטים החיים.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "האובייקטים תופסים 12+8+12=32 בתים. החורים הם 8,8,16 ולכן אין לפני הדחיסה מקום רציף ל-24. לאחר דחיסה A מתחיל ב-0, B ב-12 ו-C ב-20; p מתעדכן ל-12 ו-q ל-20+4=24. השטח [32,64) פנוי ברצף ולכן ההקצאה מצליחה.",
+        "reasoning_steps": [
+          "sweep ללא תנועה אינו מאחד חורים המופרדים באובייקטים חיים.",
+          "compaction אינה מגדילה את סך הפנוי כאן; היא משנה את הרציפות.",
+          "הפניה פנימית שומרת על ההיסט בתוך האובייקט לאחר הזזתו."
+        ],
+        "option_feedback": {
+          "A": "כל הגדלים, הכתובות והחלטות ההקצאה נכונים.",
+          "B": "סכום החורים אינו גודל חור יחיד, ומצביעים חייבים להתעדכן.",
+          "C": "20 היא כתובת תחילת C, בעוד q מצביע ארבעה בתים בתוכו.",
+          "D": "סך השטח הפנוי הוא 32, לא 24."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "sizes={'A':12,'B':8,'C':12};holes=[8,8,16]\nnext_pos=0;new={}\nfor name in ['A','B','C']:new[name]=next_pos;next_pos+=sizes[name]\nassert (sum(holes),max(holes),new['B'],new['C']+4)==(32,16,12,24)\nassert max(holes)<24 and 64-next_pos>=24",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL33",
+      "title": "משך חיים סטטי בתוך פונקציה רקורסיבית",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "static_local",
+        "activation_record",
+        "recursion_lifetime"
+      ],
+      "learning_objective": "להבדיל בין תחום ההכרה של static מקומי, משך חייו ואחסון של משתנה אוטומטי בכל הפעלה.",
+      "source_pages": {
+        "pdf": [
+          27,
+          30,
+          41
+        ],
+        "printed": [
+          26,
+          29,
+          40
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להבדיל בין תחום ההכרה של static מקומי, משך חייו ואחסון של משתנה אוטומטי בכל הפעלה.",
+        "related_prior_question_ids": [
+          "PL10",
+          "PL11"
+        ],
+        "distinction": "הסט הראשון בדק כללי הכרה וקישורים ברקורסיה; כאן נבחנת הבחנה בין static storage duration לבין scope ובין מצב משותף למצב פר־הפעלה."
+      },
+      "semantic_context": "C++17, ריצה חד־תהליכית. זו ההפעלה הראשונה בתהליך של הפונקציה. קודם מבצעים int first=f(2), ורק לאחר סיומה int second=f(1). סופרים הפעלות פעילות של f בלבד, לא את main.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את שתי הקריאות כסדר פעולות מפורש; אין לקרוא להן בתוך ביטוי שמותיר סדר הערכה לא מוגדר.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מהם (first,second,מספר ההפעלות הפעילות המרבי של f)?",
+      "code_blocks": [
+        {
+          "id": "הפונקציה",
+          "label": "הפונקציה",
+          "language": "cpp",
+          "code": "int f(int n) {\n    static int count=0;\n    int local=++count;\n    if (n==0) return local;\n    int child=f(n-1);\n    return 100*local+child;\n}"
+        },
+        {
+          "id": "סדר הקריאות",
+          "label": "סדר הקריאות",
+          "language": "cpp",
+          "code": "int first=f(2);\nint second=f(1);"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "(303,303,3)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(603,505,3)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(303,405,1)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(303,405,3)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "צייר עמודה משותפת ל-count ועמודה נפרדת ל-local בכל frame.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "count הוא אובייקט משותף לכל קריאות f ואינו מתאפס אחרי החזרה; local הוא אובייקט נפרד בכל הפעלה. בקריאה הראשונה local מקבל בהתאמה 1,2,3, והחזרות נותנות 3,203,303. בשנייה local מקבל 4 ואז 5, ולכן התוצאה 405. הקריאה הראשונה מחזיקה שלוש הפעלות פעילות בו־זמנית.",
+        "reasoning_steps": [
+          "מקומיות השם אינה אומרת שמשך החיים הוא של הפעלה אחת.",
+          "local נשמר בנפרד בעת הירידה ברקורסיה.",
+          "count נשאר 3 לפני תחילת f(1)."
+        ],
+        "option_feedback": {
+          "A": "count אינו מאותחל מחדש בקריאה העליונה השנייה, וגם עומקיה שונים.",
+          "B": "אלה התוצאות אילו local עצמו היה static ומשותף, בניגוד לקוד.",
+          "C": "static אחד אינו מבטל את הצורך בהפעלות נפרדות לשאר המצב.",
+          "D": "תואם את שתי הקריאות ואת שיא עומק הרקורסיה."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": "count=0;active=0;peak=0\ndef f(n):\n global count,active,peak\n active+=1;peak=max(peak,active);count+=1;local=count\n result=local if n==0 else 100*local+f(n-1)\n active-=1;return result\nassert (f(2),f(1),peak)==(303,405,3)",
+        "cpp_cases": [
+          {
+            "label": "runtime_assertions",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nint f(int n) {\n    static int count=0;\n    int local=++count;\n    if (n==0) return local;\n    int child=f(n-1);\n    return 100*local+child;\n}\nint main(){int first=f(2);int second=f(1);assert(first==303&&second==405);}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL34",
+      "title": "קישור לפי שם, מיקום וברירת מחדל",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "keyword_parameters",
+        "positional_parameters",
+        "argument_binding"
+      ],
+      "learning_objective": "להבחין בין שם פרמטר פורמלי, מילוי ברירת מחדל, כפל השמה לפרמטר ושגיאת תחביר לפני ריצה.",
+      "source_pages": {
+        "pdf": [
+          39
+        ],
+        "printed": [
+          38
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להבחין בין שם פרמטר פורמלי, מילוי ברירת מחדל, כפל השמה לפרמטר ושגיאת תחביר לפני ריצה.",
+        "related_prior_question_ids": [
+          "PL15",
+          "PL16"
+        ],
+        "distinction": "PL15–PL16 עסקו במנגנון העברת נתונים; כאן נבחן שלב שיוך הארגומנטים לפרמטרים, לפני פעולת הגוף."
+      },
+      "semantic_context": "Python 3. כל קריאה I–IV נבדקת בפני עצמה. ב-IV מדובר בטקסט מקור נפרד ולכן שגיאת תחביר שלה אינה מונעת בדיקת שאר הקריאות.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את הקריאות כניסויים נפרדים. אל תציג IV בתוך קובץ אחד שהמשתמש מתבקש להריץ בשלמותו.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "אילו קריאות תקינות ומהן תוצאותיהן? מהו סוג הכישלון בכל אחת מהאחרות?",
+      "code_blocks": [
+        {
+          "id": "הפונקציה",
+          "label": "הפונקציה",
+          "language": "python",
+          "code": "def f(a,b=2,c=3):\n    return 100*a+10*b+c"
+        },
+        {
+          "id": "קריאות נפרדות",
+          "label": "קריאות נפרדות",
+          "language": "python",
+          "code": "# I\nf(c=5,a=1)\n# II\nf(1,**{\"c\":5,\"b\":4})\n# III\nf(1,a=4)\n# IV\nf(c=5,1)"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "רק I תקינה ומחזירה 125; II–IV גורמות SyntaxError.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "I מחזירה 125 ו-II מחזירה 145; III גורמת TypeError בזמן ריצה ו-IV ל-SyntaxError.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "I מחזירה 152 ו-II מחזירה 154; III משתמשת ב-a האחרון ו-IV גורמת TypeError.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "I ו-II תקינות ומחזירות 125 ו-145; III ו-IV נכשלות רק כשגוף f מתחיל לפעול.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "מלא טבלת a,b,c לכל קריאה, ועצור כאשר פרמטר מקבל שני ערכים.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "keyword arguments נקשרים לפי השם ולא לפי סדר הופעתם. ב-I מתקבלים a=1,c=5 ו-b=2 מברירת המחדל. ב-II מילון הפריסה מספק b=4,c=5. ב-III a כבר קיבל 1 לפי מיקום ואז מקבל גם a=4 ולכן הקישור נכשל ב-TypeError לפני גוף הפונקציה. ב-IV ארגומנט מיקומי רגיל אחרי keyword הוא שגיאת תחביר.",
+        "reasoning_steps": [
+          "ערכי ברירת מחדל ממלאים רק פרמטר שלא קיבל ערך.",
+          "** מרחיב מיפוי לארגומנטים לפי שם.",
+          "קישור פרמטרים וניתוח תחביר מתרחשים לפני ביצוע גוף f."
+        ],
+        "option_feedback": {
+          "A": "פריסת **dict חוקית כאן; III אינה שגיאת תחביר.",
+          "B": "מפרידה נכון בין קישור שמות לבין שלבי הכישלון.",
+          "C": "שמות אינם נקשרים לפי סדר הופעתם וכפל a אינו ״האחרון מנצח״.",
+          "D": "הכישלונות קודמים לביצוע הגוף, ו-IV אף קודמת להרצה."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "def f(a,b=2,c=3):return 100*a+10*b+c\nassert f(c=5,a=1)==125\nassert f(1,**{'c':5,'b':4})==145\ntry:f(1,a=4)\nexcept TypeError:pass\nelse:raise AssertionError('III must fail during argument binding')\ntry:compile('f(c=5,1)','<IV>','exec')\nexcept SyntaxError:pass\nelse:raise AssertionError('IV must fail during parsing')",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL35",
+      "title": "const בהפניה אינו const בכל הגרף",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "least_privilege",
+        "const_reference",
+        "shallow_const"
+      ],
+      "learning_objective": "להעריך את גבול ההרשאה שנותנת const reference כאשר האובייקט מכיל מצביע לנתונים ניתנים לשינוי.",
+      "source_pages": {
+        "pdf": [
+          40,
+          41
+        ],
+        "printed": [
+          39,
+          40
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להעריך את גבול ההרשאה שנותנת const reference כאשר האובייקט מכיל מצביע לנתונים ניתנים לשינוי.",
+        "related_prior_question_ids": [
+          "PL18"
+        ],
+        "distinction": "PL18 עסקה בשדות const ובאתחול; כאן נבחנת הרשאת כתיבה דרך const reference ושכבות מצביעים כחלק מתכנון פרמטר in."
+      },
+      "semantic_context": "C++17. מערך int רגיל arr[2] חי לאורך כל הבדיקה; View v{arr,2}. כל שורה I–IV נבדקת בנפרד בתוך void edit(const View& v). אין const_cast ואין mutable.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את תנאי החיים של arr. אין להוסיף const ל-int* שבשדה data, כי זה ישנה את השאלה.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "אילו שורות חוקיות, ומה ניתן להסיק על ההבטחה של const View&?",
+      "code_blocks": [
+        {
+          "id": "המחלקה",
+          "label": "המחלקה",
+          "language": "cpp",
+          "code": "struct View { int* data; unsigned length; };"
+        },
+        {
+          "id": "שורות חלופיות בתוך edit",
+          "label": "שורות חלופיות בתוך edit",
+          "language": "cpp",
+          "code": "// I\nv.data[0]=9;\n// II\nv.data=nullptr;\n// III\n++v.length;\n// IV\nint* p=v.data; p[1]=8;"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "I ו-IV בלבד; השדות של View מוגנים משינוי דרך v, אך הנתונים שאליהם data מצביע אינם נעשים const.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "אף שורה אינה חוקית; const View& מקפיאה את כל האובייקטים הנגישים מ-v.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "I,II ו-IV חוקיות; const על View אינו חל על שדות מטיפוס מצביע.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "II ו-III בלבד; const מאפשרת שינוי מטא־נתונים אך אוסרת שינוי במערך.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "הבחן בין שינוי המצביע עצמו לשינוי האובייקט שאליו הוא מצביע.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "const View& מאפשרת לקרוא את שדות View, אבל לא להשימם דרך v. השדה data הוא מצביע ל-int, ולכן dereference שלו עדיין נותן int שניתן לשנות. העתקת ערך המצביע למשתנה מקומי p חוקית ואינה משנה את השדה. אם רוצים לאסור שינוי דרך תצוגת הנתונים, צריך ממשק שמפנה ל-const int; גם זה אינו מבטיח שאין aliases אחרים שמשנים את המערך.",
+        "reasoning_steps": [
+          "v.data עצמה אינה ניתנת להשמה דרך v.",
+          "*v.data אינו הופך אוטומטית ל-const int.",
+          "const דרך נתיב גישה אינו מבטיח snapshot או אי־שינוי מכל נתיב אחר."
+        ],
+        "option_feedback": {
+          "A": "מזהה נכון את השכבה שעליה חלה ההגבלה.",
+          "B": "const אינה רקורסיבית דרך מצביעים רגילים.",
+          "C": "השדה data מוגן מהשמה אף שטיפוסו מצביע.",
+          "D": "שינוי השדות נאסר, בעוד הנתונים המוצבעים ניתנים לשינוי כאן."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "cpp17_and_reasoning",
+        "python_assertions": null,
+        "cpp_cases": [
+          {
+            "label": "runtime_assertions",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nstruct View { int* data; unsigned length; };\nvoid edit(const View& v){v.data[0]=9;int* p=v.data;p[1]=8;}\nint main(){int arr[2]={1,2};View v{arr,2};edit(v);assert(arr[0]==9&&arr[1]==8&&v.length==2);}\n",
+            "expect_compile": true,
+            "run_if_compiled": true,
+            "expected_exit_code": 0
+          },
+          {
+            "label": "II_invalid",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nstruct View { int* data; unsigned length; };\nvoid edit(const View& v){v.data=nullptr;}\nint main(){}\n",
+            "expect_compile": false,
+            "run_if_compiled": false,
+            "expected_exit_code": null
+          },
+          {
+            "label": "III_invalid",
+            "standard": "c++17",
+            "source": "#include <cassert>\n#include <array>\n#include <climits>\n#include <cstddef>\n#include <iostream>\n#include <sstream>\n#include <string>\n#include <type_traits>\n#include <utility>\n#include <vector>\nstruct View { int* data; unsigned length; };\nvoid edit(const View& v){++v.length;}\nint main(){}\n",
+            "expect_compile": false,
+            "run_if_compiled": false,
+            "expected_exit_code": null
+          }
+        ],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL36",
+      "title": "עוגן המסגרת לעומת ראש המחסנית",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "stack_frame",
+        "frame_pointer",
+        "stack_offsets"
+      ],
+      "learning_objective": "לשחזר פריסת frame, ולהבחין ב-EBP יציב וב-ESP שזז בעקבות מקומיים ושמירת רגיסטר.",
+      "source_pages": {
+        "pdf": [
+          42,
+          43,
+          44
+        ],
+        "printed": [
+          41,
+          42,
+          43
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לשחזר פריסת frame, ולהבחין ב-EBP יציב וב-ESP שזז בעקבות מקומיים ושמירת רגיסטר.",
+        "related_prior_question_ids": [
+          "PL17"
+        ],
+        "distinction": "PL17 בדקה מי מנקה ארגומנטים וכמה; כאן משוחזרת פריסת מסגרת מלאה עם return address, מקומיים ורגיסטר שמור."
+      },
+      "semantic_context": "מודל Microsoft x86 של 32 ביט עם מחסנית שגדלה לכתובות נמוכות. כל push וכתובת חזרה תופסים 4 בתים. בכניסה לרצף ESP=0x1000. CALL דוחפת כתובת חזרה. זהו prologue נתון ללא פעולות נסתרות, padding או יישור נוסף; אין להריץ אותו כקוד של המכונה המארחת.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את הקוד כ-assembly ללא כפתור הרצה, ויישר מספרים הקסדצימליים ל-LTR.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מהו הטופל (ESP בסוף, הערך ב-[EBP+8], הערך ב-[EBP+12], ההיסט של EBX השמור ביחס ל-EBP)?",
+      "code_blocks": [
+        {
+          "id": "קוד השאלה",
+          "label": "קוד השאלה",
+          "language": "assembly",
+          "code": "; caller: foo(11,22)\npush 22\npush 11\ncall foo\n\n; foo prologue:\npush ebp\nmov ebp, esp\nsub esp, 12\npush ebx"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "(0x0FE4,11,22,-12)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "(0x0FE0,22,11,-16)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "(0x0FE0,11,22,-16)",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "(0x101C,11,22,+16)",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "עדכן את ESP אחרי כל הוראה, וקבע מתי EBP מקבל את ערכו.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "לאחר דחיפת שני הארגומנטים ESP=0x0FF8; CALL מורידה אותו ל-0x0FF4; push ebp מורידה ל-0x0FF0, וזהו EBP החדש. הקצאת 12 בתים ושמירת EBX מביאות ל-0x0FE0. הארגומנט הראשון 11 נמצא ב-0x0FF8=EBP+8, והשני 22 ב-EBP+12. EBX נשמר ב-EBP-16.",
+        "reasoning_steps": [
+          "הכתובת EBP+4 מכילה את כתובת החזרה, לא ארגומנט.",
+          "sub esp,12 מקצה מקום בכתובות נמוכות יותר.",
+          "push ebx מתבצעת אחרי הקצאת המקומיים."
+        ],
+        "option_feedback": {
+          "A": "האפשרות שכחה את push ebx.",
+          "B": "סדר הדחיפה הופך את הראשון לממוקם קרוב יותר ל-EBP.",
+          "C": "כל השדות מחושבים לפי רצף ההוראות הנתון.",
+          "D": "כיוון גדילת המחסנית הפוך."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "esp=0x1000;mem={}\ndef push(v):\n global esp\n esp-=4;mem[esp]=v\npush(22);push(11);push('return');push('old_ebp');ebp=esp\nesp-=12;push('old_ebx')\nassert (esp,mem[ebp+8],mem[ebp+12],esp-ebp)==(0xFE0,11,22,-16)",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL37",
+      "title": "מי אחראי לשמור ערך שחי מעבר לקריאה",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "caller_saved",
+        "callee_saved",
+        "return_register"
+      ],
+      "learning_objective": "לתכנן שמירת ערכים חיים על פני call בלי לאבד את ערך החזרה באותו רגיסטר.",
+      "source_pages": {
+        "pdf": [
+          43,
+          44
+        ],
+        "printed": [
+          42,
+          43
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לתכנן שמירת ערכים חיים על פני call בלי לאבד את ערך החזרה באותו רגיסטר.",
+        "related_prior_question_ids": [
+          "PL17"
+        ],
+        "distinction": "הסט הראשון לא בחן caller-saved/callee-saved או התנגשות בין שמירת ערך ב-EAX לבין קבלת ערך חזרה."
+      },
+      "semantic_context": "Microsoft x86 של 32 ביט: EAX,ECX,EDX הם volatile; EBX נשמר על ידי הנקראת. return int נמצא ב-EAX. לפני הקריאה EAX=5, ECX=7, EBX=11. הפונקציה מחזירה 3, רשאית לדרוס ECX ו-EDX ומקיימת את המוסכמה. מתעלמים מעלויות, ומניחים שאין קריאה נוספת בזמן חישוב הסכום.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את מוסכמת השמירה כחלק מהשאלה. אין להסיק מן המחשב המארח את חלוקת הרגיסטרים.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "הקוראת צריכה לחשב אחרי החזרה את סכום שלושת הערכים המקוריים ואת ערך החזרה: 26. איזו אסטרטגיה מבטיחה זאת?",
+      "code_blocks": [],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "לשמור לפני הקריאה את EAX ו-ECX; אחרי הקריאה לשמר את EAX החדש, לשחזר את שני הישנים ולצרף גם EBX.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "לשמור רק ECX; EAX נשמר בידי הנקראת כי הוא רגיסטר החזרה.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "לשמור EAX ו-ECX, לשחזרם מיד ואז לקרוא את ערך החזרה מ-EAX.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "לשמור רק EBX; רגיסטרים אחרים חייבים לחזור לערכי הכניסה.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "ל-EAX יש שני תפקידים בזמנים שונים; שניהם נחוצים לסכום.",
+      "answer": {
+        "correct_option_id": "A",
+        "explanation": "שני ערכי הקלט הישנים ב-EAX וב-ECX אינם מובטחים אחרי הקריאה. EBX כן נשמר לפי ההנחה. אחרי החזרה EAX כבר מכיל 3, ולכן צריך לשמור גם אותו לפני שחזור ה-5 הישן. למשל ניתן להעתיק את 3 ל-EDX אחרי הקריאה, לשחזר EAX ו-ECX, ולחשב 5+7+11+3.",
+        "reasoning_steps": [
+          "caller-saved פירושו שהקוראת אחראית אם היא צריכה את הערך הישן.",
+          "return register אינו נשמר עבור ערך הכניסה; הוא נועד לתוצאה החדשה.",
+          "מותר להשתמש ב-EDX כזמני אחרי החזרה כל עוד אין call נוסף שידרוס אותו."
+        ],
+        "option_feedback": {
+          "A": "שומרת גם את הערכים הישנים וגם את התוצאה החדשה.",
+          "B": "EAX משתנה ל-3 ולכן ה-5 המקורי יאבד.",
+          "C": "שחזור EAX לפני שמירת התוצאה דורס את ערך החזרה.",
+          "D": "ההבטחות הן דווקא הפוכות עבור רגיסטרים אלו."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "for clobber in [-100,0,7,99]:\n reg={'eax':5,'ecx':7,'ebx':11};saved=(reg['eax'],reg['ecx'])\n reg.update(eax=3,ecx=clobber,edx=123)\n result=reg['eax'];reg['eax'],reg['ecx']=saved\n assert reg['eax']+reg['ecx']+reg['ebx']+result==26",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL38",
+      "title": "העמסה, קימפול נפרד ושם הסמל",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "name_mangling",
+        "separate_compilation",
+        "linking"
+      ],
+      "learning_objective": "להבחין בין הכרזה המאפשרת בדיקת קריאה, הגדרה בעלת חתימה אחרת וכישלון בשלב הקישור.",
+      "source_pages": {
+        "pdf": [
+          44,
+          45,
+          46
+        ],
+        "printed": [
+          43,
+          44,
+          45
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להבחין בין הכרזה המאפשרת בדיקת קריאה, הגדרה בעלת חתימה אחרת וכישלון בשלב הקישור.",
+        "related_prior_question_ids": [
+          "PL03",
+          "PL19"
+        ],
+        "distinction": "הסט הראשון עסק בהמרות וב-override; כאן נבדקים name mangling, יחידות תרגום והבדל בין כישלון קימפול לכישלון קישור."
+      },
+      "semantic_context": "C++17. שני הקבצים מקומפלים בנפרד ואז מקושרים. אין הגדרה נוספת, אין extern \"C\", אין link-time optimization, והמימוש מקודד חתימות שונות בסמלים שונים. אין צורך להכיר את האיות המדויק של השם המקודד.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את שני הקבצים בנפרד; אל תאגד אותם לפני בדיקה ואל תציג את הכישלון כ-SyntaxError.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "מה יקרה, ומהו תיקון ישיר שמממש את ההצהרה שהלקוח קיבל?",
+      "code_blocks": [
+        {
+          "id": "client.cpp",
+          "label": "client.cpp",
+          "language": "cpp",
+          "code": "int compute(int,int);\nint main(){return compute(1,2)==3 ? 0 : 1;}"
+        },
+        {
+          "id": "lib.cpp",
+          "label": "lib.cpp",
+          "language": "cpp",
+          "code": "int compute(int a,char b){return a+b;}"
+        }
+      ],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "client.cpp לא יתקמפל כי חובה שגוף compute יופיע באותו קובץ.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "הכול יתקשר; המקשר יבצע אוטומטית המרת int ל-char עבור הארגומנט השני.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "הכול יתקשר, אך הקריאה תשתמש ב-overload בעל ציון ההתאמה הטוב ביותר בזמן ריצה.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "כל קובץ יכול להתקמפל, אך הקישור ייכשל; יש לספק הגדרה של compute(int,int) התואמת להצהרה.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "שאל איזה overload בכלל גלוי בזמן קימפול client.cpp.",
+      "answer": {
+        "correct_option_id": "D",
+        "explanation": "ב-client קיימת הצהרה מספקת עבור compute(int,int), והקריאה נפתרת אליה בזמן הקימפול. lib מגדירה overload אחר, compute(int,char), שהלקוח אינו מכיר. סימול החתימה מאפשר להבחין בין ההגדרות, אך אינו מייצר אוטומטית את המימוש החסר. המקשר אינו בוחר מחדש overload ואינו מוסיף המרת פרמטר כדי לתקן חתימה.",
+        "reasoning_steps": [
+          "הצהרה אינה הגדרה, אך מספיקה לבדיקת הקריאה.",
+          "שתי חתימות שונות יכולות להתקיים כשתי פונקציות נפרדות.",
+          "הסמל שהלקוח מבקש אינו מוגדר בקובץ הספרייה הנתון."
+        ],
+        "option_feedback": {
+          "A": "קימפול נפרד מאפשר שימוש בהצהרה בלי גוף באותו קובץ.",
+          "B": "המרות ארגומנטים והכרעת overload הן שלב סמנטי של הקומפיילר, לא תיקון של המקשר.",
+          "C": "זו אינה בחירה פולימורפית בזמן ריצה.",
+          "D": "מזהה את שלב הכישלון ואת החתימה החסרה."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "separate_compilation_and_linking",
+        "python_assertions": "declarations={('compute',('int','int'))}\ndefinitions={('compute',('int','char'))}\nrequired=('compute',('int','int'))\nassert required in declarations and required not in definitions\nassert required in (definitions | {required})",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה.",
+        "link_cases": [
+          {
+            "label": "mismatched_signature",
+            "sources": {
+              "client.cpp": "int compute(int,int);\nint main(){return compute(1,2)==3 ? 0 : 1;}",
+              "lib.cpp": "int compute(int a,char b){return a+b;}"
+            },
+            "expect_object_compilation": true,
+            "expect_link": false,
+            "run_if_linked": false
+          },
+          {
+            "label": "matching_signature",
+            "sources": {
+              "client.cpp": "int compute(int,int);\nint main(){return compute(1,2)==3 ? 0 : 1;}",
+              "lib.cpp": "int compute(int a,int b){return a+b;}"
+            },
+            "expect_object_compilation": true,
+            "expect_link": true,
+            "run_if_linked": true,
+            "expected_exit_code": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "PL39",
+      "title": "החלפת ייצוג ושמירת חוזה של ADT",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "adt_contract",
+        "representation_independence",
+        "complexity_guarantee"
+      ],
+      "learning_objective": "להבחין בין שקילות תוצאות לבין קיום חוזה מלא, כולל דרישות סיבוכיות מפורשות.",
+      "source_pages": {
+        "pdf": [
+          47,
+          48
+        ],
+        "printed": [
+          46,
+          47
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "להבחין בין שקילות תוצאות לבין קיום חוזה מלא, כולל דרישות סיבוכיות מפורשות.",
+        "related_prior_question_ids": [
+          "PL18"
+        ],
+        "distinction": "PL18 עסקה בבנאי ובאינווריאנט של אובייקט; כאן נבחן האם שינוי ייצוג מקיים את כל חוזה ה-ADT, לרבות ביצועים. בדיקת מספרי הזזות היא המחשה; ההוכחה האסימפטוטית היא הנימוק Θ(n)."
+      },
+      "semantic_context": "חוזה Stack דורש LIFO, וכן push ו-pop בזמן O(1) במקרה הגרוע. עלות הקצאת צומת כבר כלולה במודל כ-O(1). אין חשיפת כתובות או ייצוג, אין מגבלת קיבולת, ואין דרישת snapshot. מימוש L מוסיף ומסיר בראש רשימה מקושרת. מימוש A שומר את ראש המחסנית באינדקס 0 של מערך ומזיז בכל push/pop את כל האיברים הקיימים/הנותרים. שניהם מחזירים ערכים נכונים.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג O(1) כדרישת worst-case מפורשת; אין להחליפה ב-amortized O(1), ואין לשנות את מיקום הראש במערך.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "איזו מסקנה נכונה לגבי החלפת L ב-A כאשר הממשק הציבורי ושדות private נשארים זהים?",
+      "code_blocks": [],
+      "data_tables": [],
+      "options": [
+        {
+          "id": "A",
+          "text": "ההחלפה תקינה בהכרח; פרטי מימוש private לעולם אינם קשורים לחוזה.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "ההחלפה אינה תקינה משום ש-ADT של מחסנית מחייב רשימה מקושרת.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "התוצאות מקיימות LIFO בשניהם, אך A מפר את דרישת O(1); הסתרת הייצוג אינה פוטרת מחוזה ביצועים.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "שני המימושים מפרים את החוזה; ADT חייב להיות מחלקה בעלת פונקציות virtual.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "קרא את כל החוזה, לא רק את סדר הערכים שמוחזרים.",
+      "answer": {
+        "correct_option_id": "C",
+        "explanation": "ADT מפריד התנהגות נדרשת מהייצוג. כאן התנהגות נדרשת כוללת במפורש גם חסם סיבוכיות. הזזת n איברים בפעולה היא Θ(n), ולכן A אינו תחליף המקיים את החוזה, אף שהוא מחזיר את אותם ערכים. מערך אינו פסול כשלעצמו; הבעיה היא האלגוריתם הנתון והחסם שנדרש.",
+        "reasoning_steps": [
+          "private מסתיר ייצוג ואינו משנה עלות של פעולות.",
+          "LIFO לבדו אינו כל החוזה שניתן.",
+          "אין הכרח לירושה או לפולימורפיזם דינמי כדי לממש ADT."
+        ],
+        "option_feedback": {
+          "A": "החוזה כולל ביצועים שניתן להפר גם בלי לחשוף שדה.",
+          "B": "אפשר לממש מחסנית במגוון ייצוגים; המודל אינו מחייב רשימה.",
+          "C": "מפרידה נכון בין תוצאות, ייצוג והתחייבות סיבוכיות.",
+          "D": "virtual אינו תנאי להגדרת ADT."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "class LinkedModel:\n def __init__(self):self.head=None\n def push(self,x):self.head=(x,self.head)\n def pop(self):x,self.head=self.head;return x\nl=LinkedModel();a=[]\nfor x in [4,7,2,9]:l.push(x);a.insert(0,x)\nassert [l.pop() for _ in range(4)]==[a.pop(0) for _ in range(4)]==[9,2,7,4]\nshifts=lambda n:n\nassert shifts(2*100)==2*shifts(100) and shifts(100)>1",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    },
+    {
+      "id": "PL40",
+      "title": "טבלה וירטואלית משותפת: מחיר וסלוט",
+      "type": "single_choice",
+      "difficulty": "advanced",
+      "points": 5,
+      "topics": [
+        "vtable",
+        "vptr",
+        "shared_metadata",
+        "dispatch_slot"
+      ],
+      "learning_objective": "לחשב את ההפרדה בין עלות לכל אובייקט לבין עלות לכל מחלקה ולשחזר שיגור לפי slot קבוע.",
+      "source_pages": {
+        "pdf": [
+          51,
+          52
+        ],
+        "printed": [
+          50,
+          51
+        ]
+      },
+      "coverage_delta": {
+        "visibility": "author_only",
+        "new_focus": "לחשב את ההפרדה בין עלות לכל אובייקט לבין עלות לכל מחלקה ולשחזר שיגור לפי slot קבוע.",
+        "related_prior_question_ids": [
+          "PL19"
+        ],
+        "distinction": "PL19 בדקה override ושיגור מול פונקציה רגילה; כאן נבחנים שיתוף טבלאות בין מופעים, עלות הזיכרון וסלוטים במודל מימוש מפורש."
+      },
+      "semantic_context": "מודל מימוש מפורש, שאינו הבטחת פריסה של תקן C++: לכל אובייקט vptr יחיד בגודל 8 בתים; לכל מחלקה טבלה משותפת אחת; כל entry הוא 8 בתים. אין RTTI, ריפוד או מטא־נתונים נוספים בחישוב. D יורשת מ-B ו-E יורשת מ-D. t היא מתודה לא־וירטואלית ואינה תופסת entry. סופרים רק vptr-ים וטבלאות, ללא data members וללא קוד הפונקציות.",
+      "instructions_to_claude": {
+        "layout": "שאלה אחת בכל פעם; עברית RTL; קוד, כתובות, ביטויים וטופלים LTR.",
+        "specific_presentation": "הצג את הטבלאות עם אינדקסים 0,1,2 ועם סימון שאין entry במקום החסר. אל תייצר כתובות אמיתיות או תטען שהפריסה תקנית לכל ABI.",
+        "preserve": "הצג semantic_context במלואו, את כל בלוקי הקוד ואת כל הטבלאות. אין להשמיט הנחות מודל.",
+        "options": "ארבע אפשרויות עם radio; תשובה יחידה; שמור IDs גם אם מיקום התצוגה משתנה.",
+        "review": "פתור עצמאית ובדוק את כל המסיחים. תקן טעות או עמימות ושמור על הקושי ועל ההבדל מהסט הראשון. עדכן תשובה, הסברים ואימות יחד.",
+        "solutions": "בבחינה הצג פתרון רק אחרי הגשה; בתרגול אחרי בדיקה מפורשת. מטא־נתונים, coverage_delta ובדיקות אינם תוכן לתלמיד."
+      },
+      "question": "יש 120 אובייקטי B, 80 אובייקטי D ו-50 אובייקטי E. כמה בתים נדרשים בסך הכול למנגנון הנתון, ולאיזה מימוש תפנה קריאת g דרך B* המצביע לאובייקט E?",
+      "code_blocks": [],
+      "data_tables": [
+        {
+          "label": "טבלאות המימוש",
+          "columns": [
+            "מחלקה",
+            "slot 0: f",
+            "slot 1: g",
+            "slot 2: h"
+          ],
+          "rows": [
+            [
+              "B",
+              "B::f",
+              "B::g",
+              "אין entry"
+            ],
+            [
+              "D",
+              "D::f",
+              "B::g",
+              "D::h"
+            ],
+            [
+              "E",
+              "E::f",
+              "E::g",
+              "D::h"
+            ]
+          ],
+          "direction": "ltr"
+        }
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "2000 בתים; B::g, משום שהמצביע מוכרז B*.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "B",
+          "text": "2064 בתים; E::g, באמצעות slot 1 בטבלה שאליה האובייקט מפנה.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "C",
+          "text": "7040 בתים; E::g, כי כל אובייקט מחזיק עותק מלא של הטבלה שלו נוסף על vptr.",
+          "code": null,
+          "code_language": null
+        },
+        {
+          "id": "D",
+          "text": "2088 בתים; D::g, משום ש-E ניגשת רק לטבלת אביה הישיר.",
+          "code": null,
+          "code_language": null
+        }
+      ],
+      "hint": "פצל את החישוב לרכיב פר־אובייקט ולרכיב פר־מחלקה.",
+      "answer": {
+        "correct_option_id": "B",
+        "explanation": "יש 250 vptr-ים ולכן 2000 בתים לכל האובייקטים יחד. שלוש הטבלאות מכילות 2+3+3=8 entries, כלומר 64 בתים נוספים. הסך הוא 2064. הטיפוס הסטטי מאפשר לבחור את slot 1 של g, אך ה-vptr של אובייקט E מוביל ל-entry E::g בטבלה שלו. t אינה מוסיפה slot במודל.",
+        "reasoning_steps": [
+          "מספר אובייקטים מכפיל vptr, לא את הטבלה המשותפת.",
+          "אותו slot מייצג את אותה פונקציה וירטואלית לאורך ההיררכיה הנתונה.",
+          "אין להסיק sizeof של מחלקת C++ אמיתית מהמודל בלי הנחות ABI נוספות."
+        ],
+        "option_feedback": {
+          "A": "חסרה עלות הטבלאות, ושיגור g הוא וירטואלי.",
+          "B": "גם החישוב וגם יעד השיגור תואמים למודל.",
+          "C": "7040 מחושב עם עותק טבלה לכל אובייקט, בניגוד לשיתוף שהוגדר.",
+          "D": "נוספו entries ל-t שלא קיימים, ואין כלל שמגביל את השיגור לטבלת האב הישיר."
+        }
+      },
+      "author_validation": {
+        "visibility": "author_only",
+        "kind": "python_model_and_reasoning",
+        "python_assertions": "counts={'B':120,'D':80,'E':50}\nvt={'B':['B::f','B::g'],'D':['D::f','B::g','D::h'],'E':['E::f','E::g','D::h']}\ntotal=8*sum(counts.values())+8*sum(map(len,vt.values()))\nassert total==2064 and vt['E'][1]=='E::g'\nassert 8*sum(counts[c]*len(vt[c]) for c in counts)+2000==7040",
+        "cpp_cases": [],
+        "instructions": "בדיקות Python עצמאיות. מקרי C++ הם יחידות תרגום נפרדות; קמפל עם g++ -std=c++17 -Wall -Wextra -pedantic-errors. כישלון קימפול צפוי הוא הצלחה של הבדיקה. אין להריץ קוד לא מוגדר, לולאה אינסופית, קטעי assembly או קוד מתוך JSON בדפדפן.",
+        "limits": "מודלים מפורשים נבדקים לפי הנחותיהם; הרצה ב-Linux אינה בדיקת ABI של Windows. נימוק סמנטי נדרש נוסף על הרצה."
+      }
+    }
+  ],
+  "validation_summary": {
+    "question_validation": "20/20 passed",
+    "json_structure": "passed",
+    "python_version": "3.14.6 (Windows)",
+    "cpp_compiler": "g++ 13.3.0 (Ubuntu 24.04 ב-WSL)",
+    "cpp_standard": "c++17",
+    "cpp_cases": 15,
+    "expected_cpp_compile_failures": 5,
+    "python_model_checks": 14,
+    "link_cases": 2,
+    "expected_link_failures": 1,
+    "answer_distribution": {
+      "B": 5,
+      "D": 5,
+      "A": 5,
+      "C": 5
+    },
+    "coverage_review": "לכל שאלה מטרה מובחנת ומיפוי לסט הראשון; מזהי השאלות אינם חופפים.",
+    "limits": "נבדקו: סימולציות Python, 15 מקרי C++17 (כולל סיבת השגיאה בכל כישלון קימפול צפוי), ושני מקרי קישור שבהם כל קובץ קומפל ל-object בנפרד לפני הקישור. לא הורצו: הלולאה האינסופית ב-PL22, dereference של one-past ב-PL26 וקטע ה-assembly ב-PL36. לא נבדק ABI של Windows; PL36–PL37 נבדקו כמודלים מפורשים.",
+    "site_check": "האתר נבדק ב-Edge headless: תצוגה, הסתרת פתרונות, ניקוד, מעבר בין מבחנים, רענון ומובייל."
+  }
+}

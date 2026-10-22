@@ -234,15 +234,22 @@ dialog h2 { font-size: 1.1rem; }
   var HISTORY_LIMIT = 30;
   var APP_KEY = 'fpquiz:v2:app';
 
+  // Menu names only; quiz ids and storage keys are never derived from these.
+  var DISPLAY_NAMES = {
+    functional_python_part_a_20_he: 'תכנות פונקציונלי ב-Python',
+    programming_language_principles_summary7_20_he: 'עקרונות שפות תוכנה — סט א׳'
+  };
+
   function makeQuiz(data) {
     var qmap = {};
     data.questions.forEach(function (q) { qmap[q.id] = q; });
+    var menuName = DISPLAY_NAMES[data.quiz_id] || (data.integration && data.integration.suggested_menu_label) || data.title.split(' — ')[0];
     return {
       id: data.quiz_id,
       version: data.content_version,
       data: data,
       title: data.title,
-      shortTitle: data.title.split(' — ')[0],
+      shortTitle: menuName,
       questions: data.questions,
       qmap: qmap,
       allIds: data.questions.map(function (q) { return q.id; }),
@@ -270,7 +277,7 @@ dialog h2 { font-size: 1.1rem; }
     map: 'map', filter: 'filter', iterators: 'איטרטורים', reduce: 'reduce',
     truthiness: 'ערכי אמת', equivalence: 'שקילות ביטויים', fold_order: 'סדר קיפול',
     identity_element: 'איבר יחידה', edge_cases: 'מקרי קצה',
-    accumulator_invariant: 'אינווריאנט צובר', any: 'any', short_circuit: 'עצירה מוקדמת',
+    accumulator_invariant: 'אינווריאנט צובר', any: 'any', short_circuit: 'הערכה מקוצרת (short circuit)',
     associativity: 'קיבוציות', commutativity: 'חילופיות',
     // Programming language principles
     language_evaluation: 'הערכת שפות', portability: 'ניידות', evaluation_order: 'סדר הערכה',
@@ -295,9 +302,29 @@ dialog h2 { font-size: 1.1rem; }
     constructors: 'בנאים', initialization: 'אתחול', virtual_functions: 'פונקציות וירטואליות',
     override: 'override', overloading: 'העמסה', abstract_class: 'מחלקה מופשטת',
     static_vs_dynamic_type: 'טיפוס סטטי ודינמי', multiple_inheritance: 'ירושה מרובה',
-    virtual_inheritance: 'ירושה וירטואלית', shared_base_subobject: 'תת־אובייקט בסיס משותף'
+    virtual_inheritance: 'ירושה וירטואלית', shared_base_subobject: 'תת־אובייקט בסיס משותף',
+    // Programming language principles, set B
+    orthogonality: 'אורתוגונליות', operator_overloading: 'העמסת אופרטורים', character_types: 'טיפוסי תווים',
+    writability: 'נוחות כתיבה', control_flow: 'זרימת בקרה', semantic_preservation: 'שימור סמנטיקה',
+    enumeration: 'טיפוסי מנייה', scoped_enum: 'enum class', integral_promotion: 'קידום אריתמטי',
+    boolean_conversion: 'המרה לבוליאני', assignment_expression: 'ביטוי השמה', bit_packing: 'דחיסת ביטים',
+    addressability: 'כתובתיות', reference_binding: 'קישור הפניות', pointer_arithmetic: 'אריתמטיקת מצביעים',
+    array_type: 'טיפוס מערך', one_past_end: 'מצביע one-past', unnamed_scope: 'בלוקים ללא שם',
+    storage_reuse: 'שימוש חוזר באחסון', lifetime: 'זמן חיים', copy_constructor: 'בנאי העתקה',
+    move_constructor: 'בנאי העברה', value_category: 'קטגוריית ערך', 'const': 'const',
+    static_chain_cost: 'עלות שרשרת סטטית', lexical_depth: 'עומק לקסיקלי', frame_address_caching: 'שמירת כתובות מסגרת',
+    dynamic_scope_implementation: 'מימוש dynamic scope', cost_tradeoff: 'שקלול עלויות', mark_sweep: 'Mark and sweep',
+    mark_bit_epoch: 'ביט סימון מתחלף', allocation_invariant: 'אינווריאנט הקצאה', external_fragmentation: 'פרגמנטציה חיצונית',
+    pointer_relocation: 'עדכון מצביעים', static_local: 'static מקומי', activation_record: 'רשומת הפעלה',
+    recursion_lifetime: 'זמני חיים ברקורסיה', keyword_parameters: 'פרמטרים לפי שם', positional_parameters: 'פרמטרים לפי מיקום',
+    argument_binding: 'קישור ארגומנטים', least_privilege: 'הרשאה מינימלית', const_reference: 'const reference',
+    shallow_const: 'const רדוד', stack_frame: 'מסגרת מחסנית', frame_pointer: 'Frame pointer', stack_offsets: 'היסטים במחסנית',
+    caller_saved: 'Caller-saved', callee_saved: 'Callee-saved', return_register: 'רגיסטר החזרה',
+    name_mangling: 'Name mangling', separate_compilation: 'קימפול נפרד', linking: 'קישור (linking)',
+    adt_contract: 'חוזה ADT', representation_independence: 'אי־תלות בייצוג', complexity_guarantee: 'התחייבות סיבוכיות',
+    vtable: 'vtable', vptr: 'vptr', shared_metadata: 'מטא־נתונים משותפים', dispatch_slot: 'סלוט שיגור'
   };
-  var LANG_NAMES = { python: 'Python', cpp: 'C++', pseudocode: 'פסאודו־קוד' };
+  var LANG_NAMES = { python: 'Python', cpp: 'C++', pseudocode: 'פסאודו־קוד', assembly: 'Assembly' };
 
   // Only these question fields may be rendered before an attempt is finished.
   function publicView(q) {
@@ -507,7 +534,7 @@ dialog h2 { font-size: 1.1rem; }
   // Splits Hebrew prose into text and isolated LTR runs (code, tuples, formulas).
   // A run stops at Hebrew letters and at sentence punctuation followed by a space.
   // A leading minus counts only when it is not a Hebrew prefix hyphen (as in "ו-1").
-  var RUN_RE = /(?:[A-Za-z0-9_\[{("'∘]|(?<![֐-׿])-(?=[\d(]))(?:(?![.?!;]\s)[^֐-׿])*/g;
+  var RUN_RE = /(?:[A-Za-z0-9_\[{("'∘Ͱ-Ͽ]|(?<![֐-׿])-(?=[\d(]))(?:(?![.?!;]\s)[^֐-׿])*/g;
   function bracketBalance(s) {
     var open = (s.match(/[(\[{]/g) || []).length;
     var close = (s.match(/[)\]}]/g) || []).length;
@@ -538,7 +565,7 @@ dialog h2 { font-size: 1.1rem; }
       var run = trimRun(m[0]);
       var start = m.index;
       while (/^[(\[{]/.test(run) && bracketBalance(run) > 0) { run = run.slice(1); start++; }
-      if (!/[A-Za-z0-9]/.test(run)) continue;
+      if (!/[A-Za-z0-9Ͱ-Ͽ]/.test(run)) continue;
       if (start > last) frag.appendChild(document.createTextNode(str.slice(last, start)));
       var iso = el('bdi', { dir: 'ltr', class: isCodeLike(run) ? 'ic' : 'ltr', text: run });
       last = start + run.length;

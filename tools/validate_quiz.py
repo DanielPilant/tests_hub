@@ -7,6 +7,8 @@ Python checks:
   * other schemas: python_assertions are self-contained models; question code is never run.
 C++ cases are compiled with g++ inside WSL (g++ -std=c++17 -Wall -Wextra -pedantic-errors).
 A case with expect_compile=false passes only when compilation fails; such code is never run.
+link_cases compile every source to its own object file first, then check the link result
+against expect_link (a link failure is not a compile failure).
 """
 import json
 import subprocess
@@ -42,6 +44,41 @@ def run_cpp(case):
     return True, "compiled" if compiled else "expected compile failure: " + text[len("COMPILE_FAILED"):].strip()[:120]
 
 
+def run_link(case):
+    """Compile each source to its own object file, then link; checks compile and link status separately."""
+    import base64
+    import re
+    files = case["sources"]
+    assert all(re.fullmatch(r"[A-Za-z0-9_.-]+\.cpp", name) for name in files), "unsafe file name"
+    writes = "; ".join(
+        f'echo {base64.b64encode(src.encode()).decode()} | base64 -d > "$d/{name}"' for name, src in files.items())
+    objs = " ".join(f'"$d/{name}.o"' for name in files)
+    compiles = "; ".join(
+        f'(g++ -std=c++17 -Wall -Wextra -pedantic-errors -c "$d/{name}" -o "$d/{name}.o" 2>>"$d/cerr" && echo OBJ_OK:{name}) || echo OBJ_FAIL:{name}'
+        for name in files)
+    run = 'RUN=1; ' if case.get("run_if_linked") else 'RUN=0; '
+    script = (run + 'd=$(mktemp -d); ' + writes + '; ' + compiles + '; '
+              f'if g++ {objs} -o "$d/prog" 2>"$d/lerr"; then echo LINKED; '
+              'if [ "$RUN" = 1 ]; then "$d/prog"; echo "EXIT=$?"; fi; '
+              'else echo LINK_FAILED; head -c 400 "$d/lerr" | tr "\\n" " "; fi; rm -rf "$d"')
+    text = subprocess.run(CXX + [script], capture_output=True, text=True, encoding="utf-8").stdout
+    failed_objs = re.findall(r"OBJ_FAIL:(\S+)", text)
+    if case.get("expect_object_compilation", True) and failed_objs:
+        return False, f"object compilation failed: {failed_objs}"
+    linked = "\nLINKED" in "\n" + text
+    if linked != case["expect_link"]:
+        return False, f"link={'ok' if linked else 'failed'} expected={'ok' if case['expect_link'] else 'failure'} {text[-300:]}"
+    if linked and case.get("run_if_linked"):
+        code = int(text.rsplit("EXIT=", 1)[1].split()[0])
+        if code != case.get("expected_exit_code", 0):
+            return False, f"exit={code} expected={case.get('expected_exit_code')}"
+        return True, f"all objects compiled, linked, ran, exit {code}"
+    if linked:
+        return True, "all objects compiled, linked"
+    reason = text.split("LINK_FAILED", 1)[1].strip()
+    return True, "all objects compiled; expected link failure: " + reason[reason.find("undefined"):][:110]
+
+
 def main():
     path = sys.argv[1]
     use_cpp = "--no-cpp" not in sys.argv
@@ -55,7 +92,7 @@ def main():
         print("C++:", cxx_version())
     print("Python:", sys.version.split()[0])
     failures = 0
-    py_checks = cpp_cases = cpp_expected_fail = 0
+    py_checks = cpp_cases = cpp_expected_fail = link_cases = link_expected_fail = 0
     for q in qs:
         problems = []
         opt_ids = [o["id"] for o in q["options"]]
@@ -90,10 +127,20 @@ def main():
             notes.append(f"cpp[{case['label']}]: {msg}")
             if not ok:
                 problems.append(f"cpp[{case['label']}]: {msg}")
+        for case in av.get("link_cases") or []:
+            link_cases += 1
+            link_expected_fail += not case["expect_link"]
+            if not use_cpp:
+                continue
+            ok, msg = run_link(case)
+            notes.append(f"link[{case['label']}]: {msg}")
+            if not ok:
+                problems.append(f"link[{case['label']}]: {msg}")
         status = "FAIL" if problems else "OK"
         failures += bool(problems)
         print(f"{q['id']} {status} key={q['answer']['correct_option_id']} | " + "; ".join(problems or notes))
-    print(f"python model checks: {py_checks}; cpp cases: {cpp_cases} (expected compile failures: {cpp_expected_fail})")
+    print(f"python model checks: {py_checks}; cpp cases: {cpp_cases} (expected compile failures: {cpp_expected_fail}); "
+          f"link cases: {link_cases} (expected link failures: {link_expected_fail})")
     print("answer distribution:", dict(sorted(Counter(q["answer"]["correct_option_id"] for q in qs).items())))
     print(f"{20 - failures}/20 questions passed")
     sys.exit(1 if failures else 0)
